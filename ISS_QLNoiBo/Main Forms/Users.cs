@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ISS_QLNoiBo
 {
-    public partial class Admin_main : Form
+    public partial class Users : Form
     {
-        public Admin_main()
+        public Users()
         {
             InitializeComponent();
         }

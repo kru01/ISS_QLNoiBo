@@ -1,4 +1,4 @@
-namespace ISS_QLNoiBo
+namespace ISS_QLNoiBo.Others
 {
     internal static class Program
     {
