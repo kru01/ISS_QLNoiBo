@@ -1,0 +1,11 @@
+names:
+- boy.txt: https://github.com/duyet/vietnamese-namedb
+- girl_unsigned.txt: https://github.com/duyet/vietnamese-namedb
+
+addresses: https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Ba_ch%E1%BB%89
+- streets.txt: https://moovitapp.com/index/vi/ph%C6%B0%C6%A1ng_ti%E1%BB%87n_c%C3%B4ng_c%E1%BB%99ng-streets-Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh-1-2880
+- wards.txt: https://vi.wikipedia.org/wiki/Danh_s%C3%A1ch_ph%C6%B0%E1%BB%9Dng_t%E1%BA%A1i_Vi%E1%BB%87t_Nam#T%E1%BA%A1i_c%C3%A1c_qu%E1%BA%ADn
+- districts.txt: https://vi.wikipedia.org/wiki/Qu%E1%BA%ADn_(Vi%E1%BB%87t_Nam)
+- provs_cities.txt:
+    + https://vi.wikipedia.org/wiki/T%E1%BB%89nh_(Vi%E1%BB%87t_Nam)
+    + https://vi.wikipedia.org/wiki/T%E1%BB%89nh_th%C3%A0nh_Vi%E1%BB%87t_Nam
