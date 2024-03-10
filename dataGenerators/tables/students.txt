@@ -1,0 +1,156 @@
+INSERT INTO SINHVIEN
+-- 1. SINH VIEN HTTT
+--	1. CQ
+	SELECT 'S10001', 'Ho Hai Duyen', 'NU', TO_DATE('04/07/2000', 'DD/MM/YYYY'), '54B duong Quan 8, phuong Cua Dong, Quan 12, Thanh pho Tra Vinh, Tinh Tra Vinh', '09901102603', 'CQ', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10002', 'Tran Cam Nhi', 'NU', TO_DATE('22/07/2001', 'DD/MM/YYYY'), '358/13Z duong Hong Bang, phuong Cua Nam, Thanh pho Ha Giang, Tinh Ha Giang', '09295615023', 'CQ', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10003', 'Vo My Xuan', 'NU', TO_DATE('03/07/2003', 'DD/MM/YYYY'), '18/41 duong Le Chan, phuong Lac Vien, Quan 10, Thanh pho Ha Tinh, Tinh Ha Tinh', '09729150198', 'CQ', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10004', 'Tran Quoc Toan', 'NAM', TO_DATE('20/01/2004', 'DD/MM/YYYY'), '15/11H duong Tay Ho, phuong Da Kao, quan Bac Tu Liem, Thanh pho Ben Tre, Tinh Ben Tre', '09033967798', 'CQ', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10005', 'Le Xuan Lac', 'NAM', TO_DATE('15/01/2001', 'DD/MM/YYYY'), '147/17 duong Hai Ba Trung, phuong May To, Thanh pho Phan Thiet, Tinh Binh Thuan', '09245501649', 'CQ', 'HTTT', 0, 0 FROM DUAL UNION ALL
+--	2. CLC
+	SELECT 'S20006', 'Pham Bao Dinh', 'NAM', TO_DATE('20/03/2000', 'DD/MM/YYYY'), '327L duong Binh Tan, phuong Hoa Tho Tay, Thanh pho Hue, Tinh Thua Thien Hue', '09916101939', 'CLC', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20007', 'Bui Thanh Tinh', 'NAM', TO_DATE('25/03/2001', 'DD/MM/YYYY'), '62 duong Quan 12, phuong Cua Dong, quan Lien Chieu, Thanh pho Tuy Hoa, Tinh Phu Yen', '09514372983', 'CLC', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20008', 'Huynh Canh Tuan', 'NAM', TO_DATE('02/07/2005', 'DD/MM/YYYY'), '343N duong Son Tra, phuong Thanh Khe Dong, Thanh pho Bac Kan, Tinh Bac Kan', '09317409036', 'CLC', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20009', 'Dang Hoa Thai', 'NAM', TO_DATE('08/01/2003', 'DD/MM/YYYY'), '103 duong Tan Binh, phuong Dong Nhan, Thanh pho Ninh Binh, Tinh Ninh Binh', '09596631449', 'CLC', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20010', 'Vu Quan Duong', 'NAM', TO_DATE('12/09/2001', 'DD/MM/YYYY'), '52 duong Lien Chieu, phuong Dien Bien, Quan 12, Thanh pho Thai Nguyen, Tinh Thai Nguyen', '09086057671', 'CLC', 'HTTT', 0, 0 FROM DUAL UNION ALL
+--	3. CTTT
+	SELECT 'S30011', 'Do Hoang Hai', 'NAM', TO_DATE('08/03/2000', 'DD/MM/YYYY'), '248/6 duong Nam Tu Liem, phuong Linh Nam, quan Duong Kinh, Thanh pho Dong Hoi, Tinh Quang Binh', '09156688487', 'CTTT', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30012', 'Huynh Lien Hoa', 'NU', TO_DATE('25/06/2003', 'DD/MM/YYYY'), '82/22C duong Quan 7, phuong Hoa Khanh Nam, Thanh pho Phan Rang - Thap Cham, Tinh Ninh Thuan', '09813942256', 'CTTT', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30013', 'Dang Quang Trung', 'NAM', TO_DATE('17/09/2005', 'DD/MM/YYYY'), '291/22 duong Tan Phu, phuong Tan Tao, Thanh pho Vinh Long, Tinh Vinh Long', '09628401567', 'CTTT', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30014', 'Ngo Tam Linh', 'NU', TO_DATE('29/06/2000', 'DD/MM/YYYY'), '196S duong Tan Binh, phuong Yet Kieu, quan Nam Tu Liem, Thanh pho Can Tho', '09214035556', 'CTTT', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30015', 'Dang Hong Ðiep', 'NU', TO_DATE('24/11/2002', 'DD/MM/YYYY'), '235M duong Lien Chieu, phuong Thoi Hoa, Thanh pho Dien Bien Phu, Tinh Dien Bien', '09097875856', 'CTTT', 'HTTT', 0, 0 FROM DUAL UNION ALL
+--	4. VP
+	SELECT 'S40016', 'Dinh Huu Trac', 'NAM', TO_DATE('06/12/2003', 'DD/MM/YYYY'), '370 duong Ba Dinh, phuong Tan Quy, quan Ngu Hanh Son, Thanh pho Thai Nguyen, Tinh Thai Nguyen', '09998342532', 'VP', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40017', 'Vo Cong Thanh', 'NAM', TO_DATE('04/05/2003', 'DD/MM/YYYY'), '151/41L duong Cau Giay, phuong Dong Mac, quan Hong Bang, Thanh pho Tay Ninh, Tinh Tay Ninh', '09487189727', 'VP', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40018', 'Dang Nguyet Nga', 'NU', TO_DATE('21/03/2001', 'DD/MM/YYYY'), '43 duong Quan 11, phuong Nguyen Thai Binh, Quan 3, Thanh pho Bac Lieu, Tinh Bac Lieu', '09121598892', 'VP', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40019', 'Ly Cong Hao', 'NAM', TO_DATE('19/06/2000', 'DD/MM/YYYY'), '136/11 duong O Mon, phuong Nguyen Trai, Quan 8, Thanh pho Cao Bang, Tinh Cao Bang', '09998013488', 'VP', 'HTTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40020', 'Dinh Minh Nguyet', 'NU', TO_DATE('09/09/2003', 'DD/MM/YYYY'), '355U duong Cau Giay, phuong An Phu Dong, quan O Mon, Thanh pho Quang Ngai, Tinh Quang Ngai', '09883782731', 'VP', 'HTTT', 0, 0 FROM DUAL;
+INSERT INTO SINHVIEN
+-- 2. SINH VIEN CNPM
+--	1. CQ
+	SELECT 'S10021', 'Vo Tuan Long', 'NAM', TO_DATE('06/05/2001', 'DD/MM/YYYY'), '125/6T duong Hoan Kiem, phuong Minh Duc, Thanh pho Tra Vinh, Tinh Tra Vinh', '09548527485', 'CQ', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10022', 'Dinh Que Linh', 'NU', TO_DATE('25/04/2003', 'DD/MM/YYYY'), '54/27E duong Quan 12, Phuong 17, Thanh pho Tuyen Quang, Tinh Tuyen Quang', '09284576185', 'CQ', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10023', 'Bui Thuan Anh', 'NAM', TO_DATE('03/03/2002', 'DD/MM/YYYY'), '168/34 duong Ninh Kieu, Phuong 3, quan Nam Tu Liem, Thanh pho Hai Duong, Tinh Hai Duong', '09107861238', 'CQ', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10024', 'Tran Thuy Anh', 'NU', TO_DATE('18/03/2001', 'DD/MM/YYYY'), '357V duong Nam Tu Liem, phuong Cau Dat, Thanh pho Tuy Hoa, Tinh Phu Yen', '09729203085', 'CQ', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10025', 'Do Hieu Liem', 'NAM', TO_DATE('30/07/2000', 'DD/MM/YYYY'), '6/29 duong Ninh Kieu, phuong Khue My, quan Son Tra, Thanh pho Ba Ria, Tinh Ba Ria - Vung Tau', '09308883496', 'CQ', 'CNPM', 0, 0 FROM DUAL UNION ALL
+--	2. CLC
+	SELECT 'S20026', 'Vu Hanh Nhon', 'NU', TO_DATE('24/03/2000', 'DD/MM/YYYY'), '129/42 duong Lien Chieu, phuong Tran Hung Dao, quan Cau Giay, Thanh pho Ninh Binh, Tinh Ninh Binh', '09780796678', 'CLC', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20027', 'Le Quang Hung', 'NAM', TO_DATE('17/05/2003', 'DD/MM/YYYY'), '219V duong Duong Kinh, phuong Hoa Xuan, Thanh pho Thai Binh, Tinh Thai Binh', '09004403365', 'CLC', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20028', 'Bui Lap Thanh', 'NAM', TO_DATE('11/05/2001', 'DD/MM/YYYY'), '138/26I duong Hong Bang, phuong Nghia Tan, quan Hai An, Thanh pho My Tho, Tinh Tien Giang', '09419638672', 'CLC', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20029', 'Vo Phuoc Hue', 'NU', TO_DATE('12/10/2002', 'DD/MM/YYYY'), '380/33D duong Dong Da, phuong Vinh Tuy, quan Thanh Xuan, Thanh pho Vinh Long, Tinh Vinh Long', '09943174078', 'CLC', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20030', 'Nguyen Ba Loc', 'NAM', TO_DATE('24/08/2001', 'DD/MM/YYYY'), '293 duong Son Tra, phuong Dai Kim, Thanh pho Bac Lieu, Tinh Bac Lieu', '09458086147', 'CLC', 'CNPM', 0, 0 FROM DUAL UNION ALL
+--	3. CTTT
+	SELECT 'S30031', 'Dinh Hung Cuong', 'NAM', TO_DATE('09/09/2004', 'DD/MM/YYYY'), '361/38Y duong Hoang Mai, phuong Trang Tien, Quan 7, Thanh pho Tuy Hoa, Tinh Phu Yen', '09918962740', 'CTTT', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30032', 'Le Huong Duong', 'NAM', TO_DATE('03/03/2005', 'DD/MM/YYYY'), '313/37E duong Go Vap, phuong Xuan Tao, quan Thanh Xuan, Thanh pho Phan Thiet, Tinh Binh Thuan', '09037466012', 'CTTT', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30033', 'Tran Dan Tam', 'NU', TO_DATE('29/10/2000', 'DD/MM/YYYY'), '65/30 duong Lien Chieu, phuong Thanh To, Thanh pho Cao Lanh, Tinh Dong Thap', '09677021026', 'CTTT', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30034', 'Dang Thoi Nhiem', 'NAM', TO_DATE('07/01/2004', 'DD/MM/YYYY'), '106/29 duong Hoang Mai, phuong Tan Tao A, Thanh pho Tam Ky, Tinh Quang Nam', '09137014347', 'CTTT', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30035', 'Ngo Phong Do', 'NAM', TO_DATE('26/08/2005', 'DD/MM/YYYY'), '377/17P duong Cai Rang, Phuong 17, Thanh pho Da Lat, Tinh Lam Dong', '09246408579', 'CTTT', 'CNPM', 0, 0 FROM DUAL UNION ALL
+--	4. VP
+	SELECT 'S40036', 'Tran Thien Tien', 'NU', TO_DATE('04/01/2002', 'DD/MM/YYYY'), '282P duong Nam Tu Liem, phuong Xuan Tao, Thanh pho Quy Nhon, Tinh Binh Dinh', '09003830819', 'VP', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40037', 'Ho Gia Khiem', 'NAM', TO_DATE('16/07/2001', 'DD/MM/YYYY'), '241/15 duong Quan 6, phuong Trung Liet, quan Hoan Kiem, Thanh pho Quy Nhon, Tinh Binh Dinh', '09780244172', 'VP', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40038', 'Bui Gia Phuc', 'NAM', TO_DATE('05/05/2004', 'DD/MM/YYYY'), '78/41H duong Lien Chieu, phuong Lach Tray, quan Tan Phu, Thanh pho Ha Noi', '09733966598', 'VP', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40039', 'Ho Ngoc Hanh', 'NU', TO_DATE('29/09/2004', 'DD/MM/YYYY'), '198 duong Do Son, phuong Trang Minh, Thanh pho Viet Tri, Tinh Phu Tho', '09847994651', 'VP', 'CNPM', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40040', 'Hoang Cong Lap', 'NAM', TO_DATE('24/04/2002', 'DD/MM/YYYY'), '290 duong Ninh Kieu, phuong Thoi An Dong, Thanh pho Can Tho', '09474389882', 'VP', 'CNPM', 0, 0 FROM DUAL;
+INSERT INTO SINHVIEN
+-- 3. SINH VIEN KHMT
+--	1. CQ
+	SELECT 'S10041', 'Dinh Hai Giang', 'NAM', TO_DATE('30/09/2002', 'DD/MM/YYYY'), '249L duong Quan 4, phuong Thuan An, Thanh pho Tam Ky, Tinh Quang Nam', '09091329499', 'CQ', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10042', 'Truong Buu Chuong', 'NAM', TO_DATE('10/03/2001', 'DD/MM/YYYY'), '135/14 duong Quan 4, phuong Thoi Long, Thanh pho Ninh Binh, Tinh Ninh Binh', '09658407845', 'CQ', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10043', 'Le Hai Quan', 'NAM', TO_DATE('02/01/2002', 'DD/MM/YYYY'), '163/35U duong Binh Thuy, phuong An Binh, Thanh pho Long Xuyen, Tinh An Giang', '09144659491', 'CQ', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10044', 'Do Kim Hoang', 'NAM', TO_DATE('04/05/2000', 'DD/MM/YYYY'), '115/24 duong Kien An, phuong Trung Hoa, quan O Mon, Thanh pho Quang Ngai, Tinh Quang Ngai', '09903188205', 'CQ', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10045', 'Ly Huyen Thoai', 'NU', TO_DATE('15/05/2000', 'DD/MM/YYYY'), '107/25 duong Hai Chau, phuong Thuong Dinh, Thanh pho Ha Long, Tinh Quang Ninh', '09870454619', 'CQ', 'KHMT', 0, 0 FROM DUAL UNION ALL
+--	2. CLC
+	SELECT 'S20046', 'Vu Quang Lan', 'NAM', TO_DATE('09/12/2002', 'DD/MM/YYYY'), '373/19 duong Quan 7, phuong Hoa Hai, quan Duong Kinh, Thanh pho Ha Noi', '09689589123', 'CLC', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20047', 'Vu Dinh Hop', 'NAM', TO_DATE('14/04/2004', 'DD/MM/YYYY'), '141V duong Hai An, phuong Duc Giang, quan Thot Not, Thanh pho Kon Tum, Tinh Kon Tum', '09424583119', 'CLC', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20048', 'Bui Nguyet Cam', 'NU', TO_DATE('13/03/2003', 'DD/MM/YYYY'), '265/16N duong Quan 7, phuong Hoa Minh, quan Hong Bang, Thanh pho Lai Chau, Tinh Lai Chau', '09285876168', 'CLC', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20049', 'Ly Minh Hung', 'NAM', TO_DATE('10/10/2001', 'DD/MM/YYYY'), '356/24 duong Binh Thanh, phuong Cau Ong Lanh, Thanh pho Gia Nghia, Tinh Dak Nong', '09878277209', 'CLC', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20050', 'Bui Nghi Luc', 'NAM', TO_DATE('16/03/2000', 'DD/MM/YYYY'), '197W duong Long Bien, phuong Phuc Dien, Thanh pho Thai Binh, Tinh Thai Binh', '09535734165', 'CLC', 'KHMT', 0, 0 FROM DUAL UNION ALL
+--	3. CTTT
+	SELECT 'S30051', 'Phan Minh Tu', 'NAM', TO_DATE('26/07/2000', 'DD/MM/YYYY'), '372/4 duong Ninh Kieu, phuong Cau Ong Lanh, Thanh pho My Tho, Tinh Tien Giang', '09636027829', 'CTTT', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30052', 'Vo Thanh Tuan', 'NAM', TO_DATE('10/08/2003', 'DD/MM/YYYY'), '192/37K duong Go Vap, phuong Kim Lien, quan Dong Da, Thanh pho Hai Duong, Tinh Hai Duong', '09510957214', 'CTTT', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30053', 'Duong Huong Xuan', 'NU', TO_DATE('27/08/2005', 'DD/MM/YYYY'), '48/47 duong Ngu Hanh Son, phuong Ha Dinh, Thanh pho Dien Bien Phu, Tinh Dien Bien', '09314064431', 'CTTT', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30054', 'Bui Duc Phi', 'NAM', TO_DATE('10/09/2001', 'DD/MM/YYYY'), '262 duong Quan 1, phuong Yen So, quan Son Tra, Thanh pho Bac Ninh, Tinh Bac Ninh', '09864062257', 'CTTT', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30055', 'Truong Hai Mien', 'NU', TO_DATE('29/01/2005', 'DD/MM/YYYY'), '251/43 duong Thanh Khe, Phuong 16, Thanh pho Dong Hoi, Tinh Quang Binh', '09808780654', 'CTTT', 'KHMT', 0, 0 FROM DUAL UNION ALL
+--	4. VP
+	SELECT 'S40056', 'Vu My Dung', 'NU', TO_DATE('26/02/2003', 'DD/MM/YYYY'), '116/1T duong Quan 6, phuong Hung Vuong, Thanh pho Quang Ngai, Tinh Quang Ngai', '09892735073', 'VP', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40057', 'Tran Huyen Thoai', 'NU', TO_DATE('12/09/2000', 'DD/MM/YYYY'), '112 duong Quan 10, phuong Binh Hung Hoa, Thanh pho Hai Phong', '09236510505', 'VP', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40058', 'Hoang Dan Tam', 'NAM', TO_DATE('15/10/2001', 'DD/MM/YYYY'), '195 duong Ha Dong, phuong Truc Bach, Quan 12, Thanh pho Long Xuyen, Tinh An Giang', '09532238597', 'VP', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40059', 'Le Minh Huan', 'NAM', TO_DATE('21/04/2000', 'DD/MM/YYYY'), '33/16N duong Cam Le, phuong Xuan Ha, Thanh pho Soc Trang, Tinh Soc Trang', '09642359466', 'VP', 'KHMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40060', 'Huynh Ha Tien', 'NU', TO_DATE('05/10/2000', 'DD/MM/YYYY'), '108/26 duong Quan 10, phuong Binh Tri Dong, Thanh pho Ben Tre, Tinh Ben Tre', '09954555250', 'VP', 'KHMT', 0, 0 FROM DUAL;
+INSERT INTO SINHVIEN
+-- 4. SINH VIEN CNTT
+--	1. CQ
+	SELECT 'S10061', 'Dang Vang Anh', 'NU', TO_DATE('12/12/2002', 'DD/MM/YYYY'), '145 duong Hong Bang, phuong Cu Khoi, Thanh pho Hai Duong, Tinh Hai Duong', '09649113871', 'CQ', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10062', 'Do Hoang Sa', 'NU', TO_DATE('07/06/2004', 'DD/MM/YYYY'), '326X duong Long Bien, phuong Trung Hoa, Thanh pho Tay Ninh, Tinh Tay Ninh', '09784448424', 'CQ', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10063', 'Ly The Nang', 'NAM', TO_DATE('04/06/2005', 'DD/MM/YYYY'), '171/44D duong Hoang Mai, phuong Lieu Giai, quan Hoan Kiem, Thanh pho Hue, Tinh Thua Thien Hue', '09093525853', 'CQ', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10064', 'Ly Hong Chau', 'NU', TO_DATE('04/11/2005', 'DD/MM/YYYY'), '373/25H duong Quan 12, phuong Xuan La, Thanh pho Ha Noi', '09978702520', 'CQ', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10065', 'Dang Truong Vinh', 'NAM', TO_DATE('28/10/2001', 'DD/MM/YYYY'), '307K duong Hong Bang, phuong Trang Tien, Thanh pho Bien Hoa, Tinh Dong Nai', '09543183817', 'CQ', 'CNTT', 0, 0 FROM DUAL UNION ALL
+--	2. CLC
+	SELECT 'S20066', 'Le An Co', 'NAM', TO_DATE('06/01/2003', 'DD/MM/YYYY'), '231G duong Hong Bang, Phuong 24, Thanh pho Thai Nguyen, Tinh Thai Nguyen', '09828513421', 'CLC', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20067', 'Do Hiep Hao', 'NAM', TO_DATE('22/04/2003', 'DD/MM/YYYY'), '286/39 duong Hai Chau, phuong Viet Hung, quan Dong Da, Thanh pho Ha Noi', '09694390268', 'CLC', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20068', 'Bui Quoc Vinh', 'NAM', TO_DATE('10/04/2003', 'DD/MM/YYYY'), '19 duong Quan 1, phuong Dien Bien, quan Le Chan, Thanh pho Dong Hoi, Tinh Quang Binh', '09512241256', 'CLC', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20069', 'Ho Thien Manh', 'NAM', TO_DATE('18/10/2000', 'DD/MM/YYYY'), '3/20 duong Hai An, phuong Van Quan, Thanh pho Hung Yen, Tinh Hung Yen', '09802677572', 'CLC', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20070', 'Bui Khoi Vi', 'NAM', TO_DATE('20/04/2002', 'DD/MM/YYYY'), '277 duong Lien Chieu, Phuong Canh, Thanh pho Gia Nghia, Tinh Dak Nong', '09257983733', 'CLC', 'CNTT', 0, 0 FROM DUAL UNION ALL
+--	3. CTTT
+	SELECT 'S30071', 'Vu Ngoc Canh', 'NAM', TO_DATE('18/01/2004', 'DD/MM/YYYY'), '159 duong Tan Binh, phuong Nam Son, Thanh pho Ha Giang, Tinh Ha Giang', '09639810350', 'CTTT', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30072', 'Truong Long Giang', 'NAM', TO_DATE('05/12/2005', 'DD/MM/YYYY'), '145/47H duong Quan 12, phuong Dong Nhan, Thanh pho Hai Phong', '09877878116', 'CTTT', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30073', 'Phan Thien Theu', 'NU', TO_DATE('11/08/2003', 'DD/MM/YYYY'), '90/26G duong Quan 7, phuong Sai Dong, Thanh pho Bac Ninh, Tinh Bac Ninh', '09336807978', 'CTTT', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30074', 'Nguyen Hoang Kim', 'NU', TO_DATE('13/03/2003', 'DD/MM/YYYY'), '71/46O duong Phu Nhuan, phuong Thanh Loc, Thanh pho Bac Lieu, Tinh Bac Lieu', '09546517127', 'CTTT', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30075', 'Ngo Nhat Hoang', 'NAM', TO_DATE('01/07/2001', 'DD/MM/YYYY'), '106/29 duong Quan 7, Phuong 21, Quan 8, Thanh pho Thu Dau Mot, Tinh Binh Duong', '09339570752', 'CTTT', 'CNTT', 0, 0 FROM DUAL UNION ALL
+--	4. VP
+	SELECT 'S40076', 'Nguyen Duy Thong', 'NAM', TO_DATE('09/03/2004', 'DD/MM/YYYY'), '194/44T duong Quan 8, phuong Tan Phu, Thanh pho My Tho, Tinh Tien Giang', '09030705837', 'VP', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40077', 'Pham Thanh Kieu', 'NU', TO_DATE('26/07/2003', 'DD/MM/YYYY'), '145 duong Thot Not, phuong Hoang Van Thu, Quan 12, Thanh pho Quy Nhon, Tinh Binh Dinh', '09067855365', 'VP', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40078', 'Hoang Kim Thu', 'NU', TO_DATE('05/11/2001', 'DD/MM/YYYY'), '134/11 duong Ngo Quyen, phuong Dang Lam, Quan 12, Thanh pho Lai Chau, Tinh Lai Chau', '09826447488', 'VP', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40079', 'Vu Truong Chinh', 'NAM', TO_DATE('01/12/2000', 'DD/MM/YYYY'), '25/1I duong Quan 3, phuong Ngoc Khanh, Thanh pho Viet Tri, Tinh Phu Tho', '09871780934', 'VP', 'CNTT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40080', 'Dang Dieu Nga', 'NU', TO_DATE('14/06/2000', 'DD/MM/YYYY'), '273 duong Son Tra, Xuan Phuong, Thanh pho Da Lat, Tinh Lam Dong', '09229090899', 'VP', 'CNTT', 0, 0 FROM DUAL;
+INSERT INTO SINHVIEN
+-- 5. SINH VIEN TGMT
+--	1. CQ
+	SELECT 'S10081', 'Dinh Thu Suong', 'NU', TO_DATE('10/04/2003', 'DD/MM/YYYY'), '313J duong Quan 11, phuong Dong Mai, Thanh pho Bac Ninh, Tinh Bac Ninh', '09257332751', 'CQ', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10082', 'Ly Khac Minh', 'NAM', TO_DATE('09/11/2003', 'DD/MM/YYYY'), '132Z duong Hoang Mai, phuong Hoa Thuan Tay, Thanh pho Tra Vinh, Tinh Tra Vinh', '09411692557', 'CQ', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10083', 'Hoang Vuong Trieu', 'NAM', TO_DATE('22/05/2001', 'DD/MM/YYYY'), '213S duong Cam Le, phuong Cau Den, quan Duong Kinh, Thanh pho Quy Nhon, Tinh Binh Dinh', '09153238418', 'CQ', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10084', 'Nguyen Khoi Phong', 'NAM', TO_DATE('15/08/2004', 'DD/MM/YYYY'), '260/36 duong Cau Giay, phuong Dai Mo, Thanh pho Vi Thanh, Tinh Hau Giang', '09382017165', 'CQ', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10085', 'Le Phuong Bich', 'NU', TO_DATE('09/04/2005', 'DD/MM/YYYY'), '1U duong Quan 12, phuong Hung Thanh, quan Cai Rang, Thanh pho Bac Kan, Tinh Bac Kan', '09513612446', 'CQ', 'TGMT', 0, 0 FROM DUAL UNION ALL
+--	2. CLC
+	SELECT 'S20086', 'Truong Thanh Nhan', 'NAM', TO_DATE('22/07/2005', 'DD/MM/YYYY'), '27/46 duong Phu Nhuan, phuong Hung Loi, quan Hai Ba Trung, Thanh pho Ninh Binh, Tinh Ninh Binh', '09944592933', 'CLC', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20087', 'Vu Ngoc Diep', 'NU', TO_DATE('16/11/2003', 'DD/MM/YYYY'), '158/17I duong Binh Thuy, phuong Phuc La, Thanh pho Buon Ma Thuot, Tinh Dak Lak', '09377720142', 'CLC', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20088', 'Dang Duc Quang', 'NAM', TO_DATE('27/11/2000', 'DD/MM/YYYY'), '329/9H duong Tan Phu, phuong Tan Thanh, Quan 3, Thanh pho Tam Ky, Tinh Quang Nam', '09539143935', 'CLC', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20089', 'Tran Viet Cuong', 'NAM', TO_DATE('04/03/2004', 'DD/MM/YYYY'), '310 duong Cau Giay, phuong Binh Hung Hoa A, Thanh pho Tay Ninh, Tinh Tay Ninh', '09194959785', 'CLC', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20090', 'Phan Ham Y', 'NU', TO_DATE('06/08/2001', 'DD/MM/YYYY'), '88/34 duong Ngo Quyen, phuong Lam Ha, quan Duong Kinh, Thanh pho Vinh, Tinh Nghe An', '09885520208', 'CLC', 'TGMT', 0, 0 FROM DUAL UNION ALL
+--	3. CTTT
+	SELECT 'S30091', 'Hoang Minh Quang', 'NAM', TO_DATE('12/12/2004', 'DD/MM/YYYY'), '25V duong Go Vap, phuong Phu Lien, quan Hai Ba Trung, Thanh pho Hoa Binh, Tinh Hoa Binh', '09048865482', 'CTTT', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30092', 'Nguyen Nhat Quang', 'NAM', TO_DATE('03/03/2005', 'DD/MM/YYYY'), '244/30F duong Tan Binh, phuong Thuong Dinh, Thanh pho Yen Bai, Tinh Yen Bai', '09906132024', 'CTTT', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30093', 'Bui Phuong Lien', 'NU', TO_DATE('07/04/2004', 'DD/MM/YYYY'), '248/49 duong Hoang Mai, phuong Long Hung, Thanh pho Buon Ma Thuot, Tinh Dak Lak', '09089051329', 'CTTT', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30094', 'Tran Hoang Mien', 'NU', TO_DATE('16/05/2000', 'DD/MM/YYYY'), '297A duong Quan 1, phuong Kim Lien, quan Hai Ba Trung, Thanh pho Vinh, Tinh Nghe An', '09121365995', 'CTTT', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30095', 'Vo Cong Son', 'NAM', TO_DATE('29/12/2005', 'DD/MM/YYYY'), '112/39 duong Binh Thanh, phuong Thoi Hoa, quan Lien Chieu, Thanh pho Long Xuyen, Tinh An Giang', '09037809369', 'CTTT', 'TGMT', 0, 0 FROM DUAL UNION ALL
+--	4. VP
+	SELECT 'S40096', 'Vo Thuy Du', 'NU', TO_DATE('14/05/2002', 'DD/MM/YYYY'), '80/47 duong Quan 6, phuong An Hai Bac, Thanh pho Vinh, Tinh Nghe An', '09126823934', 'VP', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40097', 'Truong Minh Ly', 'NAM', TO_DATE('02/12/2005', 'DD/MM/YYYY'), '292/22F duong Cau Giay, phuong Gia Thuy, Thanh pho Thai Binh, Tinh Thai Binh', '09236189183', 'VP', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40098', 'Dinh Thao Hong', 'NU', TO_DATE('06/10/2000', 'DD/MM/YYYY'), '53/14S duong Tan Binh, phuong Cat Bi, Quan 1, Thanh pho Phan Rang - Thap Cham, Tinh Ninh Thuan', '09089025497', 'VP', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40099', 'Huynh Tieu My', 'NU', TO_DATE('19/11/2004', 'DD/MM/YYYY'), '259/49 duong O Mon, phuong Nguyen Trai, Thanh pho Ha Noi', '09995989582', 'VP', 'TGMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40100', 'Dang Lien Tran', 'NU', TO_DATE('29/10/2002', 'DD/MM/YYYY'), '301 duong Binh Tan, phuong Tan Thoi Nhat, Thanh pho Lai Chau, Tinh Lai Chau', '09267964509', 'VP', 'TGMT', 0, 0 FROM DUAL;
+INSERT INTO SINHVIEN
+-- 6. SINH VIEN MMT
+--	1. CQ
+	SELECT 'S10101', 'Vu Bich Thu', 'NU', TO_DATE('12/07/2000', 'DD/MM/YYYY'), '113 duong Hai Ba Trung, phuong Hoa Thuan Dong, Thanh pho Long Xuyen, Tinh An Giang', '09474510822', 'CQ', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10102', 'Nguyen Hanh Linh', 'NU', TO_DATE('06/02/2000', 'DD/MM/YYYY'), '349D duong Do Son, Phuong 24, Quan 3, Thanh pho Buon Ma Thuot, Tinh Dak Lak', '09764619344', 'CQ', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10103', 'Ly Minh Huy', 'NAM', TO_DATE('06/01/2005', 'DD/MM/YYYY'), '28/30 duong Quan 11, phuong Truong Dinh, quan Nam Tu Liem, Thanh pho Thai Nguyen, Tinh Thai Nguyen', '09269554150', 'CQ', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10104', 'Vu Nhu Khang', 'NAM', TO_DATE('04/04/2001', 'DD/MM/YYYY'), '185 duong Quan 7, phuong Thanh Xuan Trung, quan Ha Dong, Thanh pho Ben Tre, Tinh Ben Tre', '09388098498', 'CQ', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S10105', 'Nguyen Loc Uyen', 'NU', TO_DATE('22/01/2005', 'DD/MM/YYYY'), '360 duong Long Bien, phuong Dong Nhan, Thanh pho Dong Xoai, Tinh Binh Phuoc', '09345951090', 'CQ', 'MMT', 0, 0 FROM DUAL UNION ALL
+--	2. CLC
+	SELECT 'S20106', 'Truong Phi Hai', 'NAM', TO_DATE('16/12/2000', 'DD/MM/YYYY'), '254/7 duong Son Tra, phuong Dong Mac, Quan 8, Thanh pho Kon Tum, Tinh Kon Tum', '09547187903', 'CLC', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20107', 'Duong Duc Tue', 'NAM', TO_DATE('13/11/2005', 'DD/MM/YYYY'), '36 duong Binh Tan, phuong Lach Tray, Thanh pho Tuy Hoa, Tinh Phu Yen', '09049921906', 'CLC', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20108', 'Truong Duy Thanh', 'NAM', TO_DATE('04/02/2000', 'DD/MM/YYYY'), '150/31T duong Lien Chieu, phuong Van Mieu, quan Tan Phu, Thanh pho Thanh Hoa, Tinh Thanh Hoa', '09061426542', 'CLC', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20109', 'Huynh Chien Thang', 'NAM', TO_DATE('08/12/2003', 'DD/MM/YYYY'), '136 duong Ha Dong, phuong Trung Hoa, quan Ngo Quyen, Thanh pho Dong Xoai, Tinh Binh Phuoc', '09406014245', 'CLC', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S20110', 'Hoang Van Thang', 'NAM', TO_DATE('04/12/2005', 'DD/MM/YYYY'), '13/2K duong Tan Phu, phuong Tay Mo, quan Hoan Kiem, Thanh pho Nam Dinh, Tinh Nam Dinh', '09367370468', 'CLC', 'MMT', 0, 0 FROM DUAL UNION ALL
+--	3. CTTT
+	SELECT 'S30111', 'Le Viet Khang', 'NAM', TO_DATE('10/06/2001', 'DD/MM/YYYY'), '110/33J duong Tan Binh, phuong Tan Phu, Thanh pho Son La, Tinh Son La', '09830343697', 'CTTT', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30112', 'Nguyen Thai Duong', 'NAM', TO_DATE('11/07/2002', 'DD/MM/YYYY'), '4 duong Tay Ho, Phuong 8, Quan 1, Thanh pho Phu Ly, Tinh Ha Nam', '09488448110', 'CTTT', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30113', 'Phan Nhat Thinh', 'NAM', TO_DATE('29/03/2005', 'DD/MM/YYYY'), '178F duong Quan 1, phuong Bach Khoa, Thanh pho Ha Long, Tinh Quang Ninh', '09024323328', 'CTTT', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30114', 'Pham Gia Phuoc', 'NAM', TO_DATE('21/05/2000', 'DD/MM/YYYY'), '88/41 duong Binh Thuy, phuong Phan Boi Chau, quan Ngu Hanh Son, Thanh pho Da Lat, Tinh Lam Dong', '09214304807', 'CTTT', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S30115', 'Dinh Hai Vy', 'NU', TO_DATE('14/05/2001', 'DD/MM/YYYY'), '161/27F duong Hai An, phuong Hoa Thuan Dong, Thanh pho Lai Chau, Tinh Lai Chau', '09975597818', 'CTTT', 'MMT', 0, 0 FROM DUAL UNION ALL
+--	4. VP
+	SELECT 'S40116', 'Phan Manh Quynh', 'NAM', TO_DATE('01/04/2002', 'DD/MM/YYYY'), '174P duong Bac Tu Liem, phuong An Lac, Thanh pho Ha Long, Tinh Quang Ninh', '09953789284', 'VP', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40117', 'Pham Thuc Tam', 'NU', TO_DATE('15/05/2000', 'DD/MM/YYYY'), '192 duong Thanh Xuan, Phuong 4, quan Hoan Kiem, Thanh pho Son La, Tinh Son La', '09506492978', 'VP', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40118', 'Le Thuy Tram', 'NU', TO_DATE('26/05/2002', 'DD/MM/YYYY'), '153B duong Do Son, phuong Hung Phu, Thanh pho Phan Rang - Thap Cham, Tinh Ninh Thuan', '09362853790', 'VP', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40119', 'Ly Quang Minh', 'NAM', TO_DATE('12/06/2001', 'DD/MM/YYYY'), '256/33U duong Ngu Hanh Son, phuong Nguyen Thai Binh, Thanh pho Thanh Hoa, Tinh Thanh Hoa', '09406997346', 'VP', 'MMT', 0, 0 FROM DUAL UNION ALL
+	SELECT 'S40120', 'Hoang Mai Thy', 'NU', TO_DATE('22/06/2003', 'DD/MM/YYYY'), '253/20V duong Duong Kinh, phuong An Duong, quan Hoan Kiem, Thanh pho Cao Bang, Tinh Cao Bang', '09056274293', 'VP', 'MMT', 0, 0 FROM DUAL;

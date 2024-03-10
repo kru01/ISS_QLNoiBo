@@ -92,7 +92,7 @@ CREATE TABLE SINHVIEN (
 -- HP
 CREATE TABLE HOCPHAN (
     MAHP VARCHAR2(6) PRIMARY KEY,
-    TENHP VARCHAR2(50),
+    TENHP VARCHAR2(100),
     SOTC INT,               -- SO TIN CHI
     STLT INT,               -- SO LOP LY THUYET
     STTH INT,               -- SO LOP THUC HANH
@@ -152,10 +152,10 @@ CREATE TABLE DANGKY (
     HK CHAR(1),             -- HOC KY
     NAM NUMBER(4),
     MACT VARCHAR2(6),       -- MA CHUONG TRINH DAO TAO
-    DIEMTH INT,             -- DIEM QUA TRINH
-    DIEMQT INT,             -- DIEM THUC HANH
-    DIEMCK INT,             -- DIEM CUOI KY
-    DIEMTK INT,             -- DIEM TONG KET
+    DIEMTH FLOAT,             -- DIEM QUA TRINH
+    DIEMQT FLOAT,             -- DIEM THUC HANH
+    DIEMCK FLOAT,             -- DIEM CUOI KY
+    DIEMTK FLOAT,             -- DIEM TONG KET
 
     CONSTRAINT PK_DANGKY
     PRIMARY KEY(MASV, MAGV, MAHP, HK, NAM, MACT),

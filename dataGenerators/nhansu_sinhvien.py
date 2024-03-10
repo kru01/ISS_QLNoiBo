@@ -83,12 +83,13 @@ def randaddress():
     return addr
 
 def gen_nhansu(rl, end, dept=None, start=0):
-    roles = ['NV', 'GN', 'GV', 'TD', 'TK']
-    rl -= 1
+    roles = ['NV', 'V', 'GV', 'TD', 'TK']
+    rl, dept = rl - 1, dept if dept else random.randint(1, 7)
     if start: start -= 1
     data = ""
     for i in range(start, end):
-        data += f"SELECT '{roles[rl]}{i+1:04}', "
+        ro = roles[rl] if rl != 1 else f"{roles[rl]}{dept}"
+        data += f"\tSELECT '{ro}{i+1:04}', "
         gender = random.randint(len(genders))
         data += f"'{randfullname(gender)}', '{genders[gender]}', "
 
@@ -96,17 +97,15 @@ def gen_nhansu(rl, end, dept=None, start=0):
         data += f"TO_DATE('{date}', 'DD/MM/YYYY'), "
         data += f"{random.randint(500, 10000)}, "
         data += f"'09{random.randint(phone_digit_cnt, dtype=int64):09}', "
-        data += f"{rl}, {dept if dept else random.randint(1, 7)} "
-        data += "FROM DUAL"
-        data += " UNION ALL\n" if i != end -1 else "\n"
+        data += f"{rl + 1}, {dept} FROM DUAL"
+        data += " UNION ALL\n" if i != end -1 else ";\n"
     return data
 
 def gen_sinhvien(end, prog=None, dept=None, start=0, is_union=False):
-    if prog: prog -= 1
     if start: start -= 1
     data = ""
     for i in range(start, end):
-        data += f"\tSELECT 'SV{i+1:04}', "
+        data += f"\tSELECT 'S{prog}{i+1:04}', "
         gender = random.randint(len(genders))
         data += f"'{randfullname(gender)}', '{genders[gender]}', "
 
@@ -114,7 +113,7 @@ def gen_sinhvien(end, prog=None, dept=None, start=0, is_union=False):
         data += f"TO_DATE('{date}', 'DD/MM/YYYY'), "
         data += f"'{randaddress()}', "
         data += f"'09{random.randint(phone_digit_cnt, dtype=int64):09}', "
-        data += f"'{programs[prog] if prog is not None else programs[random.randint(len(programs))]}', "
+        data += f"'{programs[prog - 1] if prog else programs[random.randint(len(programs))]}', "
         data += f"'{departms[dept - 1] if dept else departms[random.randint(len(departms))]}', "
         data += "0, 0 FROM DUAL"
         if i != end -1: data += " UNION ALL\n"
@@ -124,10 +123,12 @@ def gen_sinhvien(end, prog=None, dept=None, start=0, is_union=False):
 def main():
     file = open(f"{dir_path}/{out_file}", "w", encoding="utf-8")
 
-    # dept = 1
-    # for i in range(1, 60, 10):
-    #     data = gen_nhansu(2, i + 9, dept, i)
-    #     file.write(f"{data}\n")
+    # dept, cnt = 1, 10
+    # for i in range(1, 60, cnt):
+    #     file.write("INSERT INTO NHANSU\n")
+    #     file.write(f"-- 2.{dept + 1}. GIANG VIEN {departms[dept - 1]} ({cnt})\n")
+    #     data = gen_nhansu(2, i + cnt - 1, dept + 1, i)
+    #     file.write(f"{data}")
     #     dept += 1
 
     dept = 1

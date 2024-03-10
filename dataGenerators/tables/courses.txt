@@ -1,0 +1,153 @@
+11, Triết học Mác – Lênin, 3 45 0
+11, Kinh tế chính trị Mác – Lênin, 2 30 0
+11, Chủ nghĩa xã hội khoa học, 2 30 0
+11, Lịch sử Đảng Cộng sản Việt Nam, 2 30 0
+11, Tư tưởng Hồ Chí Minh, 2 30 0
+11, Nhập môn lập trình, 4 45 30
+11, Kỹ thuật lập trình, 4 45 30
+11, Phương pháp lập trình hướng đối tượng, 4 45 30
+11, Cấu trúc dữ liệu và giải thuật, 4 45 30
+11, Cơ sở dữ liệu, 4 45 30
+11, Hệ điều hành, 4 45 30
+11, Mạng máy tính, 4 45 30
+11, Hệ thống máy tính, 2 30 0
+11, Nhập môn công nghệ phần mềm, 4 45 30
+11, Cơ sở trí tuệ nhân tạo, 4 45 30
+
+12, Kỹ năng mềm, 3 30 30
+12, Kiến tập nghề nghiệp, 2 15 30
+12, Khởi nghiệp, 3 30 30
+12, Thực tập thực tế, 4 30 60
+
+13, Khóa luận tốt nghiệp, 10 0 300
+13, Thực tập tốt nghiệp, 10 0 300
+13, Thực tập dự án tốt nghiệp, 6 0 180
+
+21, An toàn và bảo mật dữ liệu trong hệ thống thông tin, 4 45 30
+21, Cơ sở dữ liệu nâng cao, 4 45 30
+21, Hệ quản trị cơ sở dữ liệu, 4 45 30
+21, Phân tích thiết kế hệ thống thông tin, 4 45 30
+21, Phát triển ứng dụng hệ thống thông tin hiện đại, 4 45 30
+
+22, Chuyên đề chọn lọc trong Hệ thống thông tin, 4 45 30
+22, Chuyên đề Hệ quản trị cơ sở dữ liệu nâng cao, 4 45 30
+22, Thương mại điện tử, 4 45 30
+22, Tương tác người – máy, 4 45 30
+22, Hệ thống thông tin doanh nghiệp, 4 45 30
+22, Phân tích dữ liệu ứng dụng, 4 45 30
+22, Trực quan hóa dữ liệu, 4 45 30
+
+23, Hệ thống thông tin phục vụ trí tuệ kinh doanh, 4 45 30
+23, Ứng dụng phân tán, 4 45 30
+23, Quản trị cơ sở dữ liệu hiện đại, 4 45 30
+
+31, Kiểm thử phần mềm, 4 45 30
+31, Phân tích và quản lý yêu cầu phần mềm, 4 45 30
+31, Quản lý dự án phần mềm, 4 45 30
+31, Phát triển game, 4 45 30
+31, Phát triển ứng dụng web, 4 45 30
+31, Phát triển phần mềm cho thiết bị di động, 4 45 30
+31, Thiết kế phần mềm, 4 45 30
+31, Kiến trúc phần mềm, 4 45 30
+31, Thiết kế giao diện, 4 45 30
+
+32, Lập trình Windows, 4 45 30
+32, Các chủ đề nâng cao trong Công nghệ phần mềm, 4 45 30
+32, Lập trình ứng dụng Java, 4 45 30
+32, Công nghệ Java cho hệ thống phân tán, 4 45 30
+32, Mẫu thiết kế hướng đối tượng và ứng dụng, 4 45 30
+32, Mô hình hóa phần mềm, 4 45 30
+32, Nhập môn lập trình điều khiển thiết bị thông minh, 4 45 30
+
+33, Phát triển ứng dụng web nâng cao, 4 45 30
+33, Các công nghệ mới trong phát triển phần mềm, 4 45 30
+33, Đồ án Công nghệ phần mềm, 4 45 30
+33, Phát triển game nâng cao, 4 45 30
+33, Phát triển ứng dụng cho thiết bị di động nâng cao, 4 45 30
+
+41, Automata và ngôn ngữ hình thức, 4 45 30
+41, Các hệ cơ sở tri thức, 4 45 30
+41, Khai thác dữ liệu và ứng dụng, 4 45 30
+41, Nhập môn học máy, 4 45 30
+41, Nhận dạng, 4 45 30
+41, Ẩn dữ liệu và chia sẻ thông tin, 4 45 30
+41, Nhập môn thiết kế và phân tích giải thuật, 4 45 30
+41, Lập trình song song, 4 45 30
+41, Trí tuệ nhân tạo cho an ninh thông tin, 4 45 30
+41, Phương pháp toán cho tối ưu, 4 45 30
+41, Trí tuệ bầy đàn, 4 45 30
+41, Nhập môn hệ thống đa tác nhân, 4 45 30
+
+42, Phương pháp nghiên cứu khoa học, 4 45 30
+42, Khoa học về web, 4 45 30
+42, Logic mờ và ứng dụng, 4 45 30
+42, Sinh trắc học, 4 45 30
+42, Trình biên dịch, 4 45 30
+42, Nhập môn dữ liệu lớn, 4 45 30
+42, Nhập môn khoa học dữ liệu, 4 45 30
+42, Phân tích dữ liệu thông minh, 4 45 30
+42, Khai thác dữ liệu đồ thị, 4 45 30
+42, Nhập môn học sâu, 4 45 30
+42, Quy hoạch tuyến tính, 4 45 30
+
+43, Ứng dụng dữ liệu lớn, 4 45 30
+43, Khoa học dữ liệu ứng dụng, 4 45 30
+43, Lập trình song song ứng dụng, 4 45 30
+43, Trí tuệ nhân tạo ứng dụng, 4 45 30
+
+51, Nhập môn phân tích độ phức tạp thuật toán, 4 45 30
+51, Bảo mật cơ sở dữ liệu, 4 45 30
+51, Mã hóa ứng dụng, 4 45 30
+51, Học thống kê, 4 45 30
+51, Nhập môn xử lý ngôn ngữ tự nhiên, 4 45 30
+51, Thống kê máy tính và ứng dụng, 4 45 30
+51, Xử lý ngôn ngữ tự nhiên ứng dụng, 4 45 30
+51, Xử lý tín hiệu số, 4 45 30
+51, Nhập môn ngôn ngữ học thống kê và ứng dụng, 4 45 30
+
+52, Phân tích mạng xã hội, 4 45 30
+52, Tính toán tài chính, 4 45 30
+52, Phân tích dữ liệu bảo toàn tính riêng tư, 4 45 30
+52, Nhập môn tư duy thuật toán, 4 45 30
+52, Thuật toán tổ hợp và ứng dụng, 4 45 30
+
+53, Đồ án Mã hóa ứng dụng và an ninh thông tin, 6 0 180
+53, Đồ án Ngôn ngữ học tính toán, 6 0 180
+53, An toàn và phục hồi dữ liệu, 4 45 30
+53, Khai thác dữ liệu văn bản và ứng dụng, 4 45 30
+53, Seminar Công nghệ tri thức, 4 45 30
+
+61, Đồ họa máy tính, 4 45 30
+61, Phương pháp toán trong phân tích dữ liệu thị giác, 4 45 30
+61, Phân tích thống kê dữ liệu nhiều biến, 4 45 30
+61, Thị giác máy tính, 4 45 30
+61, Xử lý ảnh số và video số, 4 45 30
+
+62, Đồ họa ứng dụng, 4 45 30
+62, Kỹ thuật lập trình xử lý ảnh số và video số, 4 45 30
+62, Thị giác robot, 4 45 30
+62, Truy vấn thông tin thị giác, 4 45 30
+62, Ứng dụng thị giác máy tính, 4 45 30
+62, Ứng dụng xử lý ảnh số và video số, 4 45 30
+
+63, Chuyên đề Đồ họa máy tính, 4 45 30
+63, Chuyên đề Thị giác máy tính, 4 45 30
+63, Chuyên đề Xử lý ảnh số và video số, 4 45 30
+
+71, Hệ thống viễn thông, 4 45 30
+71, Lập trình mạng, 4 45 30
+71, Mạng máy tính nâng cao, 4 45 30
+71, Thực tập mạng máy tính, 4 45 30
+71, An ninh mạng, 4 45 30
+71, An ninh máy tính, 4 45 30
+71, Nhập môn mã hóa – mật mã, 4 45 30
+
+72, Thiết kế mạng, 4 45 30
+72, Truyền thông không dây, 4 45 30
+72, Truyền thông kỹ thuật số, 4 45 30
+72, Quản trị dịch vụ mạng, 4 45 30
+
+73, Chuyên đề tốt nghiệp Mạng máy tính, 4 45 30
+73, Chuyên đề Hệ thống phân tán, 4 45 30
+73, Nhập môn lập trình kết nối vạn vật, 4 45 30
+73, Blockchain và ứng dụng, 4 45 30
