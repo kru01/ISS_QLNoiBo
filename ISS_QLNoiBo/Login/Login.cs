@@ -45,16 +45,14 @@ namespace ISS_QLNoiBo
             else
             {
                 string connString = "Data Source = (DESCRIPTION = " +
-                    "(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)" +
-                    $"(HOST = {OracleConfig.host})(PORT = {OracleConfig.port})))" +
-                    $"(CONNECT_DATA = (SERVER=DEDICATED)" +
-                    $"(SERVICE_NAME = {OracleConfig.service})));" +
-                    $"User Id = {username.Text}; Password = {password.Text};";
+                    "(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))" +
+                    "(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = XE));" +
+                    $"User Id = {username.Text};password = {password.Text};";
 
                 OracleConnection conn = new(connString);
 
                 try
-                {
+                { 
                     conn.Open();
                     this.Hide();
 
