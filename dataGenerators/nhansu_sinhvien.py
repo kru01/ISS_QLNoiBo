@@ -82,7 +82,7 @@ def randaddress():
     addr += f"{provs_cities[random.randint(len(provs_cities))]}"
     return addr
 
-def gen_nhansu(rl, end, dept=None, start=0):
+def gen_nhansu(rl, end, branch, dept=None, start=0):
     roles = ['NV', 'V', 'GV', 'TD', 'TK']
     rl, dept = rl - 1, dept if dept else random.randint(1, 7)
     if start: start -= 1
@@ -97,7 +97,7 @@ def gen_nhansu(rl, end, dept=None, start=0):
         data += f"TO_DATE('{date}', 'DD/MM/YYYY'), "
         data += f"{random.randint(500, 10000)}, "
         data += f"'09{random.randint(phone_digit_cnt, dtype=int64):09}', "
-        data += f"{rl + 1}, {dept} FROM DUAL"
+        data += f"{rl + 1}, {dept}, {branch} FROM DUAL"
         data += " UNION ALL\n" if i != end -1 else ";\n"
     return data
 
@@ -127,7 +127,7 @@ def main():
     # for i in range(1, 60, cnt):
     #     file.write("INSERT INTO NHANSU\n")
     #     file.write(f"-- 2.{dept + 1}. GIANG VIEN {departms[dept - 1]} ({cnt})\n")
-    #     data = gen_nhansu(2, i + cnt - 1, dept + 1, i)
+    #     data = gen_nhansu(2, i + cnt - 1, 1, dept + 1, i)
     #     file.write(f"{data}")
     #     dept += 1
 
