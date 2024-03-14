@@ -32,5 +32,20 @@ namespace ISS_QLNoiBo
         {
             Helper.loadform(new Main_Forms.Privileges(), this.mainPanel);
         }
+
+        private void usersManageButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Main_Forms.ManageUsers(), this.mainPanel);
+        }
+
+        private void roleButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Main_Forms.RoleTab(), this.mainPanel);
+        }
+
+        private void sysPreButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Main_Forms.SysPrivileges(), this.mainPanel);
+        }
     }
 }
