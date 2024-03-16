@@ -12,7 +12,7 @@
 1. [Have a `PDB` and enable `OLS`](#to-enable-ols).
 1. Navigate into `SQL` folder.
 1. If a different `PDB` is used, replace all instances of `XEPDB1`.
-1. Run the files in the specified order with `SYS.XEPDB1` login, `createDB.sql` &rarr; `data.sql` &rarr; `users.sql` &rarr; `policies.sql` &rarr; `ols.sql`.
+1. `SYS.XEPDB1` Run the files in the specified order, `createDB.sql` &rarr; `data.sql` &rarr; `users.sql` &rarr; `policies.sql` &rarr; `ols.sql`.
 
 ### To uninstall the database
 
@@ -45,6 +45,22 @@
 
 1. After `LBACSYS` has been unlocked, switch to any `PDB`, `XEPDB1` in my case, and go wild.
     - All the privileges an admin needs to effectively manage OLS can be found in `SQL/users.sql`.
+
+### To link Oracle with WinForms
+
+1. Open `ISS_QLNoiBo.sln` with Visual Studio 2022.
+1. On the taskbar, select `Project` &rarr; `Manage NuGet Packages...`.
+1. Move to `Browse` tab, search for `oracle`, and install `Oracle.ManagedDataAccess.Core`.
+1. Try to run the program, if it still fails, proceed to step 5.
+1. Locate the path to `Oracle.DataAccess.dll` with Windows File Explorer.
+    - Mine was `...\Oracle21c\dbhomeXE\ODP.NET\bin\4`.
+1. Back to VS2022, in the `Solution Explorer`, right-click `ISS_QLNoiBo`.
+    - It's right beneath `Solution 'ISS_QLNoiBo' (1 of 1 project)`.
+1. Select `Add` &rarr; `Project Reference...`.
+1. Move to `Browse` tab, then click `Browse...` at bottom right of the window.
+1. Navigate to the path at step 5.
+1. Select `Oracle.DataAccess.dll` then `Add`.
+    - Try to run the app, if it still fails, o7 then since I got mine to work at this point.
 
 ## Meet The Team
 

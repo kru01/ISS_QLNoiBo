@@ -44,9 +44,7 @@ namespace ISS_QLNoiBo
             }
             else
             {
-                string connString = "Data Source = (DESCRIPTION = " +
-                    "(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))" +
-                    "(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = XE));" +
+                string connString = $"Data Source = {OracleConfig.connString};" +
                     $"User Id = {username.Text};password = {password.Text};";
 
                 OracleConnection conn = new(connString);
@@ -59,7 +57,7 @@ namespace ISS_QLNoiBo
                     if (username.Text[..2] == "AD")
                     {
                         Admin_Main form = new();
-                        form.Show();
+                        form.ShowDialog();
                     }
 
                     this.Close();

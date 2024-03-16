@@ -80,9 +80,9 @@
             label2.ForeColor = Color.SteelBlue;
             label2.Location = new Point(512, 32);
             label2.Name = "label2";
-            label2.Size = new Size(216, 27);
+            label2.Size = new Size(215, 27);
             label2.TabIndex = 6;
-            label2.Text = "Edit user role on table";
+            label2.Text = "Edit user priv on table";
             // 
             // panel2
             // 
@@ -109,6 +109,7 @@
             // 
             tableCboBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tableCboBox.FormattingEnabled = true;
+            tableCboBox.Items.AddRange(new object[] { "COSO", "CTDAOTAO", "DANGKY", "DONVI", "HOCPHAN", "KHMO", "NGANH", "NHANSU", "PHANCONG", "SINHVIEN", "THONGBAO", "VAITRO" });
             tableCboBox.Location = new Point(50, 130);
             tableCboBox.Name = "tableCboBox";
             tableCboBox.Size = new Size(200, 27);
@@ -130,6 +131,7 @@
             columnBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             columnBox.Location = new Point(50, 200);
             columnBox.Name = "columnBox";
+            columnBox.PlaceholderText = "C1,C2,C3,...";
             columnBox.Size = new Size(200, 27);
             columnBox.TabIndex = 14;
             // 
@@ -201,6 +203,7 @@
             revoke2Button.TabIndex = 6;
             revoke2Button.Text = "Revoke";
             revoke2Button.UseVisualStyleBackColor = false;
+            revoke2Button.Click += revoke2Button_Click;
             // 
             // grant2Button
             // 
@@ -215,6 +218,7 @@
             grant2Button.TabIndex = 6;
             grant2Button.Text = "Grant";
             grant2Button.UseVisualStyleBackColor = false;
+            grant2Button.Click += grant2Button_Click;
             // 
             // label6
             // 
@@ -234,9 +238,9 @@
             label5.ForeColor = Color.SteelBlue;
             label5.Location = new Point(50, 34);
             label5.Name = "label5";
-            label5.Size = new Size(99, 23);
+            label5.Size = new Size(90, 23);
             label5.TabIndex = 6;
-            label5.Text = "User Name";
+            label5.Text = "User/Role";
             // 
             // textBox1
             // 
@@ -306,6 +310,7 @@
             revoke1Button.TabIndex = 3;
             revoke1Button.Text = "Revoke";
             revoke1Button.UseVisualStyleBackColor = false;
+            revoke1Button.Click += revoke1Button_Click;
             // 
             // grant1Button
             // 
@@ -320,9 +325,11 @@
             grant1Button.TabIndex = 2;
             grant1Button.Text = "Grant";
             grant1Button.UseVisualStyleBackColor = false;
+            grant1Button.Click += grant1Button_Click;
             // 
             // role1
             // 
+            role1.CharacterCasing = CharacterCasing.Upper;
             role1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             role1.Location = new Point(50, 130);
             role1.Name = "role1";
@@ -352,6 +359,7 @@
             usersData.RowHeadersWidth = 51;
             usersData.Size = new Size(904, 350);
             usersData.TabIndex = 1;
+            usersData.CellClick += usersData_CellClick;
             // 
             // Privileges
             // 
@@ -362,6 +370,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Privileges";
             Text = "Privileges";
+            Load += Privileges_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
