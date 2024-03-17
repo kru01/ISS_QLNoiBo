@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button1 = new Button();
             label2 = new Label();
             panel2 = new Panel();
             tableCboBox = new ComboBox();
@@ -62,6 +63,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label1);
@@ -73,16 +75,31 @@
             panel1.Size = new Size(904, 704);
             panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.SteelBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(316, 308);
+            button1.Name = "button1";
+            button1.Size = new Size(90, 40);
+            button1.TabIndex = 6;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(512, 32);
+            label2.Location = new Point(483, 32);
             label2.Name = "label2";
-            label2.Size = new Size(215, 27);
+            label2.Size = new Size(262, 27);
             label2.TabIndex = 6;
-            label2.Text = "Edit user priv on table";
+            label2.Text = "Edit user privilege on table";
             // 
             // panel2
             // 
@@ -128,6 +145,7 @@
             // 
             // columnBox
             // 
+            columnBox.CharacterCasing = CharacterCasing.Upper;
             columnBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             columnBox.Location = new Point(50, 200);
             columnBox.Name = "columnBox";
@@ -197,7 +215,7 @@
             revoke2Button.FlatStyle = FlatStyle.Flat;
             revoke2Button.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             revoke2Button.ForeColor = Color.White;
-            revoke2Button.Location = new Point(371, 187);
+            revoke2Button.Location = new Point(371, 193);
             revoke2Button.Name = "revoke2Button";
             revoke2Button.Size = new Size(80, 40);
             revoke2Button.TabIndex = 6;
@@ -212,7 +230,7 @@
             grant2Button.FlatStyle = FlatStyle.Flat;
             grant2Button.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grant2Button.ForeColor = Color.White;
-            grant2Button.Location = new Point(275, 187);
+            grant2Button.Location = new Point(275, 193);
             grant2Button.Name = "grant2Button";
             grant2Button.Size = new Size(80, 40);
             grant2Button.TabIndex = 6;
@@ -244,6 +262,7 @@
             // 
             // textBox1
             // 
+            textBox1.CharacterCasing = CharacterCasing.Upper;
             textBox1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(50, 60);
             textBox1.Name = "textBox1";
@@ -304,7 +323,7 @@
             revoke1Button.FlatStyle = FlatStyle.Flat;
             revoke1Button.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             revoke1Button.ForeColor = Color.White;
-            revoke1Button.Location = new Point(160, 200);
+            revoke1Button.Location = new Point(160, 193);
             revoke1Button.Name = "revoke1Button";
             revoke1Button.Size = new Size(90, 40);
             revoke1Button.TabIndex = 3;
@@ -319,7 +338,7 @@
             grant1Button.FlatStyle = FlatStyle.Flat;
             grant1Button.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grant1Button.ForeColor = Color.White;
-            grant1Button.Location = new Point(50, 200);
+            grant1Button.Location = new Point(50, 193);
             grant1Button.Name = "grant1Button";
             grant1Button.Size = new Size(90, 40);
             grant1Button.TabIndex = 2;
@@ -338,6 +357,7 @@
             // 
             // username1
             // 
+            username1.CharacterCasing = CharacterCasing.Upper;
             username1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             username1.Location = new Point(50, 60);
             username1.Name = "username1";
@@ -408,5 +428,6 @@
         private Label label7;
         private TextBox columnBox;
         private ComboBox tableCboBox;
+        private Button button1;
     }
 }

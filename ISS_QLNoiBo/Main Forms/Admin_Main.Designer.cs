@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Main));
             panel1 = new Panel();
+            sysPreButton = new Button();
             roleButton = new Button();
             usersManageButton = new Button();
             privilegesButton = new Button();
             userButton = new Button();
             mainPanel = new Panel();
-            sysPreButton = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,6 +53,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(300, 704);
             panel1.TabIndex = 0;
+            // 
+            // sysPreButton
+            // 
+            sysPreButton.BackColor = Color.SteelBlue;
+            sysPreButton.FlatAppearance.BorderSize = 0;
+            sysPreButton.FlatStyle = FlatStyle.Flat;
+            sysPreButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sysPreButton.ForeColor = Color.White;
+            sysPreButton.Location = new Point(25, 550);
+            sysPreButton.Name = "sysPreButton";
+            sysPreButton.Size = new Size(250, 40);
+            sysPreButton.TabIndex = 4;
+            sysPreButton.Text = "System Privileges";
+            sysPreButton.UseVisualStyleBackColor = false;
+            sysPreButton.Click += sysPreButton_Click;
             // 
             // roleButton
             // 
@@ -80,7 +95,7 @@
             usersManageButton.Name = "usersManageButton";
             usersManageButton.Size = new Size(250, 40);
             usersManageButton.TabIndex = 2;
-            usersManageButton.Text = "Users Management";
+            usersManageButton.Text = "User Management";
             usersManageButton.UseVisualStyleBackColor = false;
             usersManageButton.Click += usersManageButton_Click;
             // 
@@ -122,21 +137,6 @@
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(904, 704);
             mainPanel.TabIndex = 1;
-            // 
-            // sysPreButton
-            // 
-            sysPreButton.BackColor = Color.SteelBlue;
-            sysPreButton.FlatAppearance.BorderSize = 0;
-            sysPreButton.FlatStyle = FlatStyle.Flat;
-            sysPreButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            sysPreButton.ForeColor = Color.White;
-            sysPreButton.Location = new Point(25, 550);
-            sysPreButton.Name = "sysPreButton";
-            sysPreButton.Size = new Size(250, 40);
-            sysPreButton.TabIndex = 4;
-            sysPreButton.Text = "System Privileges";
-            sysPreButton.UseVisualStyleBackColor = false;
-            sysPreButton.Click += sysPreButton_Click;
             // 
             // Admin_Main
             // 
