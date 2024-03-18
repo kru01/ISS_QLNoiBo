@@ -13,5 +13,6 @@ namespace ISS_QLNoiBo.Others
         public const string service = "XEPDB1";
         public const string connString = "localhost:1521/XEPDB1";
         public const string schema = "A01_QLNOIBO";
+        public enum UIDBounds { low=150, high=1000000 };
     }
 }

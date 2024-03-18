@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Main));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            signOutButton = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            adminID = new Label();
+            label1 = new Label();
             sysPreButton = new Button();
             roleButton = new Button();
             usersManageButton = new Button();
             privilegesButton = new Button();
             userButton = new Button();
             mainPanel = new Panel();
-            label1 = new Label();
-            adminID = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            signOutButton = new Button();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -67,139 +67,15 @@
             panel1.Size = new Size(300, 704);
             panel1.TabIndex = 0;
             // 
-            // sysPreButton
+            // pictureBox1
             // 
-            sysPreButton.BackColor = Color.SteelBlue;
-            sysPreButton.FlatAppearance.BorderSize = 0;
-            sysPreButton.FlatStyle = FlatStyle.Flat;
-            sysPreButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            sysPreButton.ForeColor = Color.White;
-            sysPreButton.Location = new Point(25, 450);
-            sysPreButton.Name = "sysPreButton";
-            sysPreButton.Size = new Size(250, 40);
-            sysPreButton.TabIndex = 4;
-            sysPreButton.Text = "System Privileges";
-            sysPreButton.UseVisualStyleBackColor = false;
-            sysPreButton.Click += sysPreButton_Click;
-            // 
-            // roleButton
-            // 
-            roleButton.BackColor = Color.SteelBlue;
-            roleButton.FlatAppearance.BorderSize = 0;
-            roleButton.FlatStyle = FlatStyle.Flat;
-            roleButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roleButton.ForeColor = Color.White;
-            roleButton.Location = new Point(25, 400);
-            roleButton.Name = "roleButton";
-            roleButton.Size = new Size(250, 40);
-            roleButton.TabIndex = 3;
-            roleButton.Text = "Role Management";
-            roleButton.UseVisualStyleBackColor = false;
-            roleButton.Click += roleButton_Click;
-            // 
-            // usersManageButton
-            // 
-            usersManageButton.BackColor = Color.SteelBlue;
-            usersManageButton.FlatAppearance.BorderSize = 0;
-            usersManageButton.FlatStyle = FlatStyle.Flat;
-            usersManageButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            usersManageButton.ForeColor = Color.White;
-            usersManageButton.Location = new Point(25, 350);
-            usersManageButton.Name = "usersManageButton";
-            usersManageButton.Size = new Size(250, 40);
-            usersManageButton.TabIndex = 2;
-            usersManageButton.Text = "User Management";
-            usersManageButton.UseVisualStyleBackColor = false;
-            usersManageButton.Click += usersManageButton_Click;
-            // 
-            // privilegesButton
-            // 
-            privilegesButton.BackColor = Color.SteelBlue;
-            privilegesButton.FlatAppearance.BorderSize = 0;
-            privilegesButton.FlatStyle = FlatStyle.Flat;
-            privilegesButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            privilegesButton.ForeColor = Color.White;
-            privilegesButton.Location = new Point(25, 300);
-            privilegesButton.Name = "privilegesButton";
-            privilegesButton.Size = new Size(250, 40);
-            privilegesButton.TabIndex = 1;
-            privilegesButton.Text = "Privileges";
-            privilegesButton.UseVisualStyleBackColor = false;
-            privilegesButton.Click += privilegesButton_Click;
-            // 
-            // userButton
-            // 
-            userButton.BackColor = Color.SteelBlue;
-            userButton.FlatAppearance.BorderSize = 0;
-            userButton.FlatStyle = FlatStyle.Flat;
-            userButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            userButton.ForeColor = Color.White;
-            userButton.Location = new Point(25, 250);
-            userButton.Name = "userButton";
-            userButton.Size = new Size(250, 40);
-            userButton.TabIndex = 0;
-            userButton.Text = "User Tab";
-            userButton.UseVisualStyleBackColor = false;
-            userButton.Click += userButton_Click;
-            // 
-            // mainPanel
-            // 
-            mainPanel.BackColor = Color.White;
-            mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(300, 0);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(904, 704);
-            mainPanel.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(85, 23);
-            label1.TabIndex = 7;
-            label1.Text = "Admin ID:";
-            // 
-            // adminID
-            // 
-            adminID.AutoSize = true;
-            adminID.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            adminID.ForeColor = Color.White;
-            adminID.Location = new Point(82, 0);
-            adminID.Name = "adminID";
-            adminID.Size = new Size(76, 23);
-            adminID.TabIndex = 8;
-            adminID.Text = "AB1234";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.SteelBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(25, 500);
-            button1.Name = "button1";
-            button1.Size = new Size(250, 40);
-            button1.TabIndex = 9;
-            button1.Text = "Test";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.SteelBlue;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(25, 550);
-            button2.Name = "button2";
-            button2.Size = new Size(250, 40);
-            button2.TabIndex = 10;
-            button2.Text = "Test 2";
-            button2.UseVisualStyleBackColor = false;
+            pictureBox1.Image = Properties.Resources.account;
+            pictureBox1.Location = new Point(100, 100);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 100);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // signOutButton
             // 
@@ -216,15 +92,139 @@
             signOutButton.UseVisualStyleBackColor = false;
             signOutButton.Click += signOutButton_Click;
             // 
-            // pictureBox1
+            // button2
             // 
-            pictureBox1.Image = Properties.Resources.account;
-            pictureBox1.Location = new Point(100, 100);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 100);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            button2.BackColor = Color.SteelBlue;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(25, 550);
+            button2.Name = "button2";
+            button2.Size = new Size(250, 40);
+            button2.TabIndex = 10;
+            button2.Text = "Test 2";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.SteelBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(25, 500);
+            button1.Name = "button1";
+            button1.Size = new Size(250, 40);
+            button1.TabIndex = 9;
+            button1.Text = "Test";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // adminID
+            // 
+            adminID.AutoSize = true;
+            adminID.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            adminID.ForeColor = Color.White;
+            adminID.Location = new Point(82, 0);
+            adminID.Name = "adminID";
+            adminID.Size = new Size(76, 23);
+            adminID.TabIndex = 8;
+            adminID.Text = "AB1234";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(85, 23);
+            label1.TabIndex = 7;
+            label1.Text = "Admin ID:";
+            // 
+            // sysPreButton
+            // 
+            sysPreButton.BackColor = Color.SteelBlue;
+            sysPreButton.FlatAppearance.BorderSize = 0;
+            sysPreButton.FlatStyle = FlatStyle.Flat;
+            sysPreButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sysPreButton.ForeColor = Color.White;
+            sysPreButton.Location = new Point(25, 450);
+            sysPreButton.Name = "sysPreButton";
+            sysPreButton.Size = new Size(250, 40);
+            sysPreButton.TabIndex = 4;
+            sysPreButton.Text = "Grant System Priv";
+            sysPreButton.UseVisualStyleBackColor = false;
+            sysPreButton.Click += sysPreButton_Click;
+            // 
+            // roleButton
+            // 
+            roleButton.BackColor = Color.SteelBlue;
+            roleButton.FlatAppearance.BorderSize = 0;
+            roleButton.FlatStyle = FlatStyle.Flat;
+            roleButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roleButton.ForeColor = Color.White;
+            roleButton.Location = new Point(25, 400);
+            roleButton.Name = "roleButton";
+            roleButton.Size = new Size(250, 40);
+            roleButton.TabIndex = 3;
+            roleButton.Text = "Manage Role";
+            roleButton.UseVisualStyleBackColor = false;
+            roleButton.Click += roleButton_Click;
+            // 
+            // usersManageButton
+            // 
+            usersManageButton.BackColor = Color.SteelBlue;
+            usersManageButton.FlatAppearance.BorderSize = 0;
+            usersManageButton.FlatStyle = FlatStyle.Flat;
+            usersManageButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usersManageButton.ForeColor = Color.White;
+            usersManageButton.Location = new Point(25, 350);
+            usersManageButton.Name = "usersManageButton";
+            usersManageButton.Size = new Size(250, 40);
+            usersManageButton.TabIndex = 2;
+            usersManageButton.Text = "Manage User";
+            usersManageButton.UseVisualStyleBackColor = false;
+            usersManageButton.Click += usersManageButton_Click;
+            // 
+            // privilegesButton
+            // 
+            privilegesButton.BackColor = Color.SteelBlue;
+            privilegesButton.FlatAppearance.BorderSize = 0;
+            privilegesButton.FlatStyle = FlatStyle.Flat;
+            privilegesButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            privilegesButton.ForeColor = Color.White;
+            privilegesButton.Location = new Point(25, 300);
+            privilegesButton.Name = "privilegesButton";
+            privilegesButton.Size = new Size(250, 40);
+            privilegesButton.TabIndex = 1;
+            privilegesButton.Text = "Grant Role/Table";
+            privilegesButton.UseVisualStyleBackColor = false;
+            privilegesButton.Click += privilegesButton_Click;
+            // 
+            // userButton
+            // 
+            userButton.BackColor = Color.SteelBlue;
+            userButton.FlatAppearance.BorderSize = 0;
+            userButton.FlatStyle = FlatStyle.Flat;
+            userButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            userButton.ForeColor = Color.White;
+            userButton.Location = new Point(25, 250);
+            userButton.Name = "userButton";
+            userButton.Size = new Size(250, 40);
+            userButton.TabIndex = 0;
+            userButton.Text = "Inspect Privilege";
+            userButton.UseVisualStyleBackColor = false;
+            userButton.Click += userButton_Click;
+            // 
+            // mainPanel
+            // 
+            mainPanel.BackColor = Color.White;
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(300, 0);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(904, 704);
+            mainPanel.TabIndex = 1;
             // 
             // Admin_Main
             // 

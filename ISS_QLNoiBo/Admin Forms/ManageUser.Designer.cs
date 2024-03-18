@@ -1,6 +1,6 @@
 ﻿namespace ISS_QLNoiBo.Admin_Forms
 {
-    partial class ManageUsers
+    partial class ManageUser
     {
         /// <summary>
         /// Required designer variable.
@@ -303,7 +303,7 @@
             usersData.TabIndex = 1;
             usersData.CellClick += usersData_CellClick;
             // 
-            // ManageUsers
+            // ManageUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -311,7 +311,7 @@
             ControlBox = false;
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ManageUsers";
+            Name = "ManageUser";
             Text = "ManageUsers";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
