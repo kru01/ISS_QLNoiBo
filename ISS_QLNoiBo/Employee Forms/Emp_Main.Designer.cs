@@ -1,0 +1,254 @@
+﻿namespace ISS_QLNoiBo.Employee_Forms
+{
+    partial class Emp_Main
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Emp_Main));
+            panel1 = new Panel();
+            EmpName = new Label();
+            button2 = new Button();
+            signOutButton = new Button();
+            adminID = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            sysPreButton = new Button();
+            roleButton = new Button();
+            usersManageButton = new Button();
+            accountButton = new Button();
+            announceButton = new Button();
+            mainPanel = new Panel();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.SteelBlue;
+            panel1.Controls.Add(EmpName);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(signOutButton);
+            panel1.Controls.Add(adminID);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(sysPreButton);
+            panel1.Controls.Add(roleButton);
+            panel1.Controls.Add(usersManageButton);
+            panel1.Controls.Add(accountButton);
+            panel1.Controls.Add(announceButton);
+            panel1.Dock = DockStyle.Left;
+            panel1.ForeColor = Color.SteelBlue;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(300, 704);
+            panel1.TabIndex = 1;
+            // 
+            // EmpName
+            // 
+            EmpName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            EmpName.ForeColor = Color.White;
+            EmpName.Location = new Point(0, 210);
+            EmpName.Name = "EmpName";
+            EmpName.Size = new Size(300, 28);
+            EmpName.TabIndex = 10;
+            EmpName.Text = "<Employee Name>";
+            EmpName.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.SteelBlue;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(25, 500);
+            button2.Name = "button2";
+            button2.Size = new Size(250, 40);
+            button2.TabIndex = 9;
+            button2.Text = "Courses Plan";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // signOutButton
+            // 
+            signOutButton.BackColor = Color.SteelBlue;
+            signOutButton.FlatAppearance.BorderSize = 0;
+            signOutButton.FlatStyle = FlatStyle.Flat;
+            signOutButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signOutButton.ForeColor = Color.White;
+            signOutButton.Location = new Point(25, 550);
+            signOutButton.Name = "signOutButton";
+            signOutButton.Size = new Size(250, 40);
+            signOutButton.TabIndex = 8;
+            signOutButton.Text = "Sign Out";
+            signOutButton.UseVisualStyleBackColor = false;
+            signOutButton.Click += signOutButton_Click;
+            // 
+            // adminID
+            // 
+            adminID.AutoSize = true;
+            adminID.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            adminID.ForeColor = Color.White;
+            adminID.Location = new Point(109, 0);
+            adminID.Name = "adminID";
+            adminID.Size = new Size(76, 23);
+            adminID.TabIndex = 7;
+            adminID.Text = "AB1234";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(113, 23);
+            label1.TabIndex = 6;
+            label1.Text = "Employee ID:";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.account;
+            pictureBox1.Location = new Point(100, 100);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 100);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
+            // sysPreButton
+            // 
+            sysPreButton.BackColor = Color.SteelBlue;
+            sysPreButton.FlatAppearance.BorderSize = 0;
+            sysPreButton.FlatStyle = FlatStyle.Flat;
+            sysPreButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sysPreButton.ForeColor = Color.White;
+            sysPreButton.Location = new Point(25, 450);
+            sysPreButton.Name = "sysPreButton";
+            sysPreButton.Size = new Size(250, 40);
+            sysPreButton.TabIndex = 4;
+            sysPreButton.Text = "Courses";
+            sysPreButton.UseVisualStyleBackColor = false;
+            // 
+            // roleButton
+            // 
+            roleButton.BackColor = Color.SteelBlue;
+            roleButton.FlatAppearance.BorderSize = 0;
+            roleButton.FlatStyle = FlatStyle.Flat;
+            roleButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roleButton.ForeColor = Color.White;
+            roleButton.Location = new Point(25, 400);
+            roleButton.Name = "roleButton";
+            roleButton.Size = new Size(250, 40);
+            roleButton.TabIndex = 3;
+            roleButton.Text = "Departments";
+            roleButton.UseVisualStyleBackColor = false;
+            // 
+            // usersManageButton
+            // 
+            usersManageButton.BackColor = Color.SteelBlue;
+            usersManageButton.FlatAppearance.BorderSize = 0;
+            usersManageButton.FlatStyle = FlatStyle.Flat;
+            usersManageButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usersManageButton.ForeColor = Color.White;
+            usersManageButton.Location = new Point(25, 350);
+            usersManageButton.Name = "usersManageButton";
+            usersManageButton.Size = new Size(250, 40);
+            usersManageButton.TabIndex = 2;
+            usersManageButton.Text = "Students List";
+            usersManageButton.UseVisualStyleBackColor = false;
+            // 
+            // accountButton
+            // 
+            accountButton.BackColor = Color.SteelBlue;
+            accountButton.FlatAppearance.BorderSize = 0;
+            accountButton.FlatStyle = FlatStyle.Flat;
+            accountButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            accountButton.ForeColor = Color.White;
+            accountButton.Location = new Point(25, 300);
+            accountButton.Name = "accountButton";
+            accountButton.Size = new Size(250, 40);
+            accountButton.TabIndex = 1;
+            accountButton.Text = "Account";
+            accountButton.UseVisualStyleBackColor = false;
+            accountButton.Click += accountButton_Click;
+            // 
+            // announceButton
+            // 
+            announceButton.BackColor = Color.SteelBlue;
+            announceButton.FlatAppearance.BorderSize = 0;
+            announceButton.FlatStyle = FlatStyle.Flat;
+            announceButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            announceButton.ForeColor = Color.White;
+            announceButton.Location = new Point(25, 250);
+            announceButton.Name = "announceButton";
+            announceButton.Size = new Size(250, 40);
+            announceButton.TabIndex = 0;
+            announceButton.Text = "Announcement";
+            announceButton.UseVisualStyleBackColor = false;
+            // 
+            // mainPanel
+            // 
+            mainPanel.BackColor = Color.White;
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(300, 0);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(904, 704);
+            mainPanel.TabIndex = 8;
+            // 
+            // Emp_Main
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1204, 704);
+            Controls.Add(mainPanel);
+            Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Emp_Main";
+            Text = "Employee Dashboard";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Panel panel1;
+        private Label adminID;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private Button sysPreButton;
+        private Button roleButton;
+        private Button usersManageButton;
+        private Button accountButton;
+        private Button announceButton;
+        private Panel mainPanel;
+        private Button signOutButton;
+        private Button button2;
+        private Label EmpName;
+    }
+}

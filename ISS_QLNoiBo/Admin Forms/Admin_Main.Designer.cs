@@ -36,12 +36,25 @@
             privilegesButton = new Button();
             userButton = new Button();
             mainPanel = new Panel();
+            label1 = new Label();
+            adminID = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            signOutButton = new Button();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.SteelBlue;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(signOutButton);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(adminID);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(sysPreButton);
             panel1.Controls.Add(roleButton);
             panel1.Controls.Add(usersManageButton);
@@ -61,7 +74,7 @@
             sysPreButton.FlatStyle = FlatStyle.Flat;
             sysPreButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             sysPreButton.ForeColor = Color.White;
-            sysPreButton.Location = new Point(25, 550);
+            sysPreButton.Location = new Point(25, 450);
             sysPreButton.Name = "sysPreButton";
             sysPreButton.Size = new Size(250, 40);
             sysPreButton.TabIndex = 4;
@@ -76,7 +89,7 @@
             roleButton.FlatStyle = FlatStyle.Flat;
             roleButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             roleButton.ForeColor = Color.White;
-            roleButton.Location = new Point(25, 475);
+            roleButton.Location = new Point(25, 400);
             roleButton.Name = "roleButton";
             roleButton.Size = new Size(250, 40);
             roleButton.TabIndex = 3;
@@ -91,7 +104,7 @@
             usersManageButton.FlatStyle = FlatStyle.Flat;
             usersManageButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usersManageButton.ForeColor = Color.White;
-            usersManageButton.Location = new Point(25, 400);
+            usersManageButton.Location = new Point(25, 350);
             usersManageButton.Name = "usersManageButton";
             usersManageButton.Size = new Size(250, 40);
             usersManageButton.TabIndex = 2;
@@ -106,7 +119,7 @@
             privilegesButton.FlatStyle = FlatStyle.Flat;
             privilegesButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             privilegesButton.ForeColor = Color.White;
-            privilegesButton.Location = new Point(25, 325);
+            privilegesButton.Location = new Point(25, 300);
             privilegesButton.Name = "privilegesButton";
             privilegesButton.Size = new Size(250, 40);
             privilegesButton.TabIndex = 1;
@@ -138,6 +151,81 @@
             mainPanel.Size = new Size(904, 704);
             mainPanel.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(85, 23);
+            label1.TabIndex = 7;
+            label1.Text = "Admin ID:";
+            // 
+            // adminID
+            // 
+            adminID.AutoSize = true;
+            adminID.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            adminID.ForeColor = Color.White;
+            adminID.Location = new Point(82, 0);
+            adminID.Name = "adminID";
+            adminID.Size = new Size(76, 23);
+            adminID.TabIndex = 8;
+            adminID.Text = "AB1234";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.SteelBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(25, 500);
+            button1.Name = "button1";
+            button1.Size = new Size(250, 40);
+            button1.TabIndex = 9;
+            button1.Text = "Test";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.SteelBlue;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(25, 550);
+            button2.Name = "button2";
+            button2.Size = new Size(250, 40);
+            button2.TabIndex = 10;
+            button2.Text = "Test 2";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // signOutButton
+            // 
+            signOutButton.BackColor = Color.SteelBlue;
+            signOutButton.FlatAppearance.BorderSize = 0;
+            signOutButton.FlatStyle = FlatStyle.Flat;
+            signOutButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signOutButton.ForeColor = Color.White;
+            signOutButton.Location = new Point(25, 600);
+            signOutButton.Name = "signOutButton";
+            signOutButton.Size = new Size(250, 40);
+            signOutButton.TabIndex = 11;
+            signOutButton.Text = "Sign Out";
+            signOutButton.UseVisualStyleBackColor = false;
+            signOutButton.Click += signOutButton_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.account;
+            pictureBox1.Location = new Point(100, 100);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 100);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
             // Admin_Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -150,6 +238,8 @@
             Text = "Admin Dashboard";
             Load += Admin_Main_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -162,5 +252,11 @@
         private Button usersManageButton;
         private Button roleButton;
         private Button sysPreButton;
+        private Label label1;
+        private Label adminID;
+        private Button signOutButton;
+        private Button button2;
+        private Button button1;
+        private PictureBox pictureBox1;
     }
 }

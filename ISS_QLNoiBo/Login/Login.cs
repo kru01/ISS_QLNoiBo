@@ -57,6 +57,8 @@ namespace ISS_QLNoiBo
                     if (username.Text[..2] == "AD")
                     {
                         Admin_Main form = new();
+                        form.CurrentUsername = username.Text;
+                        form.CurrentPass = password.Text;
                         form.ShowDialog();
                     }
 

@@ -1,4 +1,4 @@
-﻿namespace ISS_QLNoiBo.Main_Forms
+﻿namespace ISS_QLNoiBo.Admin_Forms
 {
     partial class RoleTab
     {
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            privilagesPanel = new Panel();
             label1 = new Label();
+            privilagesPanel = new Panel();
             deleteRButton = new Button();
             label3 = new Label();
             createRButton = new Button();
@@ -53,18 +53,6 @@
             panel1.Size = new Size(904, 704);
             panel1.TabIndex = 2;
             // 
-            // privilagesPanel
-            // 
-            privilagesPanel.BackColor = Color.WhiteSmoke;
-            privilagesPanel.Controls.Add(deleteRButton);
-            privilagesPanel.Controls.Add(label3);
-            privilagesPanel.Controls.Add(createRButton);
-            privilagesPanel.Controls.Add(username1);
-            privilagesPanel.Location = new Point(50, 52);
-            privilagesPanel.Name = "privilagesPanel";
-            privilagesPanel.Size = new Size(804, 150);
-            privilagesPanel.TabIndex = 4;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -75,6 +63,19 @@
             label1.Size = new Size(177, 35);
             label1.TabIndex = 3;
             label1.Text = "Manage Role";
+            // 
+            // privilagesPanel
+            // 
+            privilagesPanel.BackColor = Color.WhiteSmoke;
+            privilagesPanel.BorderStyle = BorderStyle.FixedSingle;
+            privilagesPanel.Controls.Add(deleteRButton);
+            privilagesPanel.Controls.Add(label3);
+            privilagesPanel.Controls.Add(createRButton);
+            privilagesPanel.Controls.Add(username1);
+            privilagesPanel.Location = new Point(50, 52);
+            privilagesPanel.Name = "privilagesPanel";
+            privilagesPanel.Size = new Size(804, 150);
+            privilagesPanel.TabIndex = 4;
             // 
             // deleteRButton
             // 

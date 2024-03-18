@@ -1,4 +1,4 @@
-﻿namespace ISS_QLNoiBo.Main_Forms
+﻿namespace ISS_QLNoiBo.Admin_Forms
 {
     partial class SysPrivileges
     {
@@ -31,20 +31,23 @@
             panel1 = new Panel();
             label1 = new Label();
             privilagesPanel = new Panel();
+            adminOptBox = new CheckBox();
+            button1 = new Button();
+            sysPrivilegedBox = new ComboBox();
             label4 = new Label();
             label3 = new Label();
             createUButton = new Button();
             username1 = new TextBox();
-            sysPrivilegedBox = new ComboBox();
-            button1 = new Button();
-            adminOptBox = new CheckBox();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
             privilagesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(privilagesPanel);
             panel1.Dock = DockStyle.Fill;
@@ -58,7 +61,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(341, 100);
+            label1.Location = new Point(341, 50);
             label1.Name = "label1";
             label1.Size = new Size(222, 35);
             label1.TabIndex = 7;
@@ -67,6 +70,7 @@
             // privilagesPanel
             // 
             privilagesPanel.BackColor = Color.WhiteSmoke;
+            privilagesPanel.BorderStyle = BorderStyle.FixedSingle;
             privilagesPanel.Controls.Add(adminOptBox);
             privilagesPanel.Controls.Add(button1);
             privilagesPanel.Controls.Add(sysPrivilegedBox);
@@ -74,10 +78,44 @@
             privilagesPanel.Controls.Add(label3);
             privilagesPanel.Controls.Add(createUButton);
             privilagesPanel.Controls.Add(username1);
-            privilagesPanel.Location = new Point(250, 150);
+            privilagesPanel.Location = new Point(250, 70);
             privilagesPanel.Name = "privilagesPanel";
             privilagesPanel.Size = new Size(404, 304);
             privilagesPanel.TabIndex = 4;
+            // 
+            // adminOptBox
+            // 
+            adminOptBox.AutoSize = true;
+            adminOptBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            adminOptBox.Location = new Point(50, 171);
+            adminOptBox.Name = "adminOptBox";
+            adminOptBox.Size = new Size(163, 23);
+            adminOptBox.TabIndex = 19;
+            adminOptBox.Text = "With admin option";
+            adminOptBox.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.SteelBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(220, 215);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 40);
+            button1.TabIndex = 18;
+            button1.Text = "Revoke";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // sysPrivilegedBox
+            // 
+            sysPrivilegedBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sysPrivilegedBox.FormattingEnabled = true;
+            sysPrivilegedBox.Location = new Point(50, 130);
+            sysPrivilegedBox.Name = "sysPrivilegedBox";
+            sysPrivilegedBox.Size = new Size(290, 27);
+            sysPrivilegedBox.TabIndex = 17;
             // 
             // label4
             // 
@@ -123,39 +161,18 @@
             username1.Size = new Size(290, 27);
             username1.TabIndex = 0;
             // 
-            // sysPrivilegedBox
+            // dataGridView1
             // 
-            sysPrivilegedBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            sysPrivilegedBox.FormattingEnabled = true;
-            sysPrivilegedBox.Location = new Point(50, 130);
-            sysPrivilegedBox.Name = "sysPrivilegedBox";
-            sysPrivilegedBox.Size = new Size(290, 27);
-            sysPrivilegedBox.TabIndex = 17;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.SteelBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(220, 215);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 40);
-            button1.TabIndex = 18;
-            button1.Text = "Revoke";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // adminOptBox
-            // 
-            adminOptBox.AutoSize = true;
-            adminOptBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            adminOptBox.Location = new Point(50, 171);
-            adminOptBox.Name = "adminOptBox";
-            adminOptBox.Size = new Size(163, 23);
-            adminOptBox.TabIndex = 19;
-            adminOptBox.Text = "With admin option";
-            adminOptBox.UseVisualStyleBackColor = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Bottom;
+            dataGridView1.Location = new Point(0, 404);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(904, 300);
+            dataGridView1.TabIndex = 8;
             // 
             // SysPrivileges
             // 
@@ -170,6 +187,7 @@
             panel1.PerformLayout();
             privilagesPanel.ResumeLayout(false);
             privilagesPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -185,5 +203,6 @@
         private ComboBox sysPrivilegedBox;
         private Button button1;
         private CheckBox adminOptBox;
+        private DataGridView dataGridView1;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ISS_QLNoiBo.Main_Forms
+﻿namespace ISS_QLNoiBo.Admin_Forms
 {
     partial class Privileges
     {
@@ -82,9 +82,9 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(316, 308);
+            button1.Location = new Point(407, 322);
             button1.Name = "button1";
-            button1.Size = new Size(90, 40);
+            button1.Size = new Size(90, 30);
             button1.TabIndex = 6;
             button1.Text = "Refresh";
             button1.UseVisualStyleBackColor = false;
@@ -104,6 +104,7 @@
             // panel2
             // 
             panel2.BackColor = Color.WhiteSmoke;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(tableCboBox);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(columnBox);
@@ -283,6 +284,7 @@
             // privilagesPanel
             // 
             privilagesPanel.BackColor = Color.WhiteSmoke;
+            privilagesPanel.BorderStyle = BorderStyle.FixedSingle;
             privilagesPanel.Controls.Add(label4);
             privilagesPanel.Controls.Add(label3);
             privilagesPanel.Controls.Add(revoke1Button);

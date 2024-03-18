@@ -12,7 +12,7 @@ using System.Diagnostics.CodeAnalysis;
 using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
 
-namespace ISS_QLNoiBo.Main_Forms
+namespace ISS_QLNoiBo.Admin_Forms
 {
     public partial class Privileges : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace ISS_QLNoiBo.Main_Forms
+﻿namespace ISS_QLNoiBo.Admin_Forms
 {
     partial class ManageUsers
     {
@@ -73,6 +73,7 @@
             // panel2
             // 
             panel2.BackColor = Color.WhiteSmoke;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(lockAccBox);
             panel2.Controls.Add(quotaUpDown);
             panel2.Controls.Add(label6);
@@ -203,6 +204,7 @@
             // privilagesPanel
             // 
             privilagesPanel.BackColor = Color.WhiteSmoke;
+            privilagesPanel.BorderStyle = BorderStyle.FixedSingle;
             privilagesPanel.Controls.Add(button3);
             privilagesPanel.Controls.Add(label4);
             privilagesPanel.Controls.Add(label3);

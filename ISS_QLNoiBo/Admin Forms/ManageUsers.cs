@@ -11,7 +11,7 @@ using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace ISS_QLNoiBo.Main_Forms
+namespace ISS_QLNoiBo.Admin_Forms
 {
     public partial class ManageUsers : Form
     {

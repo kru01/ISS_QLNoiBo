@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ISS_QLNoiBo
+namespace ISS_QLNoiBo.Admin_Forms
 {
-    public partial class Users : Form
+    public partial class SysPrivileges : Form
     {
-        public Users()
+        public SysPrivileges()
         {
             InitializeComponent();
         }
