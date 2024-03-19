@@ -4,32 +4,30 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace ISS_QLNoiBo.Admin_Forms
 {
-    public partial class Privileges : Form
+    public partial class GrantRoleTable : Form
     {
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
         readonly String gridSql = "SELECT GRANTEE, OWNER, TABLE_NAME, GRANTOR, PRIVILEGE, GRANTABLE, \"TYPE\"";
-        public Privileges()
+        public GrantRoleTable()
         {
             InitializeComponent();
         }
 
         private void Privileges_Load(object sender, EventArgs e)
         {
-            tableCboBox.SelectedItem = "COSO";
-
-            String sql = gridSql + " FROM (SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN " +
-                        "(SELECT GRANTED_ROLE FROM DBA_ROLE_PRIVS " +
-                        "WHERE GRANTEE IN (SELECT MANV FROM A01_QLNOIBO.NHANSU)) " +
-                    "UNION ALL " +
-                    "SELECT * FROM DBA_TAB_PRIVS " +
-                    "WHERE GRANTEE IN (SELECT MANV FROM A01_QLNOIBO.NHANSU))";
+            button1.PerformClick();
+            String sql = "SELECT TABLE_NAME FROM DBA_TABLES " +
+                "WHERE OWNER = 'A01_QLNOIBO' ORDER BY TABLE_NAME";
             OracleDataAdapter adp = new(sql, conn);
             try
             {
-                DataTable dt = new();
-                adp.Fill(dt);
-                usersData.DataSource = dt;
+                DataSet ds = new();
+                adp.Fill(ds, "TABLES");
+                tableCboBox.DisplayMember = "TABLE_NAME";
+                tableCboBox.ValueMember = "TABLE_NAME";
+                tableCboBox.DataSource = ds.Tables["TABLES"];
+                tableCboBox.Text = "COSO";
             }
             catch (Exception ex)
             {
@@ -188,8 +186,8 @@ namespace ISS_QLNoiBo.Admin_Forms
             textBox1.Text = cRow.Cells["GRANTEE"].Value.ToString();
             tableCboBox.Text = cRow.Cells["TABLE_NAME"].Value.ToString();
 
-            selectBox.Checked = insertBox.Checked
-                = updateBox.Checked = deleteBox.Checked = false;
+            insertBox.Checked = selectBox.Checked = updateBox.Checked
+                = deleteBox.Checked = grantOptBox.Checked = false;
             switch (cRow.Cells["PRIVILEGE"].Value.ToString())
             {
                 case "SELECT":
@@ -212,9 +210,10 @@ namespace ISS_QLNoiBo.Admin_Forms
             String sql = gridSql + " FROM (SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN " +
                         "(SELECT GRANTED_ROLE FROM DBA_ROLE_PRIVS " +
                         "WHERE GRANTEE IN (SELECT MANV FROM A01_QLNOIBO.NHANSU)) " +
-                    "UNION ALL " +
-                    "SELECT * FROM DBA_TAB_PRIVS " +
-                    "WHERE GRANTEE IN (SELECT MANV FROM A01_QLNOIBO.NHANSU))";
+                        "UNION ALL " +
+                        "SELECT * FROM DBA_TAB_PRIVS " +
+                        "WHERE GRANTEE IN (SELECT MANV FROM A01_QLNOIBO.NHANSU)) " +
+                    "ORDER BY GRANTEE";
             OracleDataAdapter adp = new(sql, conn);
             try
             {

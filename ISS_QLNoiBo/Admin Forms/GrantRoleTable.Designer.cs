@@ -1,6 +1,6 @@
 ﻿namespace ISS_QLNoiBo.Admin_Forms
 {
-    partial class Privileges
+    partial class GrantRoleTable
     {
         /// <summary>
         /// Required designer variable.
@@ -127,7 +127,6 @@
             // 
             tableCboBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tableCboBox.FormattingEnabled = true;
-            tableCboBox.Items.AddRange(new object[] { "COSO", "CTDAOTAO", "DANGKY", "DONVI", "HOCPHAN", "KHMO", "NGANH", "NHANSU", "PHANCONG", "SINHVIEN", "THONGBAO", "VAITRO" });
             tableCboBox.Location = new Point(50, 130);
             tableCboBox.Name = "tableCboBox";
             tableCboBox.Size = new Size(200, 27);
@@ -383,14 +382,14 @@
             usersData.TabIndex = 1;
             usersData.CellClick += usersData_CellClick;
             // 
-            // Privileges
+            // GrantRoleTable
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(904, 704);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Privileges";
+            Name = "GrantRoleTable";
             Text = "Privileges";
             Load += Privileges_Load;
             panel1.ResumeLayout(false);

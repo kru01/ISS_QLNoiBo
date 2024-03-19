@@ -18,27 +18,27 @@ namespace ISS_QLNoiBo
 
         private void userButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.UserTab(), this.mainPanel);
+            Helper.loadform(new Admin_Forms.InspectPriv(), this.mainPanel);
         }
 
         private void privilegesButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.Privileges(), this.mainPanel);
+            Helper.loadform(new Admin_Forms.GrantRoleTable(), this.mainPanel);
         }
 
         private void usersManageButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.ManageUsers(), this.mainPanel);
+            Helper.loadform(new Admin_Forms.ManageUser(), this.mainPanel);
         }
 
         private void roleButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.RoleTab(), this.mainPanel);
+            Helper.loadform(new Admin_Forms.ManageRole(), this.mainPanel);
         }
 
         private void sysPreButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.SysPrivileges(), this.mainPanel);
+            Helper.loadform(new Admin_Forms.GrantSysPriv(), this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)

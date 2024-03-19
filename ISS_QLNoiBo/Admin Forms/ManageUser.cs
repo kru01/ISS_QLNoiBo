@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ISS_QLNoiBo.Admin_Forms
 {
-    public partial class ManageUsers : Form
+    public partial class ManageUser : Form
     {
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
@@ -23,7 +23,7 @@ namespace ISS_QLNoiBo.Admin_Forms
             "QU.TABLESPACE_NAME \"QUOTA_TABLESPACE\", QU.BYTES \"QUOTA_BYTES\", " +
             "QU.MAX_BYTES \"QUOTA_MAX_BYTES\" " +
             "FROM DBA_USERS US LEFT JOIN DBA_TS_QUOTAS QU ON US.USERNAME = QU.USERNAME";
-        public ManageUsers()
+        public ManageUser()
         {
             InitializeComponent();
             this.Load += ManageUsers_Load;
@@ -31,19 +31,7 @@ namespace ISS_QLNoiBo.Admin_Forms
 
         private void ManageUsers_Load(object? sender, EventArgs e)
         {
-            String sql = gridSql +
-                " WHERE US.USER_ID > 150 AND US.USER_ID < 1000000 ORDER BY US.USERNAME";
-            OracleDataAdapter adp = new(sql, conn);
-            try
-            {
-                DataTable dt = new();
-                adp.Fill(dt);
-                usersData.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            button3.PerformClick();
         }
 
         private void createUButton_Click(object sender, EventArgs e)
@@ -83,10 +71,10 @@ namespace ISS_QLNoiBo.Admin_Forms
                 MessageBox.Show("Vui lòng nhập user muốn delete!");
                 return;
             }
-            String sqlDr = $"DROP USER {username1.Text} CASCADE";
+            String sqlDr = $"DROP USER {username2.Text} CASCADE";
             OracleCommand cmd = new(sqlDr, conn);
-            String sqlSe = gridSql +
-                " WHERE US.USER_ID > 150 AND US.USER_ID < 1000000 ORDER BY US.USERNAME";
+            String sqlSe = gridSql + $" WHERE US.USER_ID > {OracleConfig.UIDBounds.low} " +
+                $"AND US.USER_ID < {OracleConfig.UIDBounds.high} ORDER BY US.USERNAME";
             OracleDataAdapter adp = new(sqlSe, conn);
 
             try
@@ -157,8 +145,8 @@ namespace ISS_QLNoiBo.Admin_Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String sql = gridSql +
-                " WHERE US.USER_ID > 150 AND US.USER_ID < 1000000 ORDER BY US.USERNAME";
+            String sql = gridSql + $" WHERE US.USER_ID > {(int)OracleConfig.UIDBounds.low} " +
+                $"AND US.USER_ID < {(int)OracleConfig.UIDBounds.high} ORDER BY US.USERNAME";
             OracleDataAdapter adp = new(sql, conn);
             try
             {
