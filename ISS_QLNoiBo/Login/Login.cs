@@ -1,5 +1,7 @@
-﻿using ISS_QLNoiBo.Others;
-using Oracle.ManagedDataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
+using ISS_QLNoiBo.Employee_Forms;
+using ISS_QLNoiBo.Lecturer_Forms;
+using ISS_QLNoiBo.Others;
 
 namespace ISS_QLNoiBo
 {
@@ -58,7 +60,20 @@ namespace ISS_QLNoiBo
                     {
                         Admin_Main form = new();
                         form.CurrentUsername = username.Text;
-                        form.CurrentPass = password.Text;
+                        form.ShowDialog();
+                    }
+
+                    else if (username.Text[..2] == "NV")
+                    {
+                        Emp_Main form = new();
+                        form.CurrentUser = username.Text;
+                        form.ShowDialog();
+                    }
+
+                    else if (username.Text[..1] == "V")
+                    {
+                        Lecturer_Main form = new();
+                        form.CurrentUser = username.Text;
                         form.ShowDialog();
                     }
 

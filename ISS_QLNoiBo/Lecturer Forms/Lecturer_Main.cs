@@ -2,23 +2,23 @@
 using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
 
-namespace ISS_QLNoiBo.Employee_Forms
+namespace ISS_QLNoiBo.Lecturer_Forms
 {
-    public partial class Emp_Main : Form
+    public partial class Lecturer_Main : Form
     {
         public string CurrentUser { get; set; } = string.Empty;
 
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
 
-        public Emp_Main()
+        public Lecturer_Main()
         {
             InitializeComponent();
         }
 
-        private void Emp_Main_Load(object sender, EventArgs e)
+        private void Lecturer_Main_Load(object sender, EventArgs e)
         {
-            empID.Text = CurrentUser;
+            lecturerID.Text = CurrentUser;
 
             String sql = $"SELECT HOTEN FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
             OracleCommand cmd = new(sql, conn);
@@ -28,7 +28,7 @@ namespace ISS_QLNoiBo.Employee_Forms
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    EmpName.Text = reader["HOTEN"].ToString();
+                    lecturerName.Text = reader["HOTEN"].ToString();
                 }
             }
             catch (Exception ex)
@@ -53,6 +53,20 @@ namespace ISS_QLNoiBo.Employee_Forms
         private void courseButton_Click(object sender, EventArgs e)
         {
             Helper.loadform(new Course(), this.mainPanel);
+        }
+
+        private void assignmentButton_Click(object sender, EventArgs e)
+        {
+            Assignment f = new Assignment();
+            f.CurrentUser = CurrentUser;
+            Helper.loadform(f, this.mainPanel);
+        }
+
+        private void classButton_Click(object sender, EventArgs e)
+        {
+            Class f = new Class();
+            f.CurrentUser = CurrentUser;
+            Helper.loadform(f, this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)

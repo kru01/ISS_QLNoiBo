@@ -27,4 +27,11 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Ministry Forms\" />
+    <Folder Include="DeptHead Forms\" />
+    <Folder Include="UnitHead Forms\" />
+    <Folder Include="Student Forms\" />
+  </ItemGroup>
+
 </Project>

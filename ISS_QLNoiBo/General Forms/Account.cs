@@ -1,24 +1,15 @@
 ﻿using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ISS_QLNoiBo.General_Forms
 {
     public partial class Account : Form
     {
-        public string CurrentPass { get; set; } = string.Empty;
-        public string CurrentUsername { get; set; } = string.Empty;
+        public string CurrentUser { get; set; } = string.Empty;
 
-        OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-        $"User Id = AD0001;password = 123;");
+        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
+            $"User Id = AD0001;password = 123;");
+
         public Account()
         {
             InitializeComponent();
@@ -26,26 +17,26 @@ namespace ISS_QLNoiBo.General_Forms
 
         private void Account_Load(object sender, EventArgs e)
         {
-            String sql = $"SELECT * FROM NHANSU WHERE MANV='{CurrentUsername}'";
+            String sql = $"SELECT * FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
             OracleCommand cmd = new(sql, conn);
-            OracleDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                try
+                conn.Open();
+                OracleDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    conn.Open();
                     IDBox.Text = reader["MANV"].ToString();
                     nameBox.Text = reader["HOTEN"].ToString();
                     genderBox.Text = reader["PHAI"].ToString();
                     phoneBox.Text = reader["DT"].ToString();
                     bdayBox.Text = reader["NGSINH"].ToString();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally { conn.Close(); }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { conn.Close(); }
         }
 
         private void phoneBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -62,11 +53,13 @@ namespace ISS_QLNoiBo.General_Forms
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            String sql = $"UPDATE NHANSU SET DT = {phoneBox.Text} WHERE MANV = {CurrentUsername}";
+            String sql = $"UPDATE A01_QLNOIBO.NHANSU SET DT = '{phoneBox.Text}' WHERE MANV = '{CurrentUser}'";
+            OracleCommand cmd = new(sql, conn);
             try
             {
                 conn.Open();
-
+                cmd.ExecuteNonQuery();
+                MessageBox.Show($"Cập nhật thành công!");
             }
             catch (Exception ex)
             {
