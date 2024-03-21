@@ -33,7 +33,7 @@
             pictureBox1 = new PictureBox();
             signOutButton = new Button();
             button2 = new Button();
-            button1 = new Button();
+            viewButton = new Button();
             adminID = new Label();
             label1 = new Label();
             sysPreButton = new Button();
@@ -52,7 +52,7 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(signOutButton);
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(viewButton);
             panel1.Controls.Add(adminID);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(sysPreButton);
@@ -106,19 +106,20 @@
             button2.Text = "Test 2";
             button2.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // viewButton
             // 
-            button1.BackColor = Color.SteelBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(25, 500);
-            button1.Name = "button1";
-            button1.Size = new Size(250, 40);
-            button1.TabIndex = 9;
-            button1.Text = "Test";
-            button1.UseVisualStyleBackColor = false;
+            viewButton.BackColor = Color.SteelBlue;
+            viewButton.FlatAppearance.BorderSize = 0;
+            viewButton.FlatStyle = FlatStyle.Flat;
+            viewButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewButton.ForeColor = Color.White;
+            viewButton.Location = new Point(25, 500);
+            viewButton.Name = "viewButton";
+            viewButton.Size = new Size(250, 40);
+            viewButton.TabIndex = 9;
+            viewButton.Text = "Manage View";
+            viewButton.UseVisualStyleBackColor = false;
+            viewButton.Click += viewButton_Click;
             // 
             // adminID
             // 
@@ -149,7 +150,7 @@
             sysPreButton.FlatStyle = FlatStyle.Flat;
             sysPreButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             sysPreButton.ForeColor = Color.White;
-            sysPreButton.Location = new Point(25, 450);
+            sysPreButton.Location = new Point(25, 350);
             sysPreButton.Name = "sysPreButton";
             sysPreButton.Size = new Size(250, 40);
             sysPreButton.TabIndex = 4;
@@ -164,7 +165,7 @@
             roleButton.FlatStyle = FlatStyle.Flat;
             roleButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             roleButton.ForeColor = Color.White;
-            roleButton.Location = new Point(25, 400);
+            roleButton.Location = new Point(25, 450);
             roleButton.Name = "roleButton";
             roleButton.Size = new Size(250, 40);
             roleButton.TabIndex = 3;
@@ -179,7 +180,7 @@
             usersManageButton.FlatStyle = FlatStyle.Flat;
             usersManageButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usersManageButton.ForeColor = Color.White;
-            usersManageButton.Location = new Point(25, 350);
+            usersManageButton.Location = new Point(25, 400);
             usersManageButton.Name = "usersManageButton";
             usersManageButton.Size = new Size(250, 40);
             usersManageButton.TabIndex = 2;
@@ -256,7 +257,7 @@
         private Label adminID;
         private Button signOutButton;
         private Button button2;
-        private Button button1;
+        private Button viewButton;
         private PictureBox pictureBox1;
     }
 }

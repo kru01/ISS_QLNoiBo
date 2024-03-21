@@ -22,7 +22,7 @@ namespace ISS_QLNoiBo.Admin_Forms
             InitializeComponent();
         }
 
-        private void GrantSysPriv_Load(object sender, EventArgs e)
+        private void ManageRole_Load(object sender, EventArgs e)
         {
             button3.PerformClick();
         }
@@ -47,7 +47,7 @@ namespace ISS_QLNoiBo.Admin_Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(sql + " " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -64,6 +64,10 @@ namespace ISS_QLNoiBo.Admin_Forms
             OracleCommand cmd = new(sqlCr, conn);
             String sqlSe = gridSql + $" WHERE ROLE = '{username1.Text}'";
             OracleDataAdapter adp = new(sqlSe, conn);
+
+            if (sqlCr.Contains("IDENTIFIED BY"))
+                sqlCr = $"{sqlCr[..(sqlCr.IndexOf("IDENTIFIED BY") + "IDENTIFIED BY".Length)]} *";
+
             try
             {
                 conn.Open();
@@ -118,6 +122,10 @@ namespace ISS_QLNoiBo.Admin_Forms
             OracleCommand cmd = new(sqlAl, conn);
             String sqlSe = gridSql + $" WHERE ROLE = '{username1.Text}'";
             OracleDataAdapter adp = new(sqlSe, conn);
+
+            if (sqlAl.Contains("IDENTIFIED BY"))
+                sqlAl = $"{sqlAl[..(sqlAl.IndexOf("IDENTIFIED BY") + "IDENTIFIED BY".Length)]} *";
+
             try
             {
                 conn.Open();

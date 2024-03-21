@@ -212,7 +212,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "ManageRole";
             Text = "RoleTab";
-            Load += GrantSysPriv_Load;
+            Load += ManageRole_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             privilagesPanel.ResumeLayout(false);

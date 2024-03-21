@@ -196,6 +196,7 @@
             // 
             // userName
             // 
+            userName.CharacterCasing = CharacterCasing.Upper;
             userName.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             userName.Location = new Point(20, 56);
             userName.Name = "userName";

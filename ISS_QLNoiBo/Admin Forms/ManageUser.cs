@@ -46,6 +46,7 @@ namespace ISS_QLNoiBo.Admin_Forms
             OracleCommand cmd = new(sqlCr, conn);
             String sqlSe = gridSql + $" WHERE US.USERNAME = '{username1.Text}'";
             OracleDataAdapter adp = new(sqlSe, conn);
+            sqlCr = $"{sqlCr[..(sqlCr.IndexOf("IDENTIFIED BY") + "IDENTIFIED BY".Length)]} *";
 
             try
             {
@@ -73,8 +74,8 @@ namespace ISS_QLNoiBo.Admin_Forms
             }
             String sqlDr = $"DROP USER {username2.Text} CASCADE";
             OracleCommand cmd = new(sqlDr, conn);
-            String sqlSe = gridSql + $" WHERE US.USER_ID > {OracleConfig.UIDBounds.low} " +
-                $"AND US.USER_ID < {OracleConfig.UIDBounds.high} ORDER BY US.USERNAME";
+            String sqlSe = gridSql + $" WHERE US.USER_ID > {(int)OracleConfig.UIDBounds.low} " +
+                $"AND US.USER_ID < {(int)OracleConfig.UIDBounds.high} ORDER BY US.USERNAME";
             OracleDataAdapter adp = new(sqlSe, conn);
 
             try
@@ -101,7 +102,7 @@ namespace ISS_QLNoiBo.Admin_Forms
                 return;
             }
 
-            String sqlAl = $"ALTER USER {username1.Text} ";
+            String sqlAl = $"ALTER USER {username2.Text} ";
             if (!String.IsNullOrWhiteSpace(password2.Text))
                 sqlAl += $"IDENTIFIED BY {password2.Text} ";
             if (quotaUpDown.Value > 0)
@@ -111,9 +112,14 @@ namespace ISS_QLNoiBo.Admin_Forms
             sqlAl += $"ACCOUNT {(lockAccBox.Checked ? "LOCK" : "UNLOCK")}";
 
             OracleCommand cmd = new(sqlAl, conn);
-            String sqlSe = gridSql + $" WHERE US.USERNAME = '{username1.Text}'";
+            String sqlSe = gridSql + $" WHERE US.USERNAME = '{username2.Text}'";
             OracleDataAdapter adp = new(sqlSe, conn);
 
+            if (sqlAl.Contains("IDENTIFIED BY"))
+                sqlAl = $"{sqlAl[..(sqlAl.IndexOf("IDENTIFIED BY") + "IDENTIFIED BY".Length)]} * " +
+                    $"{sqlAl[(sqlAl.Contains("QUOTA")
+                        ? sqlAl.IndexOf("QUOTA")
+                        : sqlAl.IndexOf("ACCOUNT"))..]}";
             try
             {
                 conn.Open();
