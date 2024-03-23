@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Xml;
 using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
 
@@ -8,17 +9,20 @@ namespace ISS_QLNoiBo.Admin_Forms
     {
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
-        readonly String gridSql = "SELECT GRANTEE, OWNER, TABLE_NAME, GRANTOR, PRIVILEGE, GRANTABLE, \"TYPE\"";
+        readonly String gridSql = "SELECT GRANTEE, OWNER, TABLE_NAME, GRANTOR, PRIVILEGE, " +
+            "GRANTABLE, \"TYPE\" FROM DBA_TAB_PRIVS";
         public GrantRoleTable()
         {
             InitializeComponent();
         }
 
-        private void Privileges_Load(object sender, EventArgs e)
+        private void GrantRoleTable_Load(object sender, EventArgs e)
         {
             button1.PerformClick();
-            String sql = "SELECT TABLE_NAME FROM DBA_TABLES " +
-                "WHERE OWNER = 'A01_QLNOIBO' ORDER BY TABLE_NAME";
+            String sql = "SELECT * FROM (SELECT TABLE_NAME FROM DBA_TABLES " +
+                "WHERE OWNER = 'A01_QLNOIBO' UNION " +
+                "SELECT VIEW_NAME \"TABLE_NAME\" FROM DBA_VIEWS " +
+                "WHERE OWNER = 'A01_QLNOIBO') ORDER BY TABLE_NAME";
             OracleDataAdapter adp = new(sql, conn);
             try
             {
@@ -116,7 +120,7 @@ namespace ISS_QLNoiBo.Admin_Forms
             if (grantOptBox.Checked) sqlGr += " WITH GRANT OPTION";
 
             OracleCommand cmd = new(sqlGr, conn);
-            String sqlSe = gridSql + $" FROM DBA_TAB_PRIVS WHERE GRANTEE = '{textBox1.Text}'";
+            String sqlSe = gridSql + $" WHERE GRANTEE = '{textBox1.Text}'";
             OracleDataAdapter adp = new(sqlSe, conn);
             try
             {
@@ -161,7 +165,7 @@ namespace ISS_QLNoiBo.Admin_Forms
                 + $"ON {OracleConfig.schema}.{tableCboBox.Text} FROM {textBox1.Text}";
 
             OracleCommand cmd = new(sqlRe, conn);
-            String sqlSe = gridSql + $" FROM DBA_TAB_PRIVS WHERE GRANTEE = '{textBox1.Text}'";
+            String sqlSe = gridSql + $" WHERE GRANTEE = '{textBox1.Text}'";
             OracleDataAdapter adp = new(sqlSe, conn);
             try
             {
@@ -207,13 +211,7 @@ namespace ISS_QLNoiBo.Admin_Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String sql = gridSql + " FROM (SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN " +
-                        "(SELECT GRANTED_ROLE FROM DBA_ROLE_PRIVS " +
-                        "WHERE GRANTEE IN (SELECT MANV FROM A01_QLNOIBO.NHANSU)) " +
-                        "UNION ALL " +
-                        "SELECT * FROM DBA_TAB_PRIVS " +
-                        "WHERE GRANTEE IN (SELECT MANV FROM A01_QLNOIBO.NHANSU)) " +
-                    "ORDER BY GRANTEE";
+            String sql = gridSql + " WHERE OWNER = 'A01_QLNOIBO' ORDER BY GRANTEE";
             OracleDataAdapter adp = new(sql, conn);
             try
             {
@@ -225,6 +223,34 @@ namespace ISS_QLNoiBo.Admin_Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void tableCboBox_TextChanged(object sender, EventArgs e)
+        {
+            OracleDataAdapter adp = new("SELECT COLUMN_NAME FROM DBA_TAB_COLUMNS " +
+                $"WHERE OWNER = '{OracleConfig.schema}' " +
+                $"AND TABLE_NAME = '{tableCboBox?.Text}'", conn);
+            try
+            {
+                DataSet ds = new();
+                adp.Fill(ds, "COLS");
+                colCboBox.DisplayMember = "COLUMN_NAME";
+                colCboBox.ValueMember = "COLUMN_NAME";
+                colCboBox.DataSource = ds.Tables["COLS"];
+                columnBox.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void colCboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (columnBox.Text.Contains(colCboBox.Text)) return;
+            if (String.IsNullOrWhiteSpace(columnBox.Text))
+                columnBox.Text = colCboBox.Text;
+            else columnBox.Text += $",{colCboBox.Text}";
         }
     }
 }

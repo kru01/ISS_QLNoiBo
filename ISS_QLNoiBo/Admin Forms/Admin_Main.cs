@@ -51,5 +51,10 @@ namespace ISS_QLNoiBo
                 this.Close();
             }
         }
+
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Admin_Forms.ManageView(), this.mainPanel);
+        }
     }
 }

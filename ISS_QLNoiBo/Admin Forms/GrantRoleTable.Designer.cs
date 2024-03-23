@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button1 = new Button();
             label2 = new Label();
             panel2 = new Panel();
+            colCboBox = new ComboBox();
             tableCboBox = new ComboBox();
             label7 = new Label();
             columnBox = new TextBox();
@@ -47,6 +47,7 @@
             textBox1 = new TextBox();
             label1 = new Label();
             privilagesPanel = new Panel();
+            button1 = new Button();
             label4 = new Label();
             label3 = new Label();
             revoke1Button = new Button();
@@ -63,7 +64,6 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(button1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label1);
@@ -75,27 +75,12 @@
             panel1.Size = new Size(904, 704);
             panel1.TabIndex = 0;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.SteelBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(407, 322);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 30);
-            button1.TabIndex = 6;
-            button1.Text = "Refresh";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(483, 32);
+            label2.Location = new Point(483, 12);
             label2.Name = "label2";
             label2.Size = new Size(262, 27);
             label2.TabIndex = 6;
@@ -105,6 +90,7 @@
             // 
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(colCboBox);
             panel2.Controls.Add(tableCboBox);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(columnBox);
@@ -118,10 +104,20 @@
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(textBox1);
-            panel2.Location = new Point(374, 45);
+            panel2.Location = new Point(374, 20);
             panel2.Name = "panel2";
-            panel2.Size = new Size(480, 275);
+            panel2.Size = new Size(480, 300);
             panel2.TabIndex = 5;
+            // 
+            // colCboBox
+            // 
+            colCboBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            colCboBox.FormattingEnabled = true;
+            colCboBox.Location = new Point(275, 200);
+            colCboBox.Name = "colCboBox";
+            colCboBox.Size = new Size(176, 27);
+            colCboBox.TabIndex = 17;
+            colCboBox.SelectedIndexChanged += colCboBox_SelectedIndexChanged;
             // 
             // tableCboBox
             // 
@@ -131,6 +127,7 @@
             tableCboBox.Name = "tableCboBox";
             tableCboBox.Size = new Size(200, 27);
             tableCboBox.TabIndex = 16;
+            tableCboBox.TextChanged += tableCboBox_TextChanged;
             // 
             // label7
             // 
@@ -215,7 +212,7 @@
             revoke2Button.FlatStyle = FlatStyle.Flat;
             revoke2Button.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             revoke2Button.ForeColor = Color.White;
-            revoke2Button.Location = new Point(371, 193);
+            revoke2Button.Location = new Point(275, 245);
             revoke2Button.Name = "revoke2Button";
             revoke2Button.Size = new Size(80, 40);
             revoke2Button.TabIndex = 6;
@@ -230,7 +227,7 @@
             grant2Button.FlatStyle = FlatStyle.Flat;
             grant2Button.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grant2Button.ForeColor = Color.White;
-            grant2Button.Location = new Point(275, 193);
+            grant2Button.Location = new Point(170, 245);
             grant2Button.Name = "grant2Button";
             grant2Button.Size = new Size(80, 40);
             grant2Button.TabIndex = 6;
@@ -274,7 +271,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(131, 32);
+            label1.Location = new Point(131, 12);
             label1.Name = "label1";
             label1.Size = new Size(133, 27);
             label1.TabIndex = 3;
@@ -284,16 +281,32 @@
             // 
             privilagesPanel.BackColor = Color.WhiteSmoke;
             privilagesPanel.BorderStyle = BorderStyle.FixedSingle;
+            privilagesPanel.Controls.Add(button1);
             privilagesPanel.Controls.Add(label4);
             privilagesPanel.Controls.Add(label3);
             privilagesPanel.Controls.Add(revoke1Button);
             privilagesPanel.Controls.Add(grant1Button);
             privilagesPanel.Controls.Add(role1);
             privilagesPanel.Controls.Add(username1);
-            privilagesPanel.Location = new Point(50, 45);
+            privilagesPanel.Location = new Point(50, 20);
             privilagesPanel.Name = "privilagesPanel";
-            privilagesPanel.Size = new Size(300, 275);
+            privilagesPanel.Size = new Size(300, 300);
             privilagesPanel.TabIndex = 4;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.SteelBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(104, 245);
+            button1.Name = "button1";
+            button1.Size = new Size(90, 40);
+            button1.TabIndex = 6;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label4
             // 
@@ -375,10 +388,10 @@
             usersData.BorderStyle = BorderStyle.None;
             usersData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             usersData.Dock = DockStyle.Bottom;
-            usersData.Location = new Point(0, 354);
+            usersData.Location = new Point(0, 341);
             usersData.Name = "usersData";
             usersData.RowHeadersWidth = 51;
-            usersData.Size = new Size(904, 350);
+            usersData.Size = new Size(904, 363);
             usersData.TabIndex = 1;
             usersData.CellClick += usersData_CellClick;
             // 
@@ -391,7 +404,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "GrantRoleTable";
             Text = "Privileges";
-            Load += Privileges_Load;
+            Load += GrantRoleTable_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -430,5 +443,6 @@
         private TextBox columnBox;
         private ComboBox tableCboBox;
         private Button button1;
+        private ComboBox colCboBox;
     }
 }

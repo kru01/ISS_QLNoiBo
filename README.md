@@ -4,6 +4,8 @@
 
 -   Group project from HCMUS's 2024 Data Security in Information Systems course.
 
+-   Demo for Admin subsystem: [Demo ATBM CSDL trong HTTT 2024 - Phân hệ 1 - ATBM-A-01](https://youtu.be/Q9bQsbvNSeU).
+
 ## Usage
 
 ### To set up the database
