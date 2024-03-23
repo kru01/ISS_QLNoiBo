@@ -32,12 +32,12 @@
             label3 = new Label();
             courseData = new DataGridView();
             label1 = new Label();
-            deptData = new DataGridView();
+            unitData = new DataGridView();
             label2 = new Label();
             planData = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)courseData).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)deptData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)unitData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)planData).BeginInit();
             SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(courseData);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(deptData);
+            panel1.Controls.Add(unitData);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(planData);
             panel1.Dock = DockStyle.Fill;
@@ -95,22 +95,22 @@
             label1.TabIndex = 9;
             label1.Text = "Unit";
             // 
-            // deptData
+            // unitData
             // 
-            deptData.AllowUserToAddRows = false;
-            deptData.AllowUserToDeleteRows = false;
-            deptData.AllowUserToResizeColumns = false;
-            deptData.AllowUserToResizeRows = false;
-            deptData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            deptData.BorderStyle = BorderStyle.None;
-            deptData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            deptData.Location = new Point(513, 353);
-            deptData.Name = "deptData";
-            deptData.ReadOnly = true;
-            deptData.RowHeadersVisible = false;
-            deptData.RowHeadersWidth = 51;
-            deptData.Size = new Size(390, 350);
-            deptData.TabIndex = 8;
+            unitData.AllowUserToAddRows = false;
+            unitData.AllowUserToDeleteRows = false;
+            unitData.AllowUserToResizeColumns = false;
+            unitData.AllowUserToResizeRows = false;
+            unitData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            unitData.BorderStyle = BorderStyle.None;
+            unitData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            unitData.Location = new Point(513, 353);
+            unitData.Name = "unitData";
+            unitData.ReadOnly = true;
+            unitData.RowHeadersVisible = false;
+            unitData.RowHeadersWidth = 51;
+            unitData.Size = new Size(390, 350);
+            unitData.TabIndex = 8;
             // 
             // label2
             // 
@@ -153,7 +153,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)courseData).EndInit();
-            ((System.ComponentModel.ISupportInitialize)deptData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)unitData).EndInit();
             ((System.ComponentModel.ISupportInitialize)planData).EndInit();
             ResumeLayout(false);
         }
@@ -162,7 +162,7 @@
 
         private Panel panel1;
         private Label label1;
-        private DataGridView deptData;
+        private DataGridView unitData;
         private Label label2;
         private DataGridView planData;
         private DataGridView courseData;

@@ -1,6 +1,6 @@
-﻿namespace ISS_QLNoiBo.Lecturer_Forms
+﻿namespace ISS_QLNoiBo.Student_Forms
 {
-    partial class Class
+    partial class ClassView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            classViewData = new DataGridView();
             panel1 = new Panel();
             panel2 = new Panel();
-            refreshButton = new Button();
-            updateButton = new Button();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -42,33 +41,46 @@
             eScore = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            studentID = new TextBox();
-            studentName = new TextBox();
+            courseID = new TextBox();
+            courseName = new TextBox();
             label1 = new Label();
-            classData = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)classViewData).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)classData).BeginInit();
             SuspendLayout();
+            // 
+            // classViewData
+            // 
+            classViewData.AllowUserToAddRows = false;
+            classViewData.AllowUserToDeleteRows = false;
+            classViewData.AllowUserToResizeColumns = false;
+            classViewData.AllowUserToResizeRows = false;
+            classViewData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            classViewData.BorderStyle = BorderStyle.None;
+            classViewData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            classViewData.Dock = DockStyle.Bottom;
+            classViewData.Location = new Point(0, 304);
+            classViewData.Name = "classViewData";
+            classViewData.RowHeadersVisible = false;
+            classViewData.RowHeadersWidth = 51;
+            classViewData.Size = new Size(904, 400);
+            classViewData.TabIndex = 0;
+            classViewData.CellClick += classViewData_CellClick;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(classData);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(904, 704);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(refreshButton);
-            panel2.Controls.Add(updateButton);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
@@ -79,52 +91,23 @@
             panel2.Controls.Add(eScore);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(studentID);
-            panel2.Controls.Add(studentName);
-            panel2.Location = new Point(25, 30);
+            panel2.Controls.Add(courseID);
+            panel2.Controls.Add(courseName);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(25, 25);
             panel2.Name = "panel2";
             panel2.Size = new Size(854, 250);
-            panel2.TabIndex = 1;
-            // 
-            // refreshButton
-            // 
-            refreshButton.BackColor = Color.SteelBlue;
-            refreshButton.FlatAppearance.BorderSize = 0;
-            refreshButton.FlatStyle = FlatStyle.Flat;
-            refreshButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            refreshButton.ForeColor = Color.White;
-            refreshButton.Location = new Point(454, 190);
-            refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(200, 40);
-            refreshButton.TabIndex = 16;
-            refreshButton.Text = "Refresh";
-            refreshButton.UseVisualStyleBackColor = false;
-            refreshButton.Click += refreshButton_Click;
-            // 
-            // updateButton
-            // 
-            updateButton.BackColor = Color.SteelBlue;
-            updateButton.FlatAppearance.BorderSize = 0;
-            updateButton.FlatStyle = FlatStyle.Flat;
-            updateButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            updateButton.ForeColor = Color.White;
-            updateButton.Location = new Point(200, 190);
-            updateButton.Name = "updateButton";
-            updateButton.Size = new Size(200, 40);
-            updateButton.TabIndex = 15;
-            updateButton.Text = "Update";
-            updateButton.UseVisualStyleBackColor = false;
-            updateButton.Click += updateButton_Click;
+            panel2.TabIndex = 0;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.SteelBlue;
-            label7.Location = new Point(579, 114);
+            label7.Location = new Point(579, 123);
             label7.Name = "label7";
             label7.Size = new Size(81, 23);
-            label7.TabIndex = 14;
+            label7.TabIndex = 22;
             label7.Text = "Avarage";
             // 
             // label6
@@ -132,10 +115,10 @@
             label6.AutoSize = true;
             label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(452, 114);
+            label6.Location = new Point(452, 123);
             label6.Name = "label6";
             label6.Size = new Size(47, 23);
-            label6.TabIndex = 13;
+            label6.TabIndex = 21;
             label6.Text = "Final";
             // 
             // label5
@@ -143,10 +126,10 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(326, 114);
+            label5.Location = new Point(326, 123);
             label5.Name = "label5";
             label5.Size = new Size(69, 23);
-            label5.TabIndex = 12;
+            label5.TabIndex = 20;
             label5.Text = "Process";
             // 
             // label4
@@ -154,152 +137,133 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(198, 114);
+            label4.Location = new Point(198, 123);
             label4.Name = "label4";
             label4.Size = new Size(75, 23);
-            label4.TabIndex = 11;
+            label4.TabIndex = 19;
             label4.Text = "Exercise";
             // 
             // pScore
             // 
             pScore.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pScore.Location = new Point(326, 140);
+            pScore.Location = new Point(326, 149);
             pScore.Name = "pScore";
             pScore.PlaceholderText = "Process";
+            pScore.ReadOnly = true;
             pScore.Size = new Size(75, 27);
-            pScore.TabIndex = 10;
-            pScore.KeyPress += pScore_KeyPress;
+            pScore.TabIndex = 18;
             // 
             // fScore
             // 
             fScore.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            fScore.Location = new Point(452, 140);
+            fScore.Location = new Point(452, 149);
             fScore.Name = "fScore";
             fScore.PlaceholderText = "Final";
+            fScore.ReadOnly = true;
             fScore.Size = new Size(75, 27);
-            fScore.TabIndex = 9;
-            fScore.KeyPress += fScore_KeyPress;
+            fScore.TabIndex = 17;
             // 
             // aScore
             // 
             aScore.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            aScore.Location = new Point(579, 140);
+            aScore.Location = new Point(579, 149);
             aScore.Name = "aScore";
             aScore.PlaceholderText = "Avarage";
+            aScore.ReadOnly = true;
             aScore.Size = new Size(75, 27);
-            aScore.TabIndex = 8;
-            aScore.KeyPress += aScore_KeyPress;
+            aScore.TabIndex = 16;
             // 
             // eScore
             // 
             eScore.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            eScore.Location = new Point(200, 140);
+            eScore.Location = new Point(200, 149);
             eScore.Name = "eScore";
             eScore.PlaceholderText = "Exercise";
+            eScore.ReadOnly = true;
             eScore.Size = new Size(75, 27);
-            eScore.TabIndex = 7;
-            eScore.KeyPress += eScore_KeyPress;
+            eScore.TabIndex = 15;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(354, 44);
+            label3.Location = new Point(354, 54);
             label3.Name = "label3";
-            label3.Size = new Size(122, 23);
-            label3.TabIndex = 6;
-            label3.Text = "Student Name";
+            label3.Size = new Size(118, 23);
+            label3.TabIndex = 10;
+            label3.Text = "Course Name";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(200, 43);
+            label2.Location = new Point(200, 54);
             label2.Name = "label2";
-            label2.Size = new Size(91, 23);
-            label2.TabIndex = 5;
-            label2.Text = "Student ID";
+            label2.Size = new Size(87, 23);
+            label2.TabIndex = 9;
+            label2.Text = "Course ID";
             // 
-            // studentID
+            // courseID
             // 
-            studentID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            studentID.Location = new Point(200, 70);
-            studentID.Name = "studentID";
-            studentID.PlaceholderText = "Student ID";
-            studentID.ReadOnly = true;
-            studentID.Size = new Size(100, 27);
-            studentID.TabIndex = 4;
+            courseID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            courseID.Location = new Point(200, 80);
+            courseID.Name = "courseID";
+            courseID.PlaceholderText = "Course ID";
+            courseID.ReadOnly = true;
+            courseID.Size = new Size(100, 27);
+            courseID.TabIndex = 8;
             // 
-            // studentName
+            // courseName
             // 
-            studentName.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            studentName.Location = new Point(354, 70);
-            studentName.Name = "studentName";
-            studentName.PlaceholderText = "Student Name";
-            studentName.ReadOnly = true;
-            studentName.Size = new Size(300, 27);
-            studentName.TabIndex = 3;
+            courseName.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            courseName.Location = new Point(354, 80);
+            courseName.Name = "courseName";
+            courseName.PlaceholderText = "Course Name";
+            courseName.ReadOnly = true;
+            courseName.Size = new Size(300, 27);
+            courseName.TabIndex = 7;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(331, 9);
+            label1.Location = new Point(354, -1);
             label1.Name = "label1";
-            label1.Size = new Size(243, 35);
-            label1.TabIndex = 2;
-            label1.Text = "Class Management";
+            label1.Size = new Size(145, 35);
+            label1.TabIndex = 3;
+            label1.Text = "Class View";
             // 
-            // classData
-            // 
-            classData.AllowUserToAddRows = false;
-            classData.AllowUserToDeleteRows = false;
-            classData.AllowUserToResizeColumns = false;
-            classData.AllowUserToResizeRows = false;
-            classData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            classData.BorderStyle = BorderStyle.None;
-            classData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            classData.Dock = DockStyle.Bottom;
-            classData.Location = new Point(0, 304);
-            classData.Name = "classData";
-            classData.ReadOnly = true;
-            classData.RowHeadersVisible = false;
-            classData.RowHeadersWidth = 51;
-            classData.Size = new Size(904, 400);
-            classData.TabIndex = 0;
-            classData.CellClick += classData_CellClick;
-            // 
-            // Class
+            // ClassView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(904, 704);
+            Controls.Add(classViewData);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Class";
-            Text = "Class";
-            Load += Class_Load;
+            Name = "ClassView";
+            Text = "ClassView";
+            Load += ClassView_Load;
+            ((System.ComponentModel.ISupportInitialize)classViewData).EndInit();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)classData).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
+        private DataGridView classViewData;
         private Panel panel1;
-        private DataGridView classData;
         private Panel panel2;
         private Label label1;
-        private TextBox studentID;
-        private TextBox studentName;
-        private Label label2;
         private Label label3;
+        private Label label2;
+        private TextBox courseID;
+        private TextBox courseName;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -308,7 +272,5 @@
         private TextBox fScore;
         private TextBox aScore;
         private TextBox eScore;
-        private Button updateButton;
-        private Button refreshButton;
     }
 }

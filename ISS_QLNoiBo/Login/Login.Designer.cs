@@ -135,7 +135,6 @@
         private TextBox username;
         private TextBox password;
         private Button loginButton;
-        private Button exit_button;
         private Label label1;
         private Label label2;
         private Label label3;

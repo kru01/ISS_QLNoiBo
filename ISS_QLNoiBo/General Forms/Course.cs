@@ -1,14 +1,6 @@
 ﻿using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ISS_QLNoiBo.General_Forms
 {
@@ -23,21 +15,21 @@ namespace ISS_QLNoiBo.General_Forms
 
         private void Course_Load(object sender, EventArgs e)
         {
-            OracleDataAdapter adp1 = new("SELECT * FROM A01_QLNOIBO.HOCPHAN", conn);
-            OracleDataAdapter adp2 = new("SELECT * FROM A01_QLNOIBO.DONVI", conn);
-            OracleDataAdapter adp3 = new("SELECT * FROM A01_QLNOIBO.KHMO", conn);
+            OracleDataAdapter adpCourse = new("SELECT * FROM A01_QLNOIBO.HOCPHAN", conn);
+            OracleDataAdapter adpUnit = new("SELECT * FROM A01_QLNOIBO.DONVI", conn);
+            OracleDataAdapter adpPlan = new("SELECT * FROM A01_QLNOIBO.KHMO", conn);
 
             try
             {
-                DataTable dt1 = new();
-                DataTable dt2 = new();
-                DataTable dt3 = new();
-                adp1.Fill(dt1);
-                adp2.Fill(dt2);
-                adp3.Fill(dt3);
-                courseData.DataSource = dt1;
-                deptData.DataSource = dt2;
-                planData.DataSource = dt3;
+                DataTable dtCourse = new();
+                DataTable dtUnit = new();
+                DataTable dtPlan = new();
+                adpCourse.Fill(dtCourse);
+                adpUnit.Fill(dtUnit);
+                adpPlan.Fill(dtPlan);
+                courseData.DataSource = dtCourse;
+                unitData.DataSource = dtUnit;
+                planData.DataSource = dtPlan;
             }
             catch (Exception ex)
             {

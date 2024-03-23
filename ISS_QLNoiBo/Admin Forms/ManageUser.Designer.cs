@@ -327,7 +327,6 @@
         #endregion
 
         private Panel panel1;
-        private ComboBox tableCboBox;
         private Panel privilagesPanel;
         private Label label4;
         private Label label3;

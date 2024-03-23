@@ -1,23 +1,23 @@
 ﻿using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
 
-namespace ISS_QLNoiBo.General_Forms
+namespace ISS_QLNoiBo.Student_Forms
 {
-    public partial class Account : Form
+    public partial class Student_Account : Form
     {
         public string CurrentUser { get; set; } = string.Empty;
 
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
 
-        public Account()
+        public Student_Account()
         {
             InitializeComponent();
         }
 
-        private void Account_Load(object sender, EventArgs e)
+        private void Student_Account_Load(object sender, EventArgs e)
         {
-            String sql = $"SELECT * FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
+            String sql = $"SELECT * FROM A01_QLNOIBO.SINHVIEN WHERE MASV='{CurrentUser}'";
             OracleCommand cmd = new(sql, conn);
             try
             {
@@ -25,11 +25,12 @@ namespace ISS_QLNoiBo.General_Forms
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    IDBox.Text = reader["MANV"].ToString();
+                    IDBox.Text = reader["MASV"].ToString();
                     nameBox.Text = reader["HOTEN"].ToString();
                     genderBox.Text = reader["PHAI"].ToString();
                     phoneBox.Text = reader["DT"].ToString();
                     bdayBox.Text = reader["NGSINH"].ToString();
+                    addressBox.Text = reader["DCHI"].ToString();
                 }
             }
             catch (Exception ex)
@@ -53,7 +54,9 @@ namespace ISS_QLNoiBo.General_Forms
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            String sql = $"UPDATE A01_QLNOIBO.NHANSU SET DT='{phoneBox.Text}' WHERE MANV='{CurrentUser}'";
+            String sql = $"UPDATE A01_QLNOIBO.SINHVIEN " +
+                $"SET DT='{phoneBox.Text}', DCHI='{addressBox.Text}' " +
+                $"WHERE MASV='{CurrentUser}'";
             OracleCommand cmd = new(sql, conn);
             try
             {

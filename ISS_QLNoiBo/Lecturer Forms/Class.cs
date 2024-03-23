@@ -8,6 +8,8 @@ namespace ISS_QLNoiBo.Lecturer_Forms
     {
         public string CurrentUser { get; set; } = string.Empty;
 
+        private string classSQL = string.Empty;
+
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
 
@@ -23,6 +25,8 @@ namespace ISS_QLNoiBo.Lecturer_Forms
                 $"JOIN A01_QLNOIBO.HOCPHAN HP ON HP.MAHP=DK.MAHP " +
                 $"WHERE DK.MAGV='{CurrentUser}' " +
                 $"ORDER BY DK.MAHP, DK.MASV, DK.NAM, DK.HK";
+
+            classSQL = sql;
 
             OracleDataAdapter adp = new(sql, conn);
 
@@ -49,6 +53,89 @@ namespace ISS_QLNoiBo.Lecturer_Forms
             pScore.Text = cRow.Cells["DIEMQT"].Value.ToString();
             fScore.Text = cRow.Cells["DIEMCK"].Value.ToString();
             aScore.Text = cRow.Cells["DIEMTK"].Value.ToString();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            if ((float.Parse(eScore.Text) < 0 || float.Parse(eScore.Text) > 10) ||
+                (float.Parse(pScore.Text) < 0 || float.Parse(pScore.Text) > 10) ||
+                (float.Parse(fScore.Text) < 0 || float.Parse(fScore.Text) > 10) ||
+                (float.Parse(aScore.Text) < 0 || float.Parse(aScore.Text) > 10))
+            {
+                MessageBox.Show("Điểm nhập vào phải nằm trong khoảng từ 0 đến 10");
+            }
+            else
+            {
+                String sql = $"UPDATE A01_QLNOIBO.DANGKY " +
+                    $"SET DIEMTH={eScore.Text}, DIEMQT={pScore.Text}, DIEMCK={fScore.Text}, DIEMTK={aScore.Text} " +
+                    $"WHERE MAGV='{CurrentUser}' AND MASV='{studentID.Text}'";
+                OracleCommand cmd = new(sql, conn);
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thành công!");
+                    Helper.refreshData(classSQL, classData);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally { conn.Close(); }
+            }
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            Helper.refreshData(classSQL, classData);
+        }
+
+        private void eScore_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && eScore.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pScore_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && eScore.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fScore_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && eScore.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void aScore_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && eScore.Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

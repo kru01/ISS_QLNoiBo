@@ -229,7 +229,6 @@
         private Button deleteRButton;
         private Label label3;
         private Button createRButton;
-        private TextBox role1;
         private TextBox username1;
         private DataGridView usersData;
         private TextBox password1;
