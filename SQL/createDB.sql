@@ -173,10 +173,10 @@ CREATE TABLE DANGKY (
     HK CHAR(1),             -- HOC KY
     NAM NUMBER(4),
     MACT VARCHAR2(6),       -- MA CHUONG TRINH DAO TAO
-    DIEMTH FLOAT,             -- DIEM QUA TRINH
-    DIEMQT FLOAT,             -- DIEM THUC HANH
-    DIEMCK FLOAT,             -- DIEM CUOI KY
-    DIEMTK FLOAT,             -- DIEM TONG KET
+    DIEMTH FLOAT,           -- DIEM QUA TRINH
+    DIEMQT FLOAT,           -- DIEM THUC HANH
+    DIEMCK FLOAT,           -- DIEM CUOI KY
+    DIEMTK FLOAT,           -- DIEM TONG KET
 
     CONSTRAINT PK_DANGKY
     PRIMARY KEY(MASV, MAGV, MAHP, HK, NAM, MACT),
