@@ -109,6 +109,8 @@
             roleGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             roleGrid.Location = new Point(464, 39);
             roleGrid.Name = "roleGrid";
+            roleGrid.ReadOnly = true;
+            roleGrid.RowHeadersVisible = false;
             roleGrid.RowHeadersWidth = 51;
             roleGrid.Size = new Size(440, 321);
             roleGrid.TabIndex = 4;
@@ -125,6 +127,8 @@
             sysGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             sysGrid.Location = new Point(0, 170);
             sysGrid.Name = "sysGrid";
+            sysGrid.ReadOnly = true;
+            sysGrid.RowHeadersVisible = false;
             sysGrid.RowHeadersWidth = 51;
             sysGrid.Size = new Size(440, 190);
             sysGrid.TabIndex = 3;
@@ -216,6 +220,8 @@
             tableGrid.Dock = DockStyle.Bottom;
             tableGrid.Location = new Point(0, 395);
             tableGrid.Name = "tableGrid";
+            tableGrid.ReadOnly = true;
+            tableGrid.RowHeadersVisible = false;
             tableGrid.RowHeadersWidth = 51;
             tableGrid.Size = new Size(904, 309);
             tableGrid.TabIndex = 0;

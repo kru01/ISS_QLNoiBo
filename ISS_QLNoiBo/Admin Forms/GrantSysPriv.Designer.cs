@@ -61,11 +61,16 @@
             // 
             gridData.AllowUserToAddRows = false;
             gridData.AllowUserToDeleteRows = false;
+            gridData.AllowUserToResizeColumns = false;
+            gridData.AllowUserToResizeRows = false;
+            gridData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridData.BorderStyle = BorderStyle.None;
             gridData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridData.Dock = DockStyle.Bottom;
             gridData.Location = new Point(0, 368);
             gridData.Name = "gridData";
+            gridData.ReadOnly = true;
+            gridData.RowHeadersVisible = false;
             gridData.RowHeadersWidth = 51;
             gridData.Size = new Size(904, 336);
             gridData.TabIndex = 8;

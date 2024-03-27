@@ -1,12 +1,14 @@
-﻿using ISS_QLNoiBo.General_Forms;
+﻿using Oracle.ManagedDataAccess.Client;
+using ISS_QLNoiBo.General_Forms;
 using ISS_QLNoiBo.Others;
-using Oracle.ManagedDataAccess.Client;
 
 namespace ISS_QLNoiBo.Employee_Forms
 {
     public partial class Emp_Main : Form
     {
-        public string CurrentUser { get; set; } = string.Empty;
+        public string CurrentUser = string.Empty;
+
+        public string employeeConn = string.Empty;
 
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
@@ -42,6 +44,7 @@ namespace ISS_QLNoiBo.Employee_Forms
         {
             Account f = new Account();
             f.CurrentUser = CurrentUser;
+            f.connStr = employeeConn;
             Helper.loadform(f, this.mainPanel);
         }
 
@@ -53,6 +56,12 @@ namespace ISS_QLNoiBo.Employee_Forms
         private void courseButton_Click(object sender, EventArgs e)
         {
             Helper.loadform(new Course(), this.mainPanel);
+        }
+
+        private void announceButton_Click(object sender, EventArgs e)
+        {
+            Announcement f = new();
+            Helper.loadform(f, this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)

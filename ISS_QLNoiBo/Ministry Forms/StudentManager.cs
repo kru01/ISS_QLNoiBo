@@ -1,11 +1,15 @@
-﻿using ISS_QLNoiBo.Others;
+﻿using ISS_QLNoiBo.Ministry_Forms.Popup_Forms;
 using Oracle.ManagedDataAccess.Client;
+using ISS_QLNoiBo.Others;
 using System.Data;
 
 namespace ISS_QLNoiBo.Ministry_Forms
 {
     public partial class StudentManager : Form
     {
+        public string ministryConn = string.Empty;
+        private static AddStudent f;
+
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
 
@@ -31,6 +35,18 @@ namespace ISS_QLNoiBo.Ministry_Forms
             }
         }
 
+        private void phoneBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void studentData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1 || e.RowIndex == studentData.RowCount) return;
@@ -40,10 +56,22 @@ namespace ISS_QLNoiBo.Ministry_Forms
             studentName.Text = cRow.Cells["HOTEN"].Value.ToString();
             bdayBox.Text = cRow.Cells["NGSINH"].Value.ToString();
             genderCbo.Text = cRow.Cells["PHAI"].Value.ToString();
-            label.Text = cRow.Cells["MACT"].Value.ToString();
+            programCbo.Text = cRow.Cells["MACT"].Value.ToString();
             majorCbo.Text = cRow.Cells["MANGANH"].Value.ToString();
             phoneBox.Text = cRow.Cells["DT"].Value.ToString();
             addressBox.Text = cRow.Cells["DCHI"].Value.ToString();
+        }
+
+        private void insertButton_Click(object sender, EventArgs e)
+        {
+            f = new AddStudent();
+            f.FormClosedEvent += FormClosedEvent;
+            f.Show();
+        }
+
+        private void FormClosedEvent(object sender, EventArgs e)
+        {
+            Helper.refreshData(studentSql, studentData);
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -66,6 +94,7 @@ namespace ISS_QLNoiBo.Ministry_Forms
                     $"MANGANH = '{majorCbo.Text}', " +
                     $"WHERE MASV = '{studentID.Text}'";
                 OracleCommand cmd = new(updateSql, conn);
+
                 try
                 {
                     conn.Open();
@@ -79,24 +108,12 @@ namespace ISS_QLNoiBo.Ministry_Forms
                 }
                 finally { conn.Close(); }
             }
-
-        }
-
-        private void phoneBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
             Helper.refreshData(studentSql, studentData);
         }
+
     }
 }

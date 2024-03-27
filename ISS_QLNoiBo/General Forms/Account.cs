@@ -5,7 +5,9 @@ namespace ISS_QLNoiBo.General_Forms
 {
     public partial class Account : Form
     {
-        public string CurrentUser { get; set; } = string.Empty;
+        public string CurrentUser = string.Empty;
+
+        public string connStr = string.Empty;
 
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
@@ -54,6 +56,7 @@ namespace ISS_QLNoiBo.General_Forms
         private void updateButton_Click(object sender, EventArgs e)
         {
             String sql = $"UPDATE A01_QLNOIBO.NHANSU SET DT='{phoneBox.Text}' WHERE MANV='{CurrentUser}'";
+            OracleConnection conn = new(connStr);
             OracleCommand cmd = new(sql, conn);
             try
             {

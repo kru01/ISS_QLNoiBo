@@ -76,7 +76,7 @@
             refreshButton.BackColor = Color.SteelBlue;
             refreshButton.FlatAppearance.BorderSize = 0;
             refreshButton.FlatStyle = FlatStyle.Flat;
-            refreshButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            refreshButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             refreshButton.ForeColor = Color.White;
             refreshButton.Location = new Point(237, 309);
             refreshButton.Name = "refreshButton";
@@ -91,7 +91,7 @@
             updateButton.BackColor = Color.SteelBlue;
             updateButton.FlatAppearance.BorderSize = 0;
             updateButton.FlatStyle = FlatStyle.Flat;
-            updateButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            updateButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             updateButton.ForeColor = Color.White;
             updateButton.Location = new Point(131, 309);
             updateButton.Name = "updateButton";
@@ -106,7 +106,7 @@
             insertButton.BackColor = Color.SteelBlue;
             insertButton.FlatAppearance.BorderSize = 0;
             insertButton.FlatStyle = FlatStyle.Flat;
-            insertButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            insertButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             insertButton.ForeColor = Color.White;
             insertButton.Location = new Point(25, 309);
             insertButton.Name = "insertButton";
@@ -114,6 +114,7 @@
             insertButton.TabIndex = 16;
             insertButton.Text = "Insert";
             insertButton.UseVisualStyleBackColor = false;
+            insertButton.Click += insertButton_Click;
             // 
             // label2
             // 
@@ -227,6 +228,7 @@
             // 
             phoneBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             phoneBox.Location = new Point(526, 135);
+            phoneBox.MaxLength = 11;
             phoneBox.Name = "phoneBox";
             phoneBox.PlaceholderText = "Phone Number";
             phoneBox.Size = new Size(150, 27);

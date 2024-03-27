@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ministry_Main));
             mainPanel = new Panel();
             panel1 = new Panel();
+            assignmentButton = new Button();
             courseMButton = new Button();
             ministryName = new Label();
             signOutButton = new Button();
@@ -57,6 +58,7 @@
             // panel1
             // 
             panel1.BackColor = Color.SteelBlue;
+            panel1.Controls.Add(assignmentButton);
             panel1.Controls.Add(courseMButton);
             panel1.Controls.Add(ministryName);
             panel1.Controls.Add(signOutButton);
@@ -74,6 +76,21 @@
             panel1.Size = new Size(300, 704);
             panel1.TabIndex = 13;
             // 
+            // assignmentButton
+            // 
+            assignmentButton.BackColor = Color.SteelBlue;
+            assignmentButton.FlatAppearance.BorderSize = 0;
+            assignmentButton.FlatStyle = FlatStyle.Flat;
+            assignmentButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assignmentButton.ForeColor = Color.White;
+            assignmentButton.Location = new Point(0, 500);
+            assignmentButton.Name = "assignmentButton";
+            assignmentButton.Size = new Size(300, 40);
+            assignmentButton.TabIndex = 13;
+            assignmentButton.Text = "Assignment";
+            assignmentButton.UseVisualStyleBackColor = false;
+            assignmentButton.Click += assignmentButton_Click;
+            // 
             // courseMButton
             // 
             courseMButton.BackColor = Color.SteelBlue;
@@ -85,8 +102,9 @@
             courseMButton.Name = "courseMButton";
             courseMButton.Size = new Size(300, 40);
             courseMButton.TabIndex = 12;
-            courseMButton.Text = "Course Management";
+            courseMButton.Text = "Course Manager";
             courseMButton.UseVisualStyleBackColor = false;
+            courseMButton.Click += courseMButton_Click;
             // 
             // ministryName
             // 
@@ -112,6 +130,7 @@
             signOutButton.TabIndex = 8;
             signOutButton.Text = "Sign Out";
             signOutButton.UseVisualStyleBackColor = false;
+            signOutButton.Click += signOutButton_Click;
             // 
             // ministryID
             // 
@@ -156,8 +175,9 @@
             unitMButton.Name = "unitMButton";
             unitMButton.Size = new Size(300, 40);
             unitMButton.TabIndex = 4;
-            unitMButton.Text = "Unit Management";
+            unitMButton.Text = "Unit Manager";
             unitMButton.UseVisualStyleBackColor = false;
+            unitMButton.Click += unitMButton_Click;
             // 
             // studentMButton
             // 
@@ -170,7 +190,7 @@
             studentMButton.Name = "studentMButton";
             studentMButton.Size = new Size(300, 40);
             studentMButton.TabIndex = 2;
-            studentMButton.Text = "Student Management";
+            studentMButton.Text = "Student Manager";
             studentMButton.UseVisualStyleBackColor = false;
             studentMButton.Click += studentMButton_Click;
             // 
@@ -202,6 +222,7 @@
             announceButton.TabIndex = 0;
             announceButton.Text = "Announcement";
             announceButton.UseVisualStyleBackColor = false;
+            announceButton.Click += announceButton_Click;
             // 
             // Ministry_Main
             // 
@@ -235,5 +256,6 @@
         private Button studentMButton;
         private Button accountButton;
         private Button announceButton;
+        private Button assignmentButton;
     }
 }

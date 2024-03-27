@@ -30,9 +30,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DeptHead Forms\" />
-    <Folder Include="UnitHead Forms\" />
-  </ItemGroup>
-
 </Project>

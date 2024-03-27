@@ -1,12 +1,13 @@
-﻿using ISS_QLNoiBo.General_Forms;
+﻿using Oracle.ManagedDataAccess.Client;
+using ISS_QLNoiBo.General_Forms;
 using ISS_QLNoiBo.Others;
-using Oracle.ManagedDataAccess.Client;
 
 namespace ISS_QLNoiBo.Lecturer_Forms
 {
     public partial class Lecturer_Main : Form
     {
-        public string CurrentUser { get; set; } = string.Empty;
+        public string CurrentUser = string.Empty;
+        public string lecturerConn = string.Empty;
 
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
@@ -40,7 +41,7 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 
         private void accountButton_Click(object sender, EventArgs e)
         {
-            Account f = new Account();
+            Account f = new();
             f.CurrentUser = CurrentUser;
             Helper.loadform(f, this.mainPanel);
         }
@@ -57,15 +58,23 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 
         private void assignmentButton_Click(object sender, EventArgs e)
         {
-            Assignment f = new Assignment();
+            Assignment f = new();
             f.CurrentUser = CurrentUser;
+            f.lecturerConn = lecturerConn;
             Helper.loadform(f, this.mainPanel);
         }
 
         private void classButton_Click(object sender, EventArgs e)
         {
-            Class f = new Class();
+            Class f = new();
             f.CurrentUser = CurrentUser;
+            f.lecturerConn = lecturerConn;
+            Helper.loadform(f, this.mainPanel);
+        }
+
+        private void announceButton_Click(object sender, EventArgs e)
+        {
+            Announcement f = new();
             Helper.loadform(f, this.mainPanel);
         }
 

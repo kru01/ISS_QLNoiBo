@@ -255,12 +255,15 @@
             viewsData.AllowUserToDeleteRows = false;
             viewsData.AllowUserToResizeColumns = false;
             viewsData.AllowUserToResizeRows = false;
+            viewsData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             viewsData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             viewsData.BorderStyle = BorderStyle.None;
             viewsData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             viewsData.Dock = DockStyle.Bottom;
             viewsData.Location = new Point(0, 254);
             viewsData.Name = "viewsData";
+            viewsData.ReadOnly = true;
+            viewsData.RowHeadersVisible = false;
             viewsData.RowHeadersWidth = 51;
             viewsData.Size = new Size(904, 450);
             viewsData.TabIndex = 1;
@@ -292,7 +295,6 @@
         private Button deleteRButton;
         private Label label3;
         private Button createRButton;
-        private TextBox role1;
         private TextBox viewname;
         private DataGridView viewsData;
         private Label label2;

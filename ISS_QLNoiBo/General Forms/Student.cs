@@ -1,5 +1,5 @@
-﻿using ISS_QLNoiBo.Others;
-using Oracle.ManagedDataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
+using ISS_QLNoiBo.Others;
 using System.Data;
 
 namespace ISS_QLNoiBo.General_Forms
@@ -16,7 +16,7 @@ namespace ISS_QLNoiBo.General_Forms
 
         private void Student_Load(object sender, EventArgs e)
         {
-            OracleDataAdapter adp = new("SELECT * FROM A01_QLNOIBO.SINHVIEN ORDER BY MASV", conn);
+            OracleDataAdapter adp = new("SELECT * FROM A01_QLNOIBO.SINHVIEN SV ORDER BY SV.MASV", conn);
             try
             {
                 DataTable dt = new();

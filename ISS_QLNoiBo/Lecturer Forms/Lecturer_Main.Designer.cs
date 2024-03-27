@@ -222,6 +222,7 @@
             announceButton.TabIndex = 0;
             announceButton.Text = "Announcement";
             announceButton.UseVisualStyleBackColor = false;
+            announceButton.Click += announceButton_Click;
             // 
             // Lecturer_Main
             // 
@@ -230,6 +231,7 @@
             ClientSize = new Size(1204, 704);
             Controls.Add(mainPanel);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Lecturer_Main";
             StartPosition = FormStartPosition.CenterScreen;

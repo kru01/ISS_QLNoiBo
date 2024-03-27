@@ -234,6 +234,7 @@
             ClientSize = new Size(1204, 704);
             Controls.Add(mainPanel);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Admin_Main";
             Text = "Admin Dashboard";

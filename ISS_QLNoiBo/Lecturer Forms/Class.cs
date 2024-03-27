@@ -1,13 +1,13 @@
-﻿using ISS_QLNoiBo.Others;
-using Oracle.ManagedDataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
+using ISS_QLNoiBo.Others;
 using System.Data;
 
 namespace ISS_QLNoiBo.Lecturer_Forms
 {
     public partial class Class : Form
     {
-        public string CurrentUser { get; set; } = string.Empty;
-
+        public string CurrentUser = string.Empty;
+        public string lecturerConn = string.Empty;
         private string classSQL = string.Empty;
 
         readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
@@ -28,6 +28,7 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 
             classSQL = sql;
 
+            //OracleConnection conn = new(lecturerConn);
             OracleDataAdapter adp = new(sql, conn);
 
             try
@@ -62,13 +63,14 @@ namespace ISS_QLNoiBo.Lecturer_Forms
                 (float.Parse(fScore.Text) < 0 || float.Parse(fScore.Text) > 10) ||
                 (float.Parse(aScore.Text) < 0 || float.Parse(aScore.Text) > 10))
             {
-                MessageBox.Show("Điểm nhập vào phải nằm trong khoảng từ 0 đến 10");
+                MessageBox.Show("Điểm nhập vào phải nằm trong khoảng từ 0 đến 10!");
             }
             else
             {
                 String sql = $"UPDATE A01_QLNOIBO.DANGKY " +
                     $"SET DIEMTH={eScore.Text}, DIEMQT={pScore.Text}, DIEMCK={fScore.Text}, DIEMTK={aScore.Text} " +
                     $"WHERE MAGV='{CurrentUser}' AND MASV='{studentID.Text}'";
+                //OracleConnection conn = new(lecturerConn);
                 OracleCommand cmd = new(sql, conn);
                 try
                 {

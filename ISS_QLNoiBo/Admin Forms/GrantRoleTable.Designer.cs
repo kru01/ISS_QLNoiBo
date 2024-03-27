@@ -390,6 +390,8 @@
             usersData.Dock = DockStyle.Bottom;
             usersData.Location = new Point(0, 341);
             usersData.Name = "usersData";
+            usersData.ReadOnly = true;
+            usersData.RowHeadersVisible = false;
             usersData.RowHeadersWidth = 51;
             usersData.Size = new Size(904, 363);
             usersData.TabIndex = 1;

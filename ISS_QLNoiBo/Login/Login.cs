@@ -3,6 +3,8 @@ using ISS_QLNoiBo.Employee_Forms;
 using ISS_QLNoiBo.Lecturer_Forms;
 using ISS_QLNoiBo.Student_Forms;
 using ISS_QLNoiBo.Ministry_Forms;
+using ISS_QLNoiBo.UnitHead_Forms;
+using ISS_QLNoiBo.DeptHead_Forms;
 using ISS_QLNoiBo.Others;
 
 namespace ISS_QLNoiBo
@@ -42,7 +44,7 @@ namespace ISS_QLNoiBo
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (username.Text == "" || password.Text == "")
+            if (String.IsNullOrWhiteSpace(username.Text) || String.IsNullOrWhiteSpace(password.Text))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
             }
@@ -69,6 +71,7 @@ namespace ISS_QLNoiBo
                     {
                         Emp_Main form = new();
                         form.CurrentUser = username.Text;
+                        form.employeeConn = connString;
                         form.ShowDialog();
                     }
 
@@ -76,6 +79,7 @@ namespace ISS_QLNoiBo
                     {
                         Lecturer_Main form = new();
                         form.CurrentUser = username.Text;
+                        form.lecturerConn = connString;
                         form.ShowDialog();
                     }
 
@@ -83,6 +87,21 @@ namespace ISS_QLNoiBo
                     {
                         Ministry_Main form = new();
                         form.CurrentUser = username.Text;
+                        form.ShowDialog();
+                    }
+
+                    else if (username.Text[..2] == "TD")
+                    {
+                        UnitHead_Main form = new();
+                        form.CurrentUser = username.Text;
+                        form.ShowDialog();
+                    }
+
+                    else if (username.Text[..2] == "TK")
+                    {
+                        DeptHead_Main form = new();
+                        form.CurrentUser = username.Text;
+                        form.deptHeadconn = connString;
                         form.ShowDialog();
                     }
 

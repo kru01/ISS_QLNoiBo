@@ -100,6 +100,7 @@
             // 
             // quotaUpDown
             // 
+            quotaUpDown.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             quotaUpDown.Location = new Point(50, 200);
             quotaUpDown.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             quotaUpDown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
@@ -298,6 +299,8 @@
             usersData.Dock = DockStyle.Bottom;
             usersData.Location = new Point(0, 354);
             usersData.Name = "usersData";
+            usersData.ReadOnly = true;
+            usersData.RowHeadersVisible = false;
             usersData.RowHeadersWidth = 51;
             usersData.Size = new Size(904, 350);
             usersData.TabIndex = 1;
