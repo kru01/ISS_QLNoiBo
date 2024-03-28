@@ -5,19 +5,17 @@ namespace ISS_QLNoiBo.Student_Forms
 {
     public partial class Student_Account : Form
     {
-        public string CurrentUser { get; set; } = string.Empty;
+        readonly OracleConnection conn;
 
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public Student_Account()
+        public Student_Account(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void Student_Account_Load(object sender, EventArgs e)
         {
-            String sql = $"SELECT * FROM A01_QLNOIBO.SINHVIEN WHERE MASV='{CurrentUser}'";
+            String sql = $"SELECT * FROM {OracleConfig.schema}.SINHVIEN";
             OracleCommand cmd = new(sql, conn);
             try
             {
@@ -54,9 +52,8 @@ namespace ISS_QLNoiBo.Student_Forms
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            String sql = $"UPDATE A01_QLNOIBO.SINHVIEN " +
-                $"SET DT='{phoneBox.Text}', DCHI='{addressBox.Text}' " +
-                $"WHERE MASV='{CurrentUser}'";
+            String sql = $"UPDATE {OracleConfig.schema}.SINHVIEN " +
+                $"SET DT='{phoneBox.Text}', DCHI='{addressBox.Text}'";
             OracleCommand cmd = new(sql, conn);
             try
             {

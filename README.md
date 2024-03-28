@@ -25,7 +25,7 @@
         <li><a href="#to-set-up-the-database">To set up the database</a></li>
         <li><a href="#to-uninstall-the-database">To uninstall the database</a></li>
         <li><a href="#to-enable-ols">To enable OLS</a></li>
-        <li><a href="#to-enable-unified-auditing">To enable Unified Auditing</a></li>
+        <li><a href="#to-enable-pure-unified-auditing">To enable Unified Auditing</a></li>
         <li><a href="#to-link-oracle-with-winforms">To link Oracle with WinForms</a></li>
       </ul>
     </li>
@@ -59,7 +59,7 @@
 ### To set up the database
 
 1. Well, good luck setting up `Oracle Database 21c Express Edition`.
-1. [Have a `PDB` and enable `OLS`](#to-enable-ols), and [`Unified Auditing`](#to-enable-unified-auditing).
+1. [Have a `PDB` and enable `OLS`](#to-enable-ols), and [`Pure Unified Auditing`](#to-enable-pure-unified-auditing).
 1. Navigate into `SQL` folder.
 1. If a different `PDB` is used, replace all instances of `XEPDB1`.
 1. `SYS.XEPDB1` Run the files in the specified order, `createDB.sql` &rarr; `data.sql` &rarr; `policies.sql` &rarr; `ols.sql`.
@@ -67,6 +67,7 @@
 ### To uninstall the database
 
 1. Run `cleanupDB.sql`.
+    - Should take care to close all connections beforehand so everything can be dropped smoothly, no `ORA-01940: cannot DROP a user that is currently logged in`.
 
 ### To enable OLS
 

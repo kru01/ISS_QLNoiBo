@@ -29,15 +29,20 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label1 = new Label();
+            planData = new DataGridView();
             label2 = new Label();
             courseData = new DataGridView();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)planData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)courseData).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(planData);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(courseData);
             panel1.Dock = DockStyle.Fill;
@@ -46,12 +51,40 @@
             panel1.Size = new Size(904, 704);
             panel1.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.SteelBlue;
+            label1.Location = new Point(682, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 35);
+            label1.TabIndex = 9;
+            label1.Text = "Plan";
+            // 
+            // planData
+            // 
+            planData.AllowUserToAddRows = false;
+            planData.AllowUserToDeleteRows = false;
+            planData.AllowUserToResizeColumns = false;
+            planData.AllowUserToResizeRows = false;
+            planData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            planData.BorderStyle = BorderStyle.None;
+            planData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            planData.Location = new Point(557, 54);
+            planData.Name = "planData";
+            planData.ReadOnly = true;
+            planData.RowHeadersVisible = false;
+            planData.RowHeadersWidth = 51;
+            planData.Size = new Size(347, 650);
+            planData.TabIndex = 8;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(404, 10);
+            label2.Location = new Point(213, 9);
             label2.Name = "label2";
             label2.Size = new Size(96, 35);
             label2.TabIndex = 7;
@@ -66,13 +99,12 @@
             courseData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             courseData.BorderStyle = BorderStyle.None;
             courseData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            courseData.Dock = DockStyle.Bottom;
             courseData.Location = new Point(0, 54);
             courseData.Name = "courseData";
             courseData.ReadOnly = true;
             courseData.RowHeadersVisible = false;
             courseData.RowHeadersWidth = 51;
-            courseData.Size = new Size(904, 650);
+            courseData.Size = new Size(523, 650);
             courseData.TabIndex = 0;
             // 
             // CourseView
@@ -87,6 +119,7 @@
             Load += CourseView_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)planData).EndInit();
             ((System.ComponentModel.ISupportInitialize)courseData).EndInit();
             ResumeLayout(false);
         }
@@ -96,5 +129,7 @@
         private Panel panel1;
         private Label label2;
         private DataGridView courseData;
+        private DataGridView planData;
+        private Label label1;
     }
 }

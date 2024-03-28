@@ -6,31 +6,23 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 {
     public partial class Class : Form
     {
-        public string CurrentUser = string.Empty;
-        public string lecturerConn = string.Empty;
-        private string classSQL = string.Empty;
+        readonly string classSQL = "SELECT DK.MASV, SV.HOTEN, SV.PHAI, DK.MAHP, HP.TENHP, DK.HK, DK.NAM, DK.MACT, " +
+            "DK.DIEMTH, DK.DIEMQT, DK.DIEMCK, DK.DIEMTK " +
+            "FROM A01_QLNOIBO.V_DANGKY_V DK JOIN A01_QLNOIBO.SINHVIEN SV ON DK.MASV=SV.MASV " +
+                "JOIN A01_QLNOIBO.HOCPHAN HP ON HP.MAHP=DK.MAHP";
+        readonly string orderSQL = "ORDER BY DK.MAHP, DK.MASV, DK.NAM, DK.HK";
+        readonly OracleConnection conn;
 
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public Class()
+        public Class(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void Class_Load(object sender, EventArgs e)
         {
-            String sql = $"SELECT DK.MASV, SV.HOTEN, SV.PHAI, DK.MAHP, HP.TENHP, DK.HK, DK.NAM, DK.DIEMTH, DK.DIEMQT, DK.DIEMCK, DK.DIEMTK " +
-                $"FROM A01_QLNOIBO.DANGKY DK JOIN A01_QLNOIBO.SINHVIEN SV ON DK.MASV=SV.MASV " +
-                $"JOIN A01_QLNOIBO.HOCPHAN HP ON HP.MAHP=DK.MAHP " +
-                $"WHERE DK.MAGV='{CurrentUser}' " +
-                $"ORDER BY DK.MAHP, DK.MASV, DK.NAM, DK.HK";
-
-            classSQL = sql;
-
-            //OracleConnection conn = new(lecturerConn);
+            String sql = $"{classSQL} {orderSQL}";
             OracleDataAdapter adp = new(sql, conn);
-
             try
             {
                 DataTable dt = new();
@@ -50,6 +42,10 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 
             studentID.Text = cRow.Cells["MASV"].Value.ToString();
             studentName.Text = cRow.Cells["HOTEN"].Value.ToString();
+            courseID.Text = cRow.Cells["MAHP"].Value.ToString();
+            semester.Text = cRow.Cells["HK"].Value.ToString();
+            year.Text = cRow.Cells["NAM"].Value.ToString();
+            programID.Text = cRow.Cells["MACT"].Value.ToString();
             eScore.Text = cRow.Cells["DIEMTH"].Value.ToString();
             pScore.Text = cRow.Cells["DIEMQT"].Value.ToString();
             fScore.Text = cRow.Cells["DIEMCK"].Value.ToString();
@@ -67,29 +63,34 @@ namespace ISS_QLNoiBo.Lecturer_Forms
             }
             else
             {
-                String sql = $"UPDATE A01_QLNOIBO.DANGKY " +
-                    $"SET DIEMTH={eScore.Text}, DIEMQT={pScore.Text}, DIEMCK={fScore.Text}, DIEMTK={aScore.Text} " +
-                    $"WHERE MAGV='{CurrentUser}' AND MASV='{studentID.Text}'";
-                //OracleConnection conn = new(lecturerConn);
+                String whereSql = $"WHERE MASV='{studentID.Text}' AND MAHP='{courseID.Text}' AND HK='{semester.Text}' " +
+                    $"AND NAM={year.Text} AND MACT='{programID.Text}'";
+                String sql = $"UPDATE A01_QLNOIBO.V_DANGKY_V SET DIEMTH={eScore.Text}, DIEMQT={pScore.Text}, " +
+                    $"DIEMCK={fScore.Text}, DIEMTK={aScore.Text} " + whereSql;
+
+                whereSql = $"WHERE DK.MASV='{studentID.Text}' AND DK.MAHP='{courseID.Text}' AND DK.HK='{semester.Text}' " +
+                    $"AND DK.NAM={year.Text} AND DK.MACT='{programID.Text}'";
+                String seSql = $"{classSQL} {whereSql} {orderSQL}";
+
                 OracleCommand cmd = new(sql, conn);
                 try
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật thành công!");
-                    Helper.refreshData(classSQL, classData);
+                    Helper.refreshData(seSql, classData, conn);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally { conn.Close(); }
+                finally { if (conn.State == ConnectionState.Open) conn.Close(); }
             }
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            Helper.refreshData(classSQL, classData);
+            Helper.refreshData($"{classSQL} {orderSQL}", classData, conn);
         }
 
         private void eScore_KeyPress(object sender, KeyPressEventArgs e)

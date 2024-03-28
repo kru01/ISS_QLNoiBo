@@ -6,21 +6,16 @@ namespace ISS_QLNoiBo.DeptHead_Forms
 {
     public partial class DeptHead_Main : Form
     {
-        public string CurrentUser = string.Empty;
-
-        public string deptHeadconn = string.Empty;
-
-        public DeptHead_Main()
+        readonly OracleConnection conn;
+        public DeptHead_Main(string connStr)
         {
             InitializeComponent();
+            this.conn = new(connStr);
         }
 
         private void DeptHead_Main_Load(object sender, EventArgs e)
         {
-            OracleConnection conn = new(deptHeadconn);
-            deptHeadID.Text = CurrentUser;
-
-            String sql = $"SELECT HOTEN FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
+            String sql = $"SELECT MANV, HOTEN FROM A01_QLNOIBO.V_NHANSU_NV";
             OracleCommand cmd = new(sql, conn);
             try
             {
@@ -28,6 +23,7 @@ namespace ISS_QLNoiBo.DeptHead_Forms
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    deptHeadID.Text = reader["MANV"].ToString();
                     deptHeadName.Text = reader["HOTEN"].ToString();
                 }
             }
@@ -40,27 +36,22 @@ namespace ISS_QLNoiBo.DeptHead_Forms
 
         private void accountButton_Click(object sender, EventArgs e)
         {
-            Account f = new();
-            f.CurrentUser = CurrentUser;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new Account(conn), this.mainPanel);
         }
 
         private void studentButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Student(), this.mainPanel);
+            Helper.loadform(new Student(conn), this.mainPanel);
         }
 
         private void courseButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Course(), this.mainPanel);
+            Helper.loadform(new Course(conn), this.mainPanel);
         }
 
         private void assignmentButton_Click(object sender, EventArgs e)
         {
-            DeptAssignemnt f = new();
-            f.CurrentUser = CurrentUser;
-            f.deptHeadconn = deptHeadconn;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new DeptAssignemnt(conn), this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)
@@ -76,10 +67,7 @@ namespace ISS_QLNoiBo.DeptHead_Forms
 
         private void employeeButton_Click(object sender, EventArgs e)
         {
-            DeptEmployee f = new();
-            f.CurrentUser = CurrentUser;
-            f.deptHeadconn = deptHeadconn;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new DeptEmployee(conn), this.mainPanel);
         }
     }
 }

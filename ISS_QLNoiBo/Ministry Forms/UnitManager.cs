@@ -6,16 +6,18 @@ namespace ISS_QLNoiBo.Ministry_Forms
 {
     public partial class UnitManager : Form
     {
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
+        readonly OracleConnection conn;
+        readonly OracleConnection adConn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
 
         readonly String sql = "SELECT DV.*, NS.HOTEN " +
             "FROM A01_QLNOIBO.DONVI DV JOIN A01_QLNOIBO.NHANSU NS ON DV.TRGDV = NS.MANV " +
             "ORDER BY DV.MADV";
 
-        public UnitManager()
+        public UnitManager(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void UnitManager_Load(object sender, EventArgs e)
@@ -60,7 +62,7 @@ namespace ISS_QLNoiBo.Ministry_Forms
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật thành công!");
-                    Helper.refreshData(sql, unitData);
+                    Helper.refreshData(sql, unitData, conn);
                 }
                 catch (Exception ex)
                 {
@@ -72,7 +74,7 @@ namespace ISS_QLNoiBo.Ministry_Forms
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            Helper.refreshData(sql, unitData);
+            Helper.refreshData(sql, unitData, conn);
         }
     }
 }

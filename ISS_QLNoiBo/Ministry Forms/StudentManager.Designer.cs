@@ -35,6 +35,10 @@
             label2 = new Label();
             studentData = new DataGridView();
             panel2 = new Panel();
+            gpaUpDown = new NumericUpDown();
+            creditUpDown = new NumericUpDown();
+            label10 = new Label();
+            label9 = new Label();
             label = new Label();
             programCbo = new ComboBox();
             label8 = new Label();
@@ -54,6 +58,8 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)studentData).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gpaUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)creditUpDown).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -150,6 +156,10 @@
             // 
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(gpaUpDown);
+            panel2.Controls.Add(creditUpDown);
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(label9);
             panel2.Controls.Add(label);
             panel2.Controls.Add(programCbo);
             panel2.Controls.Add(label8);
@@ -171,6 +181,46 @@
             panel2.Size = new Size(854, 275);
             panel2.TabIndex = 8;
             // 
+            // gpaUpDown
+            // 
+            gpaUpDown.DecimalPlaces = 2;
+            gpaUpDown.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
+            gpaUpDown.Location = new Point(601, 135);
+            gpaUpDown.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            gpaUpDown.Name = "gpaUpDown";
+            gpaUpDown.Size = new Size(75, 27);
+            gpaUpDown.TabIndex = 31;
+            // 
+            // creditUpDown
+            // 
+            creditUpDown.Location = new Point(492, 135);
+            creditUpDown.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+            creditUpDown.Name = "creditUpDown";
+            creditUpDown.Size = new Size(75, 27);
+            creditUpDown.TabIndex = 30;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.SteelBlue;
+            label10.Location = new Point(601, 109);
+            label10.Name = "label10";
+            label10.Size = new Size(47, 23);
+            label10.TabIndex = 29;
+            label10.Text = "GPA";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.SteelBlue;
+            label9.Location = new Point(492, 109);
+            label9.Name = "label9";
+            label9.Size = new Size(93, 23);
+            label9.TabIndex = 27;
+            label9.Text = "Acc Credit";
+            // 
             // label
             // 
             label.AutoSize = true;
@@ -187,10 +237,11 @@
             programCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             programCbo.FormattingEnabled = true;
             programCbo.Items.AddRange(new object[] { "CQ", "CLC", "CTTT", "VP" });
-            programCbo.Location = new Point(274, 135);
+            programCbo.Location = new Point(278, 135);
             programCbo.Name = "programCbo";
             programCbo.Size = new Size(75, 27);
             programCbo.TabIndex = 24;
+            programCbo.Text = "CQ";
             // 
             // label8
             // 
@@ -210,15 +261,16 @@
             majorCbo.Items.AddRange(new object[] { "HTTT", "CNPM", "KHMT", "CNTT", "TGMT", "MMT" });
             majorCbo.Location = new Point(376, 135);
             majorCbo.Name = "majorCbo";
-            majorCbo.Size = new Size(125, 27);
+            majorCbo.Size = new Size(75, 27);
             majorCbo.TabIndex = 22;
+            majorCbo.Text = "HTTT";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.SteelBlue;
-            label7.Location = new Point(526, 109);
+            label7.Location = new Point(176, 174);
             label7.Name = "label7";
             label7.Size = new Size(127, 23);
             label7.TabIndex = 21;
@@ -227,11 +279,11 @@
             // phoneBox
             // 
             phoneBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            phoneBox.Location = new Point(526, 135);
+            phoneBox.Location = new Point(176, 200);
             phoneBox.MaxLength = 11;
             phoneBox.Name = "phoneBox";
             phoneBox.PlaceholderText = "Phone Number";
-            phoneBox.Size = new Size(150, 27);
+            phoneBox.Size = new Size(173, 27);
             phoneBox.TabIndex = 20;
             phoneBox.KeyPress += phoneBox_KeyPress;
             // 
@@ -255,6 +307,7 @@
             genderCbo.Name = "genderCbo";
             genderCbo.Size = new Size(75, 27);
             genderCbo.TabIndex = 18;
+            genderCbo.Text = "NAM";
             // 
             // label5
             // 
@@ -301,7 +354,7 @@
             // 
             // bdayBox
             // 
-            bdayBox.CustomFormat = "yyyy-MM-dd";
+            bdayBox.CustomFormat = "dd-MM-yyyy";
             bdayBox.Enabled = false;
             bdayBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bdayBox.Format = DateTimePickerFormat.Custom;
@@ -315,7 +368,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(176, 174);
+            label4.Location = new Point(376, 174);
             label4.Name = "label4";
             label4.Size = new Size(75, 23);
             label4.TabIndex = 12;
@@ -324,10 +377,10 @@
             // addressBox
             // 
             addressBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addressBox.Location = new Point(176, 200);
+            addressBox.Location = new Point(376, 200);
             addressBox.Name = "addressBox";
             addressBox.PlaceholderText = "Address";
-            addressBox.Size = new Size(500, 27);
+            addressBox.Size = new Size(300, 27);
             addressBox.TabIndex = 1;
             // 
             // studentName
@@ -354,6 +407,8 @@
             ((System.ComponentModel.ISupportInitialize)studentData).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)gpaUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)creditUpDown).EndInit();
             ResumeLayout(false);
         }
 
@@ -382,5 +437,9 @@
         private ComboBox programCbo;
         private Label label8;
         private Button refreshButton;
+        private Label label9;
+        private Label label10;
+        private NumericUpDown gpaUpDown;
+        private NumericUpDown creditUpDown;
     }
 }

@@ -5,16 +5,13 @@ namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
 {
     public partial class AddStudent : Form
     {
-        public event EventHandler FormClosedEvent;
+        public event EventHandler? FormClosedEvent;
+        readonly OracleConnection conn;
 
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public string order = string.Empty;
-
-        public AddStudent()
+        public AddStudent(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void insertButton_Click(object sender, EventArgs e)
@@ -28,19 +25,18 @@ namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
             }
             else
             {
-                String updateSql = $"INSERT INTO A01_QLNOIBO.SINHVIEN " +
-                    $"SELECT '{studentID.Text}', '{studentName.Text}', '{genderCbo.Text}', '{bdayBox.Text}', " +
-                    $"'{addressBox.Text}', '{phoneBox.Text}', '{programCbo.Text}', '{majorCbo.Text}', 0, 0, '{facilityCbo.Text}' " +
-                    $"FROM DUAL UNION ALL";
+                String inSql = $"INSERT INTO {OracleConfig.schema}.SINHVIEN VALUES ('{studentID.Text}', '{studentName.Text}', " +
+                    $"'{genderCbo.Text}', TO_DATE('{bdayBox.Text}', 'DD/MM/YYYY'), '{addressBox.Text}', '{phoneBox.Text}', " +
+                    $"'{programCbo.Text}', '{majorCbo.Text}', 0, 0, '{facilityCbo.Text}')";
 
-                OracleCommand cmd = new(updateSql, conn);
-
+                OracleCommand cmd = new(inSql, conn);
                 try
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Thêm sinh viên thành công!");
                     FormClosedEvent?.Invoke(this, EventArgs.Empty);
+                    this.Close();
                 }
                 catch (Exception ex)
                 {

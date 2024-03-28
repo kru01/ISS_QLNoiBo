@@ -36,19 +36,25 @@
             insertButton = new Button();
             label8 = new Label();
             panel2 = new Panel();
-            label4 = new Label();
-            label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label7 = new Label();
             label5 = new Label();
-            programCbo = new ComboBox();
-            yearBox = new TextBox();
-            semesterBox = new TextBox();
+            yearUpDown = new NumericUpDown();
+            semUpDown = new NumericUpDown();
             courseCbo = new ComboBox();
-            lecturerCbo = new ComboBox();
+            label4 = new Label();
+            label3 = new Label();
+            unitNameBox = new TextBox();
+            label6 = new Label();
+            unitIDBox = new TextBox();
+            programCbo = new ComboBox();
+            lectIDBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)assignmentData).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)yearUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)semUpDown).BeginInit();
             SuspendLayout();
             // 
             // assignmentData
@@ -160,30 +166,110 @@
             // 
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label3);
+            panel2.Controls.Add(lectIDBox);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
+            panel2.Controls.Add(label7);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(programCbo);
-            panel2.Controls.Add(yearBox);
-            panel2.Controls.Add(semesterBox);
+            panel2.Controls.Add(yearUpDown);
+            panel2.Controls.Add(semUpDown);
             panel2.Controls.Add(courseCbo);
-            panel2.Controls.Add(lecturerCbo);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(unitNameBox);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(unitIDBox);
+            panel2.Controls.Add(programCbo);
             panel2.Location = new Point(25, 28);
             panel2.Name = "panel2";
             panel2.Size = new Size(854, 225);
             panel2.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.SteelBlue;
+            label2.Location = new Point(526, 124);
+            label2.Name = "label2";
+            label2.Size = new Size(93, 23);
+            label2.TabIndex = 58;
+            label2.Text = "Unit Name";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.SteelBlue;
+            label1.Location = new Point(127, 124);
+            label1.Name = "label1";
+            label1.Size = new Size(118, 23);
+            label1.TabIndex = 7;
+            label1.Text = "Course Name";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.SteelBlue;
+            label7.Location = new Point(406, 124);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 23);
+            label7.TabIndex = 57;
+            label7.Text = "Unit ID";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.SteelBlue;
+            label5.Location = new Point(127, 34);
+            label5.Name = "label5";
+            label5.Size = new Size(96, 23);
+            label5.TabIndex = 6;
+            label5.Text = "Lecturer ID";
+            // 
+            // yearUpDown
+            // 
+            yearUpDown.Location = new Point(526, 60);
+            yearUpDown.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
+            yearUpDown.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
+            yearUpDown.Name = "yearUpDown";
+            yearUpDown.ReadOnly = true;
+            yearUpDown.Size = new Size(100, 27);
+            yearUpDown.TabIndex = 56;
+            yearUpDown.Value = new decimal(new int[] { 2024, 0, 0, 0 });
+            // 
+            // semUpDown
+            // 
+            semUpDown.Location = new Point(406, 60);
+            semUpDown.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            semUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            semUpDown.Name = "semUpDown";
+            semUpDown.ReadOnly = true;
+            semUpDown.Size = new Size(100, 27);
+            semUpDown.TabIndex = 55;
+            semUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // courseCbo
+            // 
+            courseCbo.Enabled = false;
+            courseCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            courseCbo.FormattingEnabled = true;
+            courseCbo.Location = new Point(127, 150);
+            courseCbo.Name = "courseCbo";
+            courseCbo.Size = new Size(250, 27);
+            courseCbo.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(468, 124);
+            label4.Location = new Point(646, 34);
             label4.Name = "label4";
             label4.Size = new Size(79, 23);
-            label4.TabIndex = 10;
+            label4.TabIndex = 54;
             label4.Text = "Program";
             // 
             // label3
@@ -191,90 +277,62 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(563, 34);
+            label3.Location = new Point(526, 34);
             label3.Name = "label3";
             label3.Size = new Size(49, 23);
-            label3.TabIndex = 9;
+            label3.TabIndex = 53;
             label3.Text = "Year";
             // 
-            // label2
+            // unitNameBox
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(468, 34);
-            label2.Name = "label2";
-            label2.Size = new Size(82, 23);
-            label2.TabIndex = 8;
-            label2.Text = "Semester";
+            unitNameBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            unitNameBox.Location = new Point(526, 150);
+            unitNameBox.Name = "unitNameBox";
+            unitNameBox.PlaceholderText = "Unit Name";
+            unitNameBox.ReadOnly = true;
+            unitNameBox.Size = new Size(220, 27);
+            unitNameBox.TabIndex = 49;
             // 
-            // label1
+            // label6
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(189, 124);
-            label1.Name = "label1";
-            label1.Size = new Size(118, 23);
-            label1.TabIndex = 7;
-            label1.Text = "Course Name";
+            label6.AutoSize = true;
+            label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.SteelBlue;
+            label6.Location = new Point(406, 34);
+            label6.Name = "label6";
+            label6.Size = new Size(82, 23);
+            label6.TabIndex = 52;
+            label6.Text = "Semester";
             // 
-            // label5
+            // unitIDBox
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(189, 34);
-            label5.Name = "label5";
-            label5.Size = new Size(127, 23);
-            label5.TabIndex = 6;
-            label5.Text = "Lecturer Name";
+            unitIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            unitIDBox.Location = new Point(406, 150);
+            unitIDBox.Name = "unitIDBox";
+            unitIDBox.PlaceholderText = "Unit ID";
+            unitIDBox.ReadOnly = true;
+            unitIDBox.Size = new Size(100, 27);
+            unitIDBox.TabIndex = 50;
             // 
             // programCbo
             // 
+            programCbo.Enabled = false;
             programCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             programCbo.FormattingEnabled = true;
-            programCbo.Location = new Point(468, 150);
+            programCbo.Items.AddRange(new object[] { "CQ", "VP", "CTTT", "CLC" });
+            programCbo.Location = new Point(646, 60);
             programCbo.Name = "programCbo";
-            programCbo.Size = new Size(195, 27);
-            programCbo.TabIndex = 4;
+            programCbo.Size = new Size(100, 27);
+            programCbo.TabIndex = 51;
+            programCbo.Text = "CQ";
             // 
-            // yearBox
+            // lectIDBox
             // 
-            yearBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            yearBox.Location = new Point(563, 60);
-            yearBox.Name = "yearBox";
-            yearBox.PlaceholderText = "Year";
-            yearBox.Size = new Size(100, 27);
-            yearBox.TabIndex = 3;
-            yearBox.KeyPress += yearBox_KeyPress;
-            // 
-            // semesterBox
-            // 
-            semesterBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            semesterBox.Location = new Point(468, 60);
-            semesterBox.Name = "semesterBox";
-            semesterBox.Size = new Size(50, 27);
-            semesterBox.TabIndex = 2;
-            semesterBox.KeyPress += semesterBox_KeyPress;
-            // 
-            // courseCbo
-            // 
-            courseCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            courseCbo.FormattingEnabled = true;
-            courseCbo.Location = new Point(189, 150);
-            courseCbo.Name = "courseCbo";
-            courseCbo.Size = new Size(250, 27);
-            courseCbo.TabIndex = 1;
-            // 
-            // lecturerCbo
-            // 
-            lecturerCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lecturerCbo.FormattingEnabled = true;
-            lecturerCbo.Location = new Point(189, 60);
-            lecturerCbo.Name = "lecturerCbo";
-            lecturerCbo.Size = new Size(250, 27);
-            lecturerCbo.TabIndex = 0;
+            lectIDBox.Location = new Point(127, 59);
+            lectIDBox.Name = "lectIDBox";
+            lectIDBox.PlaceholderText = "Lecturer ID";
+            lectIDBox.Size = new Size(250, 27);
+            lectIDBox.TabIndex = 59;
             // 
             // UnitAssignment
             // 
@@ -292,6 +350,8 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)yearUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)semUpDown).EndInit();
             ResumeLayout(false);
         }
 
@@ -306,14 +366,18 @@
         private Button deleteButton;
         private Button refreshButton;
         private ComboBox courseCbo;
-        private ComboBox lecturerCbo;
-        private TextBox semesterBox;
-        private TextBox yearBox;
-        private ComboBox programCbo;
         private Label label1;
         private Label label5;
+        private Label label2;
+        private Label label7;
+        private NumericUpDown yearUpDown;
+        private NumericUpDown semUpDown;
         private Label label4;
         private Label label3;
-        private Label label2;
+        private TextBox unitNameBox;
+        private Label label6;
+        private TextBox unitIDBox;
+        private ComboBox programCbo;
+        private TextBox lectIDBox;
     }
 }

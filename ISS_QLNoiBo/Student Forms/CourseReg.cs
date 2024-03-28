@@ -7,7 +7,7 @@ namespace ISS_QLNoiBo.Student_Forms
 {
     public partial class CourseReg : Form
     {
-        public string CurrentUser { get; set; } = string.Empty;
+        public string curUser { get; set; } = string.Empty;
 
         public string Program { get; set; } = string.Empty;
 
@@ -27,7 +27,7 @@ namespace ISS_QLNoiBo.Student_Forms
         {
             String sqlRegister = $"SELECT DK.MAHP, HP.TENHP, DK.HK, DK.NAM " +
                 $"FROM A01_QLNOIBO.DANGKY DK JOIN A01_QLNOIBO.HOCPHAN HP ON HP.MAHP=DK.MAHP " +
-                $"WHERE DK.MASV='{CurrentUser}' " +
+                $"WHERE DK.MASV='{curUser}' " +
                 $"ORDER BY DK.NAM, DK.HK, DK.MAHP";
             registerC = sqlRegister;
 
@@ -35,7 +35,7 @@ namespace ISS_QLNoiBo.Student_Forms
                 $"FROM A01_QLNOIBO.KHMO KH JOIN A01_QLNOIBO.HOCPHAN HP ON HP.MAHP=KH.MAHP " +
                 $"WHERE MACT='{Program}' AND KH.MAHP NOT IN (SELECT MAHP " +
                                                             $"FROM A01_QLNOIBO.DANGKY " +
-                                                            $"WHERE MASV ='{CurrentUser}')" +
+                                                            $"WHERE MASV ='{curUser}')" +
                 $"ORDER BY KH.NAM, KH.HK, KH.MAHP";
             availableC = sqlAvailable;
 
@@ -78,7 +78,7 @@ namespace ISS_QLNoiBo.Student_Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             //String sql = $"INSERT INTO A01_QLNOIBO.DANGKY " +
-                //$"SELECT '{CurrentUser}', '{courseID.Text}', '{}', 0, 0, 0, 0 FROM DUAL UNION ALL";
+                //$"SELECT '{curUser}', '{courseID.Text}', '{}', 0, 0, 0, 0 FROM DUAL UNION ALL";
 
             //OracleCommand cmd = new(sql, conn);
             try
@@ -86,8 +86,8 @@ namespace ISS_QLNoiBo.Student_Forms
                 conn.Open();
                 //cmd.ExecuteNonQuery();
                 MessageBox.Show("Đăng ký học phần thành công!");
-                Helper.refreshData(registerC, registeredCourse);
-                Helper.refreshData(availableC, availableCourse);
+                Helper.refreshData(registerC, registeredCourse, conn);
+                Helper.refreshData(availableC, availableCourse, conn);
             }
             catch (Exception ex)
             {
@@ -105,7 +105,7 @@ namespace ISS_QLNoiBo.Student_Forms
             //else
             //{
             //    String sql = $"DELETE FROM A01_QLNOIBO.DANGKY " +
-            //        $"WHERE MASV='{CurrentUser}' AND MAHP='{courseID.Text}'";
+            //        $"WHERE MASV='{curUser}' AND MAHP='{courseID.Text}'";
 
             //    OracleCommand cmd = new(sql, conn);
             //    try
@@ -126,8 +126,8 @@ namespace ISS_QLNoiBo.Student_Forms
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            Helper.refreshData(registerC, registeredCourse);
-            Helper.refreshData(availableC, availableCourse);
+            Helper.refreshData(registerC, registeredCourse, conn);
+            Helper.refreshData(availableC, availableCourse, conn);
         }
     }
 }

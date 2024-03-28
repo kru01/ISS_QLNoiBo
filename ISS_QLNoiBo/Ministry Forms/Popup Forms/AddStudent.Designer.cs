@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStudent));
             panel1 = new Panel();
+            label9 = new Label();
+            studentID = new TextBox();
             label3 = new Label();
             facilityCbo = new ComboBox();
             studentName = new TextBox();
@@ -49,8 +51,6 @@
             label1 = new Label();
             phoneBox = new TextBox();
             label5 = new Label();
-            studentID = new TextBox();
-            label9 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -84,6 +84,28 @@
             panel1.Size = new Size(682, 453);
             panel1.TabIndex = 0;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.SteelBlue;
+            label9.Location = new Point(266, 72);
+            label9.Name = "label9";
+            label9.Size = new Size(91, 23);
+            label9.TabIndex = 45;
+            label9.Text = "Student ID";
+            // 
+            // studentID
+            // 
+            studentID.CharacterCasing = CharacterCasing.Upper;
+            studentID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            studentID.Location = new Point(266, 98);
+            studentID.Name = "studentID";
+            studentID.PlaceholderText = "Student ID";
+            studentID.Size = new Size(150, 27);
+            studentID.TabIndex = 44;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -105,6 +127,7 @@
             facilityCbo.Name = "facilityCbo";
             facilityCbo.Size = new Size(50, 27);
             facilityCbo.TabIndex = 42;
+            facilityCbo.Text = "1";
             // 
             // studentName
             // 
@@ -171,6 +194,7 @@
             programCbo.Name = "programCbo";
             programCbo.Size = new Size(75, 27);
             programCbo.TabIndex = 40;
+            programCbo.Text = "CQ";
             // 
             // label7
             // 
@@ -235,6 +259,7 @@
             genderCbo.Name = "genderCbo";
             genderCbo.Size = new Size(75, 27);
             genderCbo.TabIndex = 34;
+            genderCbo.Text = "NAM";
             // 
             // addressBox
             // 
@@ -254,11 +279,11 @@
             majorCbo.Name = "majorCbo";
             majorCbo.Size = new Size(125, 27);
             majorCbo.TabIndex = 38;
+            majorCbo.Text = "HTTT";
             // 
             // bdayBox
             // 
-            bdayBox.CustomFormat = "yyyy-MM-dd";
-            bdayBox.Enabled = false;
+            bdayBox.CustomFormat = "dd-MM-yyyy";
             bdayBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bdayBox.Format = DateTimePickerFormat.Custom;
             bdayBox.Location = new Point(441, 164);
@@ -301,27 +326,6 @@
             label5.TabIndex = 33;
             label5.Text = "Date of birth";
             // 
-            // studentID
-            // 
-            studentID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            studentID.Location = new Point(266, 98);
-            studentID.Name = "studentID";
-            studentID.PlaceholderText = "Student ID";
-            studentID.Size = new Size(150, 27);
-            studentID.TabIndex = 44;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.White;
-            label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.SteelBlue;
-            label9.Location = new Point(266, 72);
-            label9.Name = "label9";
-            label9.Size = new Size(91, 23);
-            label9.TabIndex = 45;
-            label9.Text = "Student ID";
-            // 
             // AddStudent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -360,7 +364,7 @@
         private Label label2;
         private Label label3;
         private ComboBox facilityCbo;
-        private TextBox studentID;
         private Label label9;
+        public TextBox studentID;
     }
 }

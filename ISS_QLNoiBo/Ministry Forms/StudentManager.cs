@@ -7,17 +7,14 @@ namespace ISS_QLNoiBo.Ministry_Forms
 {
     public partial class StudentManager : Form
     {
-        public string ministryConn = string.Empty;
-        private static AddStudent f;
+        readonly OracleConnection conn;
+        private static AddStudent? f;
+        readonly String studentSql = $"SELECT * FROM {OracleConfig.schema}.SINHVIEN";
 
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        readonly String studentSql = "SELECT * FROM A01_QLNOIBO.SINHVIEN ORDER BY MASV";
-
-        public StudentManager()
+        public StudentManager(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void StudentManager_Load(object sender, EventArgs e)
@@ -60,18 +57,20 @@ namespace ISS_QLNoiBo.Ministry_Forms
             majorCbo.Text = cRow.Cells["MANGANH"].Value.ToString();
             phoneBox.Text = cRow.Cells["DT"].Value.ToString();
             addressBox.Text = cRow.Cells["DCHI"].Value.ToString();
+            creditUpDown.Value = Int32.Parse(cRow.Cells["SOTCTL"].Value.ToString());
+            gpaUpDown.Value = decimal.Parse(cRow.Cells["DTBTL"].Value.ToString());
         }
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            f = new AddStudent();
+            f = new AddStudent(conn);
             f.FormClosedEvent += FormClosedEvent;
             f.Show();
         }
 
-        private void FormClosedEvent(object sender, EventArgs e)
+        private void FormClosedEvent(object? sender, EventArgs e)
         {
-            Helper.refreshData(studentSql, studentData);
+            Helper.refreshData($"{studentSql} WHERE MASV='{f?.studentID.Text}'", studentData, conn);
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -84,14 +83,16 @@ namespace ISS_QLNoiBo.Ministry_Forms
             }
             else
             {
-                String updateSql = $"UPDATE SINHVIEN SET " +
+                String updateSql = $"UPDATE {OracleConfig.schema}.SINHVIEN SET " +
                     $"HOTEN = '{studentName.Text}', " +
                     $"PHAI = '{genderCbo.Text}', " +
-                    $"NGSINH = '{bdayBox.Text}', " +
+                    $"NGSINH = TO_DATE('{bdayBox.Text}', 'DD/MM/YYYY'), " +
                     $"DCHI = '{addressBox.Text}', " +
                     $"DT = '{phoneBox.Text}', " +
                     $"MACT = '{programCbo.Text}', " +
                     $"MANGANH = '{majorCbo.Text}', " +
+                    $"SOTCTL = {creditUpDown.Value}, " +
+                    $"DTBTL = {gpaUpDown.Value} " +
                     $"WHERE MASV = '{studentID.Text}'";
                 OracleCommand cmd = new(updateSql, conn);
 
@@ -100,11 +101,11 @@ namespace ISS_QLNoiBo.Ministry_Forms
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật thành công!");
+                    Helper.refreshData($"{studentSql} WHERE MASV='{studentID.Text}'", studentData, conn);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    Helper.refreshData(studentSql, studentData);
                 }
                 finally { conn.Close(); }
             }
@@ -112,7 +113,7 @@ namespace ISS_QLNoiBo.Ministry_Forms
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            Helper.refreshData(studentSql, studentData);
+            Helper.refreshData($"{studentSql} ORDER BY MASV", studentData, conn);
         }
 
     }

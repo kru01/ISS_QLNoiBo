@@ -6,31 +6,27 @@ namespace ISS_QLNoiBo.UnitHead_Forms
 {
     public partial class UnitHead_Main : Form
     {
-        public string CurrentUser { get; set; } = string.Empty;
+        readonly OracleConnection conn;
 
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public UnitHead_Main()
+        public UnitHead_Main(string connStr)
         {
             InitializeComponent();
+            this.conn = new(connStr);
         }
 
         private void accountButton_Click(object sender, EventArgs e)
         {
-            Account f = new Account();
-            f.CurrentUser = CurrentUser;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new Account(conn), this.mainPanel);
         }
 
         private void studentButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Student(), this.mainPanel);
+            Helper.loadform(new Student(conn), this.mainPanel);
         }
 
         private void courseButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Course(), this.mainPanel);
+            Helper.loadform(new Course(conn), this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)
@@ -46,16 +42,12 @@ namespace ISS_QLNoiBo.UnitHead_Forms
 
         private void assignmentButton_Click(object sender, EventArgs e)
         {
-            UnitAssignment f = new();
-            f.CurrentUser = CurrentUser;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new UnitAssignment(conn), this.mainPanel);
         }
 
         private void UnitHead_Main_Load(object sender, EventArgs e)
         {
-            unitHeadID.Text = CurrentUser;
-
-            String sql = $"SELECT HOTEN FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
+            String sql = $"SELECT MANV, HOTEN FROM A01_QLNOIBO.V_NHANSU_NV";
             OracleCommand cmd = new(sql, conn);
             try
             {
@@ -63,6 +55,7 @@ namespace ISS_QLNoiBo.UnitHead_Forms
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    unitHeadID.Text = reader["MANV"].ToString();
                     unitHeadName.Text = reader["HOTEN"].ToString();
                 }
             }

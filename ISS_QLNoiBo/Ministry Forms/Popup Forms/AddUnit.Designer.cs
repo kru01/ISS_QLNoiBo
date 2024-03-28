@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUnit));
             panel1 = new Panel();
+            label9 = new Label();
             unitName = new TextBox();
             label6 = new Label();
             label2 = new Label();
@@ -37,12 +38,16 @@
             insertButton = new Button();
             unitHeadCbo = new ComboBox();
             label1 = new Label();
+            unitIDUpDown = new NumericUpDown();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)unitIDUpDown).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(unitIDUpDown);
+            panel1.Controls.Add(label9);
             panel1.Controls.Add(unitName);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label2);
@@ -55,6 +60,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(482, 353);
             panel1.TabIndex = 1;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.SteelBlue;
+            label9.Location = new Point(66, 150);
+            label9.Name = "label9";
+            label9.Size = new Size(62, 23);
+            label9.TabIndex = 38;
+            label9.Text = "Unit ID";
             // 
             // unitName
             // 
@@ -71,7 +88,7 @@
             label6.BackColor = Color.White;
             label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(66, 149);
+            label6.Location = new Point(264, 149);
             label6.Name = "label6";
             label6.Size = new Size(90, 23);
             label6.TabIndex = 35;
@@ -122,10 +139,9 @@
             // 
             unitHeadCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             unitHeadCbo.FormattingEnabled = true;
-            unitHeadCbo.Items.AddRange(new object[] { "NAM", "NU" });
-            unitHeadCbo.Location = new Point(66, 175);
+            unitHeadCbo.Location = new Point(266, 175);
             unitHeadCbo.Name = "unitHeadCbo";
-            unitHeadCbo.Size = new Size(350, 27);
+            unitHeadCbo.Size = new Size(150, 27);
             unitHeadCbo.TabIndex = 34;
             // 
             // label1
@@ -139,6 +155,16 @@
             label1.Size = new Size(93, 23);
             label1.TabIndex = 30;
             label1.Text = "Unit Name";
+            // 
+            // unitIDUpDown
+            // 
+            unitIDUpDown.Location = new Point(66, 176);
+            unitIDUpDown.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+            unitIDUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            unitIDUpDown.Name = "unitIDUpDown";
+            unitIDUpDown.Size = new Size(150, 27);
+            unitIDUpDown.TabIndex = 39;
+            unitIDUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // AddUnit
             // 
@@ -154,6 +180,7 @@
             Load += AddUnit_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)unitIDUpDown).EndInit();
             ResumeLayout(false);
         }
 
@@ -179,5 +206,7 @@
         private Label label1;
         private TextBox phoneBox;
         private Label label5;
+        private Label label9;
+        private NumericUpDown unitIDUpDown;
     }
 }

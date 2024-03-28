@@ -41,14 +41,20 @@
             label5 = new Label();
             label6 = new Label();
             programCbo = new ComboBox();
-            yearBox = new TextBox();
-            semesterBox = new TextBox();
+            unitIDBox = new TextBox();
+            unitNameBox = new TextBox();
             courseCbo = new ComboBox();
             lecturerCbo = new ComboBox();
             assignmentData = new DataGridView();
+            semUpDown = new NumericUpDown();
+            yearUpDown = new NumericUpDown();
+            label7 = new Label();
+            label8 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)assignmentData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)semUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)yearUpDown).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -141,14 +147,18 @@
             // 
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(yearUpDown);
+            panel2.Controls.Add(semUpDown);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(programCbo);
-            panel2.Controls.Add(yearBox);
-            panel2.Controls.Add(semesterBox);
+            panel2.Controls.Add(unitIDBox);
+            panel2.Controls.Add(unitNameBox);
             panel2.Controls.Add(courseCbo);
             panel2.Controls.Add(lecturerCbo);
             panel2.Location = new Point(25, 30);
@@ -161,7 +171,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(468, 124);
+            label4.Location = new Point(646, 34);
             label4.Name = "label4";
             label4.Size = new Size(79, 23);
             label4.TabIndex = 20;
@@ -172,7 +182,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(563, 34);
+            label3.Location = new Point(526, 34);
             label3.Name = "label3";
             label3.Size = new Size(49, 23);
             label3.TabIndex = 19;
@@ -183,7 +193,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(468, 34);
+            label2.Location = new Point(406, 34);
             label2.Name = "label2";
             label2.Size = new Size(82, 23);
             label2.TabIndex = 18;
@@ -194,7 +204,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(189, 124);
+            label5.Location = new Point(127, 124);
             label5.Name = "label5";
             label5.Size = new Size(118, 23);
             label5.TabIndex = 17;
@@ -205,7 +215,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(189, 34);
+            label6.Location = new Point(127, 34);
             label6.Name = "label6";
             label6.Size = new Size(127, 23);
             label6.TabIndex = 16;
@@ -213,38 +223,42 @@
             // 
             // programCbo
             // 
+            programCbo.Enabled = false;
             programCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             programCbo.FormattingEnabled = true;
             programCbo.Items.AddRange(new object[] { "CQ", "VP", "CTTT", "CLC" });
-            programCbo.Location = new Point(468, 150);
+            programCbo.Location = new Point(646, 60);
             programCbo.Name = "programCbo";
-            programCbo.Size = new Size(195, 27);
+            programCbo.Size = new Size(100, 27);
             programCbo.TabIndex = 15;
+            programCbo.Text = "CQ";
             // 
-            // yearBox
+            // unitIDBox
             // 
-            yearBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            yearBox.Location = new Point(563, 60);
-            yearBox.Name = "yearBox";
-            yearBox.PlaceholderText = "Year";
-            yearBox.Size = new Size(100, 27);
-            yearBox.TabIndex = 14;
-            yearBox.KeyPress += yearBox_KeyPress;
+            unitIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            unitIDBox.Location = new Point(406, 150);
+            unitIDBox.Name = "unitIDBox";
+            unitIDBox.PlaceholderText = "Unit ID";
+            unitIDBox.ReadOnly = true;
+            unitIDBox.Size = new Size(100, 27);
+            unitIDBox.TabIndex = 14;
             // 
-            // semesterBox
+            // unitNameBox
             // 
-            semesterBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            semesterBox.Location = new Point(468, 60);
-            semesterBox.Name = "semesterBox";
-            semesterBox.Size = new Size(50, 27);
-            semesterBox.TabIndex = 13;
-            semesterBox.KeyPress += semesterBox_KeyPress;
+            unitNameBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            unitNameBox.Location = new Point(526, 150);
+            unitNameBox.Name = "unitNameBox";
+            unitNameBox.PlaceholderText = "Unit Name";
+            unitNameBox.ReadOnly = true;
+            unitNameBox.Size = new Size(220, 27);
+            unitNameBox.TabIndex = 13;
             // 
             // courseCbo
             // 
+            courseCbo.Enabled = false;
             courseCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             courseCbo.FormattingEnabled = true;
-            courseCbo.Location = new Point(189, 150);
+            courseCbo.Location = new Point(127, 150);
             courseCbo.Name = "courseCbo";
             courseCbo.Size = new Size(250, 27);
             courseCbo.TabIndex = 12;
@@ -253,7 +267,7 @@
             // 
             lecturerCbo.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lecturerCbo.FormattingEnabled = true;
-            lecturerCbo.Location = new Point(189, 60);
+            lecturerCbo.Location = new Point(127, 60);
             lecturerCbo.Name = "lecturerCbo";
             lecturerCbo.Size = new Size(250, 27);
             lecturerCbo.TabIndex = 11;
@@ -277,6 +291,50 @@
             assignmentData.TabIndex = 0;
             assignmentData.CellClick += assignmentData_CellClick;
             // 
+            // semUpDown
+            // 
+            semUpDown.Location = new Point(406, 60);
+            semUpDown.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            semUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            semUpDown.Name = "semUpDown";
+            semUpDown.ReadOnly = true;
+            semUpDown.Size = new Size(100, 27);
+            semUpDown.TabIndex = 43;
+            semUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // yearUpDown
+            // 
+            yearUpDown.Location = new Point(526, 60);
+            yearUpDown.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
+            yearUpDown.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
+            yearUpDown.Name = "yearUpDown";
+            yearUpDown.ReadOnly = true;
+            yearUpDown.Size = new Size(100, 27);
+            yearUpDown.TabIndex = 46;
+            yearUpDown.Value = new decimal(new int[] { 2024, 0, 0, 0 });
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.SteelBlue;
+            label7.Location = new Point(406, 124);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 23);
+            label7.TabIndex = 47;
+            label7.Text = "Unit ID";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.SteelBlue;
+            label8.Location = new Point(526, 124);
+            label8.Name = "label8";
+            label8.Size = new Size(93, 23);
+            label8.TabIndex = 48;
+            label8.Text = "Unit Name";
+            // 
             // DeptAssignemnt
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -293,6 +351,8 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)assignmentData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)semUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)yearUpDown).EndInit();
             ResumeLayout(false);
         }
 
@@ -312,9 +372,13 @@
         private Label label5;
         private Label label6;
         private ComboBox programCbo;
-        private TextBox yearBox;
-        private TextBox semesterBox;
+        private TextBox unitIDBox;
+        private TextBox unitNameBox;
         private ComboBox courseCbo;
         private ComboBox lecturerCbo;
+        private NumericUpDown semUpDown;
+        private NumericUpDown yearUpDown;
+        private Label label7;
+        private Label label8;
     }
 }

@@ -6,23 +6,17 @@ namespace ISS_QLNoiBo.Employee_Forms
 {
     public partial class Emp_Main : Form
     {
-        public string CurrentUser = string.Empty;
+        readonly OracleConnection conn;
 
-        public string employeeConn = string.Empty;
-
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public Emp_Main()
+        public Emp_Main(string connStr)
         {
             InitializeComponent();
+            this.conn = new(connStr);
         }
 
         private void Emp_Main_Load(object sender, EventArgs e)
         {
-            empID.Text = CurrentUser;
-
-            String sql = $"SELECT HOTEN FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
+            String sql = $"SELECT MANV, HOTEN FROM A01_QLNOIBO.V_NHANSU_NV";
             OracleCommand cmd = new(sql, conn);
             try
             {
@@ -30,6 +24,7 @@ namespace ISS_QLNoiBo.Employee_Forms
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    empID.Text = reader["MANV"].ToString();
                     EmpName.Text = reader["HOTEN"].ToString();
                 }
             }
@@ -42,20 +37,18 @@ namespace ISS_QLNoiBo.Employee_Forms
 
         private void accountButton_Click(object sender, EventArgs e)
         {
-            Account f = new Account();
-            f.CurrentUser = CurrentUser;
-            f.connStr = employeeConn;
+            Account f = new(conn);
             Helper.loadform(f, this.mainPanel);
         }
 
         private void studentListButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Student(), this.mainPanel);
+            Helper.loadform(new Student(conn), this.mainPanel);
         }
 
         private void courseButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Course(), this.mainPanel);
+            Helper.loadform(new Course(conn), this.mainPanel);
         }
 
         private void announceButton_Click(object sender, EventArgs e)

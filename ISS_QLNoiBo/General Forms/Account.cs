@@ -5,21 +5,17 @@ namespace ISS_QLNoiBo.General_Forms
 {
     public partial class Account : Form
     {
-        public string CurrentUser = string.Empty;
+        readonly OracleConnection conn;
 
-        public string connStr = string.Empty;
-
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public Account()
+        public Account(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void Account_Load(object sender, EventArgs e)
         {
-            String sql = $"SELECT * FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
+            String sql = $"SELECT * FROM A01_QLNOIBO.V_NHANSU_NV";
             OracleCommand cmd = new(sql, conn);
             try
             {
@@ -55,8 +51,7 @@ namespace ISS_QLNoiBo.General_Forms
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            String sql = $"UPDATE A01_QLNOIBO.NHANSU SET DT='{phoneBox.Text}' WHERE MANV='{CurrentUser}'";
-            OracleConnection conn = new(connStr);
+            String sql = $"UPDATE A01_QLNOIBO.V_NHANSU_NV SET DT='{phoneBox.Text}'";
             OracleCommand cmd = new(sql, conn);
             try
             {

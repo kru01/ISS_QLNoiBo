@@ -5,17 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace ISS_QLNoiBo.Others
 {
     internal class Helper
     {
-        readonly static OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public static DataSet getData(string query)
+        public static DataSet getData(string query, OracleConnection conn)
         {
-            conn.Open();
+            if (conn.State == ConnectionState.Closed) conn.Open();
             DataSet dt = new();
             OracleDataAdapter ap = new(query, conn);
             ap.Fill(dt);
@@ -35,9 +33,9 @@ namespace ISS_QLNoiBo.Others
             f.Show();
         }
 
-        public static void refreshData(string query, DataGridView d)
+        public static void refreshData(string query, DataGridView d, OracleConnection conn)
         {
-            d.DataSource = getData(query).Tables[0];
+            d.DataSource = getData(query, conn).Tables[0];
         }
     }
 }

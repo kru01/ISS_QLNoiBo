@@ -50,65 +50,56 @@ namespace ISS_QLNoiBo
             }
             else
             {
-                string connString = $"Data Source = {OracleConfig.connString};" +
+                string connStr = $"Data Source = {OracleConfig.connString};" +
                     $"User Id = {username.Text};password = {password.Text};";
 
-                OracleConnection conn = new(connString);
+                OracleConnection conn = new(connStr);
 
                 try
                 { 
                     conn.Open();
                     this.Hide();
+                    string type = username.Text[..2];
 
-                    if (username.Text[..2] == "AD")
+                    if (type == "AD")
                     {
-                        Admin_Main form = new();
-                        form.CurrentUsername = username.Text;
+                        Admin_Main form = new(username.Text);
                         form.ShowDialog();
                     }
 
-                    else if (username.Text[..2] == "NV")
+                    else if (type == "NV")
                     {
-                        Emp_Main form = new();
-                        form.CurrentUser = username.Text;
-                        form.employeeConn = connString;
+                        Emp_Main form = new(connStr);
                         form.ShowDialog();
                     }
 
-                    else if (username.Text[..1] == "V")
+                    else if (type[0] == 'V')
                     {
-                        Lecturer_Main form = new();
-                        form.CurrentUser = username.Text;
-                        form.lecturerConn = connString;
+                        Lecturer_Main form = new(connStr);
                         form.ShowDialog();
                     }
 
-                    else if (username.Text[..2] == "GV")
+                    else if (type == "GV")
                     {
-                        Ministry_Main form = new();
-                        form.CurrentUser = username.Text;
+                        Ministry_Main form = new(connStr);
                         form.ShowDialog();
                     }
 
-                    else if (username.Text[..2] == "TD")
+                    else if (type == "TD")
                     {
-                        UnitHead_Main form = new();
-                        form.CurrentUser = username.Text;
+                        UnitHead_Main form = new(connStr);
                         form.ShowDialog();
                     }
 
-                    else if (username.Text[..2] == "TK")
+                    else if (type == "TK")
                     {
-                        DeptHead_Main form = new();
-                        form.CurrentUser = username.Text;
-                        form.deptHeadconn = connString;
+                        DeptHead_Main form = new(connStr);
                         form.ShowDialog();
                     }
 
-                    else if (username.Text[..1] == "S")
+                    else if (type[0] == 'S')
                     {
-                        Student_Main form = new();
-                        form.CurrentUser = username.Text;
+                        Student_Main form = new(connStr);
                         form.ShowDialog();
                     }
 

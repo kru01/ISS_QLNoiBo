@@ -6,11 +6,11 @@ namespace ISS_QLNoiBo.General_Forms
 {
     public partial class Course : Form
     {
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-        public Course()
+        readonly OracleConnection conn;
+        public Course(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void Course_Load(object sender, EventArgs e)

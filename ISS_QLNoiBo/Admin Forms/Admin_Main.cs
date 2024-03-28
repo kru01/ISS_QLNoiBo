@@ -4,16 +4,16 @@ namespace ISS_QLNoiBo
 {
     public partial class Admin_Main : Form
     {
-        public string CurrentPass { get; set; } = string.Empty;
-        public string CurrentUsername { get; set; } = string.Empty;
-        public Admin_Main()
+        readonly string curUser;
+        public Admin_Main(string curUser)
         {
             InitializeComponent();
+            this.curUser = curUser;
         }
 
         private void Admin_Main_Load(object sender, EventArgs e)
         {
-            adminID.Text = CurrentUsername;
+            adminID.Text = curUser;
         }
 
         private void userButton_Click(object sender, EventArgs e)

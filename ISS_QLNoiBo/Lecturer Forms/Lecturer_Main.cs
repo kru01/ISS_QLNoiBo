@@ -6,22 +6,16 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 {
     public partial class Lecturer_Main : Form
     {
-        public string CurrentUser = string.Empty;
-        public string lecturerConn = string.Empty;
-
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public Lecturer_Main()
+        readonly OracleConnection conn;
+        public Lecturer_Main(string connStr)
         {
             InitializeComponent();
+            this.conn = new(connStr);
         }
 
         private void Lecturer_Main_Load(object sender, EventArgs e)
         {
-            lecturerID.Text = CurrentUser;
-
-            String sql = $"SELECT HOTEN FROM A01_QLNOIBO.NHANSU WHERE MANV='{CurrentUser}'";
+            String sql = $"SELECT MANV, HOTEN FROM A01_QLNOIBO.V_NHANSU_NV";
             OracleCommand cmd = new(sql, conn);
             try
             {
@@ -29,6 +23,7 @@ namespace ISS_QLNoiBo.Lecturer_Forms
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    lecturerID.Text = reader["MANV"].ToString();
                     lecturerName.Text = reader["HOTEN"].ToString();
                 }
             }
@@ -41,41 +36,33 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 
         private void accountButton_Click(object sender, EventArgs e)
         {
-            Account f = new();
-            f.CurrentUser = CurrentUser;
+            Account f = new(conn);
             Helper.loadform(f, this.mainPanel);
         }
 
         private void studentListButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Student(), this.mainPanel);
+            Helper.loadform(new Student(conn), this.mainPanel);
         }
 
         private void courseButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Course(), this.mainPanel);
+            Helper.loadform(new Course(conn), this.mainPanel);
         }
 
         private void assignmentButton_Click(object sender, EventArgs e)
         {
-            Assignment f = new();
-            f.CurrentUser = CurrentUser;
-            f.lecturerConn = lecturerConn;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new Assignment(conn), this.mainPanel);
         }
 
         private void classButton_Click(object sender, EventArgs e)
         {
-            Class f = new();
-            f.CurrentUser = CurrentUser;
-            f.lecturerConn = lecturerConn;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new Class(conn), this.mainPanel);
         }
 
         private void announceButton_Click(object sender, EventArgs e)
         {
-            Announcement f = new();
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new Announcement(), this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)

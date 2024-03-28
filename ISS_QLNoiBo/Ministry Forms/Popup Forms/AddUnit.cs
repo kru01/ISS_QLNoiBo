@@ -6,14 +6,16 @@ namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
 {
     public partial class AddUnit : Form
     {
-        public event EventHandler FormClosedEvent;
+        public event EventHandler? FormClosedEvent;
+        readonly OracleConnection conn;
 
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
+        readonly OracleConnection adConn = new($"Data Source = {OracleConfig.connString};" +
             $"User Id = AD0001;password = 123;");
 
-        public AddUnit()
+        public AddUnit(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -33,15 +35,11 @@ namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
             }
             else
             {
-                String helperSql = "SELECT MADV FROM A01_QLNOIBO.DONVI ORDER BY MADV DESC WHERE ROWNUM=1";
-                var item = (DataRowView)unitHeadCbo.SelectedItem;
+                var item = unitHeadCbo.SelectedItem as DataRowView;
+                String inSql = $"INSERT INTO A01_QLNOIBO.DONVI VALUES " +
+                    $"({unitIDUpDown.Value}, '{unitName.Text}', '{item?["MANV"]}')";
 
-                String updateSql = $"INSERT INTO A01_QLNOIBO.DONVI " +
-                    $"SELECT 10, '{unitName.Text}', '{item["MANV"]}'" +
-                    $"FROM DUAL UNION ALL";
-
-                OracleCommand cmd2 = new(updateSql, conn);
-
+                OracleCommand cmd2 = new(inSql, conn);
                 try
                 {
                     conn.Open();
@@ -59,10 +57,10 @@ namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
 
         private void AddUnit_Load(object sender, EventArgs e)
         {
-            string lecturerSql = "SELECT HOTEN, MANV FROM NHANSU WHERE MANV LIKE 'TD%'";
+            string lecturerSql = "SELECT HOTEN, MANV FROM NHANSU WHERE MANV LIKE 'TD%' ORDER BY HOTEN";
             unitHeadCbo.DisplayMember = "HOTEN";
             unitHeadCbo.ValueMember = "MANV";
-            unitHeadCbo.DataSource = Helper.getData(lecturerSql).Tables[0];
+            unitHeadCbo.DataSource = Helper.getData(lecturerSql, adConn).Tables[0];
         }
     }
 }
