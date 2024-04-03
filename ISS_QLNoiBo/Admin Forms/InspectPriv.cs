@@ -6,15 +6,15 @@ namespace ISS_QLNoiBo.Admin_Forms
 {
     public partial class InspectPriv : Form
     {
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-        $"User Id = AD0001;password = 123;");
+        readonly OracleConnection conn;
         readonly String sqlRole = "SELECT * FROM DBA_ROLE_PRIVS";
         readonly String sqlSys = "SELECT * FROM DBA_SYS_PRIVS";
         readonly String sqlTab = "SELECT * FROM DBA_TAB_PRIVS";
 
-        public InspectPriv()
+        public InspectPriv(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void InspectPriv_Load(object sender, EventArgs e)

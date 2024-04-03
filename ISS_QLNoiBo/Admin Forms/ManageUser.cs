@@ -6,17 +6,17 @@ namespace ISS_QLNoiBo.Admin_Forms
 {
     public partial class ManageUser : Form
     {
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
+        readonly OracleConnection conn;
         readonly String gridSql = "SELECT US.USERNAME, US.USER_ID, US.\"PASSWORD\", US.ACCOUNT_STATUS, " +
             "US.LOCK_DATE, US.EXPIRY_DATE, US.DEFAULT_TABLESPACE, US.CREATED, " +
             "US.AUTHENTICATION_TYPE, US.LAST_LOGIN, US.PASSWORD_CHANGE_DATE, " +
             "QU.TABLESPACE_NAME \"QUOTA_TABLESPACE\", QU.BYTES \"QUOTA_BYTES\", " +
             "QU.MAX_BYTES \"QUOTA_MAX_BYTES\" " +
             "FROM DBA_USERS US LEFT JOIN DBA_TS_QUOTAS QU ON US.USERNAME = QU.USERNAME";
-        public ManageUser()
+        public ManageUser(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
             this.Load += ManageUsers_Load;
         }
 

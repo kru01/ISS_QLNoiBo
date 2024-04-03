@@ -63,7 +63,7 @@ namespace ISS_QLNoiBo
 
                     if (type == "AD")
                     {
-                        Admin_Main form = new(username.Text);
+                        Admin_Main form = new(username.Text, connStr);
                         form.ShowDialog();
                     }
 

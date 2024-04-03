@@ -69,5 +69,10 @@ namespace ISS_QLNoiBo.DeptHead_Forms
         {
             Helper.loadform(new DeptEmployee(conn), this.mainPanel);
         }
+
+        private void announceButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Announcement(conn), this.mainPanel);
+        }
     }
 }

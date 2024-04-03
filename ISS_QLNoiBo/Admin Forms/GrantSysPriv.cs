@@ -6,13 +6,13 @@ namespace ISS_QLNoiBo.Admin_Forms
 {
     public partial class GrantSysPriv : Form
     {
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
+        readonly OracleConnection conn;
         readonly String gridSql = "SELECT * FROM DBA_SYS_PRIVS";
 
-        public GrantSysPriv()
+        public GrantSysPriv(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void GrantSysPriv_Load(object sender, EventArgs e)

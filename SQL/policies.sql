@@ -365,7 +365,7 @@ BEGIN DBMS_RLS.ADD_POLICY(
 ); END;
 /
 
-GRANT SELECT ON SINHVIEN TO RL_A01_S;
+GRANT SELECT, UPDATE(DCHI, DT) ON SINHVIEN TO RL_A01_S;
 
 -- Xem danh sach tat ca hoc phan (HOCPHAN), ke hoach mo mon (KHMO) cua
 --  chuong trinh dao tao ma sinh vien dang theo hoc.
@@ -453,24 +453,12 @@ END;
 
 -- Sinh vien duoc Xem tat ca thong tin tren quan he DANGKY tai cac dong du
 --  lieu lien quan den chinh sinh vien.
-CREATE OR REPLACE FUNCTION PFN_DANGKY_SEL(
-    P_SCHEMA VARCHAR2, P_OBJ VARCHAR2
-) RETURN VARCHAR2 AS
-    USR VARCHAR2(6) := SYS_CONTEXT('USERENV', 'SESSION_USER');
-BEGIN
-    IF SUBSTR(USR, 1, 1) = 'S' THEN
-        RETURN 'MASV = ''' || USR || '''';
-    END IF;
-    RETURN NULL;
-END;
-/
-
 BEGIN DBMS_RLS.ADD_POLICY(
     OBJECT_SCHEMA  => 'A01_QLNOIBO',
     OBJECT_NAME  => 'DANGKY',
     POLICY_NAME  => 'POL_DANGKY_SEL',
     FUNCTION_SCHEMA  => 'A01_QLNOIBO',
-    POLICY_FUNCTION  => 'PFN_DANGKY_SEL',
+    POLICY_FUNCTION  => 'PFN_SINHVIEN',
     STATEMENT_TYPES  => 'SELECT'
 ); END;
 /

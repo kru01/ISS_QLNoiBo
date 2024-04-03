@@ -205,6 +205,7 @@
             announceButton.TabIndex = 0;
             announceButton.Text = "Announcement";
             announceButton.UseVisualStyleBackColor = false;
+            announceButton.Click += announceButton_Click;
             // 
             // UnitHead_Main
             // 

@@ -6,12 +6,12 @@ namespace ISS_QLNoiBo.Admin_Forms
 {
     public partial class ManageRole : Form
     {
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
+        readonly OracleConnection conn;
         readonly String gridSql = "SELECT * FROM DBA_ROLES";
-        public ManageRole()
+        public ManageRole(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void ManageRole_Load(object sender, EventArgs e)

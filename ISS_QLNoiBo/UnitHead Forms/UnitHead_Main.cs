@@ -65,5 +65,10 @@ namespace ISS_QLNoiBo.UnitHead_Forms
             }
             finally { conn.Close(); }
         }
+
+        private void announceButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Announcement(conn), this.mainPanel);
+        }
     }
 }

@@ -1,14 +1,18 @@
 ﻿using ISS_QLNoiBo.Others;
+using ISS_QLNoiBo.Admin_Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace ISS_QLNoiBo
 {
     public partial class Admin_Main : Form
     {
         readonly string curUser;
-        public Admin_Main(string curUser)
+        readonly OracleConnection conn;
+        public Admin_Main(string curUser, string connString)
         {
             InitializeComponent();
             this.curUser = curUser;
+            this.conn = new(connString);
         }
 
         private void Admin_Main_Load(object sender, EventArgs e)
@@ -16,29 +20,29 @@ namespace ISS_QLNoiBo
             adminID.Text = curUser;
         }
 
-        private void userButton_Click(object sender, EventArgs e)
+        private void InsPrivButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.InspectPriv(), this.mainPanel);
+            Helper.loadform(new InspectPriv(conn), this.mainPanel);
         }
 
         private void privilegesButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.GrantRoleTable(), this.mainPanel);
+            Helper.loadform(new GrantRoleTable(conn), this.mainPanel);
         }
 
         private void usersManageButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.ManageUser(), this.mainPanel);
+            Helper.loadform(new ManageUser(conn), this.mainPanel);
         }
 
         private void roleButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.ManageRole(), this.mainPanel);
+            Helper.loadform(new ManageRole(conn), this.mainPanel);
         }
 
         private void sysPreButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.GrantSysPriv(), this.mainPanel);
+            Helper.loadform(new GrantSysPriv(conn), this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)
@@ -54,7 +58,17 @@ namespace ISS_QLNoiBo
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Forms.ManageView(), this.mainPanel);
+            Helper.loadform(new ManageView(conn), this.mainPanel);
+        }
+
+        private void AnnounButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Announcement(conn), this.mainPanel);
+        }
+
+        private void InsAuditButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new InspectAudit(conn), this.mainPanel);
         }
     }
 }

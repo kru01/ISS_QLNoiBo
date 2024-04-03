@@ -1,4 +1,5 @@
 ﻿using ISS_QLNoiBo.Others;
+using ISS_QLNoiBo.General_Forms;
 using Oracle.ManagedDataAccess.Client;
 
 namespace ISS_QLNoiBo.Student_Forms
@@ -65,6 +66,11 @@ namespace ISS_QLNoiBo.Student_Forms
         private void classButton_Click(object sender, EventArgs e)
         {
             Helper.loadform(new ClassView(conn), this.mainPanel);
+        }
+
+        private void announceButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Announcement(conn), this.mainPanel);
         }
     }
 }

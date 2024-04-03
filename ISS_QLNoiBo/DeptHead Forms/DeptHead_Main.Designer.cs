@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeptHead_Main));
             mainPanel = new Panel();
             panel1 = new Panel();
+            employeeButton = new Button();
             assignmentButton = new Button();
             deptHeadName = new Label();
             signOutButton = new Button();
@@ -41,7 +42,6 @@
             studentButton = new Button();
             accountButton = new Button();
             announceButton = new Button();
-            employeeButton = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -75,6 +75,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(300, 704);
             panel1.TabIndex = 17;
+            // 
+            // employeeButton
+            // 
+            employeeButton.BackColor = Color.SteelBlue;
+            employeeButton.FlatAppearance.BorderSize = 0;
+            employeeButton.FlatStyle = FlatStyle.Flat;
+            employeeButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            employeeButton.ForeColor = Color.White;
+            employeeButton.Location = new Point(0, 500);
+            employeeButton.Name = "employeeButton";
+            employeeButton.Size = new Size(300, 40);
+            employeeButton.TabIndex = 13;
+            employeeButton.Text = "Employee";
+            employeeButton.UseVisualStyleBackColor = false;
+            employeeButton.Click += employeeButton_Click;
             // 
             // assignmentButton
             // 
@@ -207,21 +222,7 @@
             announceButton.TabIndex = 0;
             announceButton.Text = "Announcement";
             announceButton.UseVisualStyleBackColor = false;
-            // 
-            // employeeButton
-            // 
-            employeeButton.BackColor = Color.SteelBlue;
-            employeeButton.FlatAppearance.BorderSize = 0;
-            employeeButton.FlatStyle = FlatStyle.Flat;
-            employeeButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            employeeButton.ForeColor = Color.White;
-            employeeButton.Location = new Point(0, 500);
-            employeeButton.Name = "employeeButton";
-            employeeButton.Size = new Size(300, 40);
-            employeeButton.TabIndex = 13;
-            employeeButton.Text = "Employee";
-            employeeButton.UseVisualStyleBackColor = false;
-            employeeButton.Click += employeeButton_Click;
+            announceButton.Click += announceButton_Click;
             // 
             // DeptHead_Main
             // 

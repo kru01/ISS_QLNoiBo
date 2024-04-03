@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Main));
             panel1 = new Panel();
+            AnnounButton = new Button();
             pictureBox1 = new PictureBox();
             signOutButton = new Button();
-            button2 = new Button();
+            InsAuditButton = new Button();
             viewButton = new Button();
             adminID = new Label();
             label1 = new Label();
@@ -40,7 +41,7 @@
             roleButton = new Button();
             usersManageButton = new Button();
             privilegesButton = new Button();
-            userButton = new Button();
+            InsPrivButton = new Button();
             mainPanel = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -49,9 +50,10 @@
             // panel1
             // 
             panel1.BackColor = Color.SteelBlue;
+            panel1.Controls.Add(AnnounButton);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(signOutButton);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(InsAuditButton);
             panel1.Controls.Add(viewButton);
             panel1.Controls.Add(adminID);
             panel1.Controls.Add(label1);
@@ -59,7 +61,7 @@
             panel1.Controls.Add(roleButton);
             panel1.Controls.Add(usersManageButton);
             panel1.Controls.Add(privilegesButton);
-            panel1.Controls.Add(userButton);
+            panel1.Controls.Add(InsPrivButton);
             panel1.Dock = DockStyle.Left;
             panel1.ForeColor = Color.SteelBlue;
             panel1.Location = new Point(0, 0);
@@ -67,10 +69,25 @@
             panel1.Size = new Size(300, 704);
             panel1.TabIndex = 0;
             // 
+            // AnnounButton
+            // 
+            AnnounButton.BackColor = Color.SteelBlue;
+            AnnounButton.FlatAppearance.BorderSize = 0;
+            AnnounButton.FlatStyle = FlatStyle.Flat;
+            AnnounButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AnnounButton.ForeColor = Color.White;
+            AnnounButton.Location = new Point(25, 200);
+            AnnounButton.Name = "AnnounButton";
+            AnnounButton.Size = new Size(250, 40);
+            AnnounButton.TabIndex = 12;
+            AnnounButton.Text = "Announcement";
+            AnnounButton.UseVisualStyleBackColor = false;
+            AnnounButton.Click += AnnounButton_Click;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.account;
-            pictureBox1.Location = new Point(100, 100);
+            pictureBox1.Location = new Point(100, 50);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(100, 100);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -92,19 +109,20 @@
             signOutButton.UseVisualStyleBackColor = false;
             signOutButton.Click += signOutButton_Click;
             // 
-            // button2
+            // InsAuditButton
             // 
-            button2.BackColor = Color.SteelBlue;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(25, 550);
-            button2.Name = "button2";
-            button2.Size = new Size(250, 40);
-            button2.TabIndex = 10;
-            button2.Text = "Test 2";
-            button2.UseVisualStyleBackColor = false;
+            InsAuditButton.BackColor = Color.SteelBlue;
+            InsAuditButton.FlatAppearance.BorderSize = 0;
+            InsAuditButton.FlatStyle = FlatStyle.Flat;
+            InsAuditButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            InsAuditButton.ForeColor = Color.White;
+            InsAuditButton.Location = new Point(25, 550);
+            InsAuditButton.Name = "InsAuditButton";
+            InsAuditButton.Size = new Size(250, 40);
+            InsAuditButton.TabIndex = 10;
+            InsAuditButton.Text = "Inspect Audit";
+            InsAuditButton.UseVisualStyleBackColor = false;
+            InsAuditButton.Click += InsAuditButton_Click;
             // 
             // viewButton
             // 
@@ -203,20 +221,20 @@
             privilegesButton.UseVisualStyleBackColor = false;
             privilegesButton.Click += privilegesButton_Click;
             // 
-            // userButton
+            // InsPrivButton
             // 
-            userButton.BackColor = Color.SteelBlue;
-            userButton.FlatAppearance.BorderSize = 0;
-            userButton.FlatStyle = FlatStyle.Flat;
-            userButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            userButton.ForeColor = Color.White;
-            userButton.Location = new Point(25, 250);
-            userButton.Name = "userButton";
-            userButton.Size = new Size(250, 40);
-            userButton.TabIndex = 0;
-            userButton.Text = "Inspect Privilege";
-            userButton.UseVisualStyleBackColor = false;
-            userButton.Click += userButton_Click;
+            InsPrivButton.BackColor = Color.SteelBlue;
+            InsPrivButton.FlatAppearance.BorderSize = 0;
+            InsPrivButton.FlatStyle = FlatStyle.Flat;
+            InsPrivButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            InsPrivButton.ForeColor = Color.White;
+            InsPrivButton.Location = new Point(25, 250);
+            InsPrivButton.Name = "InsPrivButton";
+            InsPrivButton.Size = new Size(250, 40);
+            InsPrivButton.TabIndex = 0;
+            InsPrivButton.Text = "Inspect Privilege";
+            InsPrivButton.UseVisualStyleBackColor = false;
+            InsPrivButton.Click += InsPrivButton_Click;
             // 
             // mainPanel
             // 
@@ -249,7 +267,7 @@
 
         private Panel panel1;
         private Panel mainPanel;
-        private Button userButton;
+        private Button InsPrivButton;
         private Button privilegesButton;
         private Button usersManageButton;
         private Button roleButton;
@@ -257,8 +275,9 @@
         private Label label1;
         private Label adminID;
         private Button signOutButton;
-        private Button button2;
+        private Button InsAuditButton;
         private Button viewButton;
         private PictureBox pictureBox1;
+        private Button AnnounButton;
     }
 }

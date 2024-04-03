@@ -6,13 +6,13 @@ namespace ISS_QLNoiBo.Admin_Forms
 {
     public partial class ManageView : Form
     {
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
+        readonly OracleConnection conn;
         readonly String gridSql = "SELECT OWNER, VIEW_NAME, TEXT_LENGTH, TEXT_VC, READ_ONLY, ORIGIN_CON_ID " +
             "FROM DBA_VIEWS WHERE OWNER = 'A01_QLNOIBO'";
-        public ManageView()
+        public ManageView(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void ManageView_Load(object sender, EventArgs e)

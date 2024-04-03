@@ -62,7 +62,7 @@ namespace ISS_QLNoiBo.Lecturer_Forms
 
         private void announceButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Announcement(), this.mainPanel);
+            Helper.loadform(new Announcement(conn), this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)

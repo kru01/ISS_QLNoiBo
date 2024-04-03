@@ -36,6 +36,41 @@
 
 ## Content
 
+-   `dataGenerators` for generating silly data, duh, go read its `README.md`.
+
+### `Documents`
+
+All are in Vietnamese.
+
+-   `PhanHe1_Reports` contains reports for fisrt submission.
+-   `2023-2024 Đồ án môn ATBM dữ liệu trong HTTT.pdf` describes all the tasks and requirements of the project.
+-   `Full_Report.pdf` is our FULL documentation for all the designs and required tasks.
+-   `HD DAC_RBAC_VPD_OLS.pdf` is the course-provided guide to DAC, RBAC, VPD, and OLS.
+
+### `ISS_QLNoiBo`, `QLNB_Release`, and `Logo`
+
+Source code, release build, and resources pertaining to the C# WinForms app.
+
+If trying to run the solution in `ISS_QLNoiBo`, **make sure to modify `Others/OracleConfig.cs` to fit YOUR environment**.
+
+### `SQL`
+
+All files are **heavily commented**, I meant, _well-documented_, so should be quite self-explanatory.
+
+Note that we use Oracle 21c Express, the default CDB and PDB created during installation, i.e., `XE` and `XEPDB1`, with the configuration as follows,
+
+-   **Database host name:** localhost,
+-   **Port number:** 1521,
+-   **Service name:** XEPDB1.
+
+Therefore, a full connection to PDB, let's say as `SYS`, will have the format,
+
+```sql
+CONN SYS/password@LOCALHOST:1521/XEPDB1 AS SYSDBA;
+```
+
+Furthermore, the database is hosted on schema/user `A01_QLNoiBo`, and the only supported admin account is `AD0001` with password `123`. All other users also share the same password, and their username can be found in `data.sql`.
+
 ## Getting Started
 
 ### Prerequisites
@@ -68,6 +103,8 @@
 
 1. Run `cleanupDB.sql`.
     - Should take care to close all connections beforehand so everything can be dropped smoothly, no `ORA-01940: cannot DROP a user that is currently logged in`.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### To enable OLS
 
@@ -128,9 +165,16 @@ Alternatively, [Setup Unified Auditing in Oracle 19c in Windows OS - Bulent Soyl
 
 <p align="right">(<a href="#to-set-up-the-database">back to database set up</a>)</p>
 
+### To run ISS_QLNoiBo application
+
+1. Finish [setting up the database](#to-set-up-the-database).
+1. Navigate into `QLNB_Release`.
+1. Run `ISS_QLNoiBo.exe`.
+
 ### To link Oracle with WinForms
 
 1. Open `ISS_QLNoiBo.sln` with Visual Studio 2022.
+1. Modify `Others/OracleConfig.cs` to fit your environment.
 1. On the taskbar, select `Project` &rarr; `Manage NuGet Packages...`.
 1. Move to `Browse` tab, search for `oracle`, and install `Oracle.ManagedDataAccess.Core`.
 1. Try to run the program, if it still fails, proceed to step 5.
