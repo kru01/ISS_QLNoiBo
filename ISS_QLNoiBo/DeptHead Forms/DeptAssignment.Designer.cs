@@ -1,6 +1,6 @@
 ﻿namespace ISS_QLNoiBo.DeptHead_Forms
 {
-    partial class DeptAssignemnt
+    partial class DeptAssignment
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,10 @@
             updateButton = new Button();
             label1 = new Label();
             panel2 = new Panel();
+            label8 = new Label();
+            label7 = new Label();
+            yearUpDown = new NumericUpDown();
+            semUpDown = new NumericUpDown();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -46,15 +50,11 @@
             courseCbo = new ComboBox();
             lecturerCbo = new ComboBox();
             assignmentData = new DataGridView();
-            semUpDown = new NumericUpDown();
-            yearUpDown = new NumericUpDown();
-            label7 = new Label();
-            label8 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)assignmentData).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)semUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)yearUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)semUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)assignmentData).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -116,6 +116,7 @@
             insertButton.TabIndex = 17;
             insertButton.Text = "Insert";
             insertButton.UseVisualStyleBackColor = false;
+            insertButton.Click += this.insertButton_Click;
             // 
             // updateButton
             // 
@@ -165,6 +166,50 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(854, 225);
             panel2.TabIndex = 1;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.SteelBlue;
+            label8.Location = new Point(526, 124);
+            label8.Name = "label8";
+            label8.Size = new Size(93, 23);
+            label8.TabIndex = 48;
+            label8.Text = "Unit Name";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.SteelBlue;
+            label7.Location = new Point(406, 124);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 23);
+            label7.TabIndex = 47;
+            label7.Text = "Unit ID";
+            // 
+            // yearUpDown
+            // 
+            yearUpDown.Location = new Point(526, 60);
+            yearUpDown.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
+            yearUpDown.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
+            yearUpDown.Name = "yearUpDown";
+            yearUpDown.ReadOnly = true;
+            yearUpDown.Size = new Size(100, 27);
+            yearUpDown.TabIndex = 46;
+            yearUpDown.Value = new decimal(new int[] { 2024, 0, 0, 0 });
+            // 
+            // semUpDown
+            // 
+            semUpDown.Location = new Point(406, 60);
+            semUpDown.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            semUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            semUpDown.Name = "semUpDown";
+            semUpDown.ReadOnly = true;
+            semUpDown.Size = new Size(100, 27);
+            semUpDown.TabIndex = 43;
+            semUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label4
             // 
@@ -291,58 +336,14 @@
             assignmentData.TabIndex = 0;
             assignmentData.CellClick += assignmentData_CellClick;
             // 
-            // semUpDown
-            // 
-            semUpDown.Location = new Point(406, 60);
-            semUpDown.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
-            semUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            semUpDown.Name = "semUpDown";
-            semUpDown.ReadOnly = true;
-            semUpDown.Size = new Size(100, 27);
-            semUpDown.TabIndex = 43;
-            semUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // yearUpDown
-            // 
-            yearUpDown.Location = new Point(526, 60);
-            yearUpDown.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
-            yearUpDown.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
-            yearUpDown.Name = "yearUpDown";
-            yearUpDown.ReadOnly = true;
-            yearUpDown.Size = new Size(100, 27);
-            yearUpDown.TabIndex = 46;
-            yearUpDown.Value = new decimal(new int[] { 2024, 0, 0, 0 });
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.SteelBlue;
-            label7.Location = new Point(406, 124);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 23);
-            label7.TabIndex = 47;
-            label7.Text = "Unit ID";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.SteelBlue;
-            label8.Location = new Point(526, 124);
-            label8.Name = "label8";
-            label8.Size = new Size(93, 23);
-            label8.TabIndex = 48;
-            label8.Text = "Unit Name";
-            // 
-            // DeptAssignemnt
+            // DeptAssignment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(904, 704);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "DeptAssignemnt";
+            Name = "DeptAssignment";
             StartPosition = FormStartPosition.CenterParent;
             Text = "DeptAssignemnt";
             Load += DeptAssignemnt_Load;
@@ -350,9 +351,9 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)assignmentData).EndInit();
-            ((System.ComponentModel.ISupportInitialize)semUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)yearUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)semUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)assignmentData).EndInit();
             ResumeLayout(false);
         }
 

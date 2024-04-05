@@ -51,7 +51,7 @@ namespace ISS_QLNoiBo.DeptHead_Forms
 
         private void assignmentButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new DeptAssignemnt(conn), this.mainPanel);
+            Helper.loadform(new DeptAssignment(conn), this.mainPanel);
         }
 
         private void signOutButton_Click(object sender, EventArgs e)

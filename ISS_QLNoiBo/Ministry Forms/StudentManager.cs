@@ -57,8 +57,8 @@ namespace ISS_QLNoiBo.Ministry_Forms
             majorCbo.Text = cRow.Cells["MANGANH"].Value.ToString();
             phoneBox.Text = cRow.Cells["DT"].Value.ToString();
             addressBox.Text = cRow.Cells["DCHI"].Value.ToString();
-            creditUpDown.Value = Int32.Parse(cRow.Cells["SOTCTL"].Value.ToString());
-            gpaUpDown.Value = decimal.Parse(cRow.Cells["DTBTL"].Value.ToString());
+            creditUpDown.Value = Int32.Parse(cRow.Cells["SOTCTL"].Value.ToString() ?? "1");
+            gpaUpDown.Value = decimal.Parse(cRow.Cells["DTBTL"].Value.ToString() ?? "1");
         }
 
         private void insertButton_Click(object sender, EventArgs e)

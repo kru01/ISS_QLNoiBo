@@ -1,12 +1,14 @@
 ﻿using ISS_QLNoiBo.General_Forms;
+using ISS_QLNoiBo.Ministry_Forms.Popup_Forms;
 using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
 
 namespace ISS_QLNoiBo.DeptHead_Forms
 {
-    public partial class DeptAssignemnt : Form
+    public partial class DeptAssignment : Form
     {
+        private static AddAssignment? formAddAssign;
         readonly OracleConnection conn;
         readonly String orderSql = "ORDER BY PC.MACT, PC.NAM, PC.HK, PC.MAHP, PC.MAGV";
         readonly String sql = "SELECT PC.MAGV, NS.HOTEN, PC.MAHP, HP.TENHP, PC.HK, PC.NAM, " +
@@ -16,7 +18,7 @@ namespace ISS_QLNoiBo.DeptHead_Forms
                     $"JOIN {OracleConfig.schema}.DONVI DV ON DV.MADV=HP.MADV " +
                     $"JOIN {OracleConfig.schema}.NHANSU NS ON NS.MANV=PC.MAGV";
 
-        public DeptAssignemnt(OracleConnection conn)
+        public DeptAssignment(OracleConnection conn)
         {
             InitializeComponent();
             this.conn = conn;
@@ -51,8 +53,8 @@ namespace ISS_QLNoiBo.DeptHead_Forms
 
             lecturerCbo.Text = cRow.Cells["HOTEN"].Value.ToString();
             courseCbo.Text = cRow.Cells["TENHP"].Value.ToString();
-            semUpDown.Value = Int32.Parse(cRow.Cells["HK"].Value.ToString());
-            yearUpDown.Value = Int32.Parse(cRow.Cells["NAM"].Value.ToString());
+            semUpDown.Value = Int32.Parse(cRow.Cells["HK"].Value.ToString() ?? "1");
+            yearUpDown.Value = Int32.Parse(cRow.Cells["NAM"].Value.ToString() ?? "2024");
             programCbo.Text = cRow.Cells["MACT"].Value.ToString();
             unitIDBox.Text = cRow.Cells["MADV"].Value.ToString();
             unitNameBox.Text = cRow.Cells["TENDV"].Value.ToString();
@@ -113,6 +115,22 @@ namespace ISS_QLNoiBo.DeptHead_Forms
                 }
                 finally { if (conn.State == ConnectionState.Open) conn.Close(); }
             }
+        }
+
+        private void insertButton_Click(object sender, EventArgs e)
+        {
+            formAddAssign = new(conn);
+            formAddAssign.FormClosedEvent += FormClosedEvent;
+            formAddAssign.Show();
+        }
+
+        private void FormClosedEvent(object? sender, EventArgs e)
+        {
+            Helper.refreshData($"{sql} WHERE PC.MAGV='{formAddAssign?.lecturerID.Text}' " +
+                    $"AND PC.MAHP='{formAddAssign?.courseID.Text}' AND PC.HK='{formAddAssign?.semUpDown.Value}' " +
+                    $"AND PC.NAM={formAddAssign?.yearUpDown.Value} AND PC.MACT='{formAddAssign?.progCbo.Text}' " +
+                    $"{orderSql}",
+                assignmentData, conn);
         }
     }
 }

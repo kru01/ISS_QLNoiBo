@@ -1,6 +1,6 @@
-﻿namespace ISS_QLNoiBo.Ministry_Forms
+﻿namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
 {
-    partial class Assignment
+    partial class AddAssignment
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAssignment));
             panel1 = new Panel();
             label8 = new Label();
             panel2 = new Panel();
+            UnitCheck = new CheckBox();
             progCbo = new ComboBox();
             yearUpDown = new NumericUpDown();
             label3 = new Label();
+            cancelButton = new Button();
             label4 = new Label();
+            insertButton = new Button();
             semUpDown = new NumericUpDown();
             courseID = new TextBox();
-            refreshButton = new Button();
-            updateButton = new Button();
+            RefreshButton = new Button();
             label7 = new Label();
             label6 = new Label();
             unitNameBox = new TextBox();
@@ -47,12 +50,12 @@
             label2 = new Label();
             label1 = new Label();
             lecturerID = new TextBox();
-            assignmentData = new DataGridView();
+            KhmoData = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)yearUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)semUpDown).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)assignmentData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)KhmoData).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -60,11 +63,11 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(label8);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(assignmentData);
+            panel1.Controls.Add(KhmoData);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(904, 704);
+            panel1.Size = new Size(906, 677);
             panel1.TabIndex = 0;
             // 
             // label8
@@ -72,24 +75,26 @@
             label8.AutoSize = true;
             label8.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.SteelBlue;
-            label8.Location = new Point(590, 131);
+            label8.Location = new Point(319, 9);
             label8.Name = "label8";
-            label8.Size = new Size(146, 35);
-            label8.TabIndex = 23;
-            label8.Text = "Assignment";
+            label8.Size = new Size(269, 35);
+            label8.TabIndex = 48;
+            label8.Text = "Add New Assignment";
             // 
             // panel2
             // 
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(UnitCheck);
             panel2.Controls.Add(progCbo);
             panel2.Controls.Add(yearUpDown);
             panel2.Controls.Add(label3);
+            panel2.Controls.Add(cancelButton);
             panel2.Controls.Add(label4);
+            panel2.Controls.Add(insertButton);
             panel2.Controls.Add(semUpDown);
             panel2.Controls.Add(courseID);
-            panel2.Controls.Add(refreshButton);
-            panel2.Controls.Add(updateButton);
+            panel2.Controls.Add(RefreshButton);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(unitNameBox);
@@ -98,17 +103,30 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(lecturerID);
-            panel2.Location = new Point(438, 152);
+            panel2.Location = new Point(12, 30);
             panel2.Name = "panel2";
-            panel2.Size = new Size(450, 400);
-            panel2.TabIndex = 1;
+            panel2.Size = new Size(882, 175);
+            panel2.TabIndex = 47;
+            // 
+            // UnitCheck
+            // 
+            UnitCheck.AutoSize = true;
+            UnitCheck.Checked = true;
+            UnitCheck.CheckState = CheckState.Checked;
+            UnitCheck.Location = new Point(413, 109);
+            UnitCheck.Name = "UnitCheck";
+            UnitCheck.Size = new Size(109, 44);
+            UnitCheck.TabIndex = 47;
+            UnitCheck.Text = "Show only\r\nrelated Unit";
+            UnitCheck.UseVisualStyleBackColor = true;
+            UnitCheck.CheckedChanged += UnitCheck_CheckedChanged;
             // 
             // progCbo
             // 
             progCbo.Enabled = false;
             progCbo.FormattingEnabled = true;
             progCbo.Items.AddRange(new object[] { "CQ", "CLC", "CTTT", "VP" });
-            progCbo.Location = new Point(309, 169);
+            progCbo.Location = new Point(684, 61);
             progCbo.Name = "progCbo";
             progCbo.Size = new Size(100, 28);
             progCbo.TabIndex = 46;
@@ -116,7 +134,7 @@
             // 
             // yearUpDown
             // 
-            yearUpDown.Location = new Point(174, 170);
+            yearUpDown.Location = new Point(549, 62);
             yearUpDown.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
             yearUpDown.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
             yearUpDown.Name = "yearUpDown";
@@ -130,26 +148,56 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(260, 227);
+            label3.Location = new Point(684, 100);
             label3.Name = "label3";
             label3.Size = new Size(93, 23);
             label3.TabIndex = 44;
             label3.Text = "Unit Name";
+            // 
+            // cancelButton
+            // 
+            cancelButton.BackColor = Color.SteelBlue;
+            cancelButton.FlatAppearance.BorderSize = 0;
+            cancelButton.FlatStyle = FlatStyle.Flat;
+            cancelButton.Font = new Font("Tw Cen MT", 13.8F);
+            cancelButton.ForeColor = Color.White;
+            cancelButton.Location = new Point(170, 111);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(100, 40);
+            cancelButton.TabIndex = 35;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(37, 227);
+            label4.Location = new Point(549, 100);
             label4.Name = "label4";
             label4.Size = new Size(62, 23);
             label4.TabIndex = 43;
             label4.Text = "Unit ID";
             // 
+            // insertButton
+            // 
+            insertButton.BackColor = Color.SteelBlue;
+            insertButton.FlatAppearance.BorderSize = 0;
+            insertButton.FlatStyle = FlatStyle.Flat;
+            insertButton.Font = new Font("Tw Cen MT", 13.8F);
+            insertButton.ForeColor = Color.White;
+            insertButton.Location = new Point(58, 111);
+            insertButton.Name = "insertButton";
+            insertButton.Size = new Size(100, 40);
+            insertButton.TabIndex = 34;
+            insertButton.Text = "Insert";
+            insertButton.UseVisualStyleBackColor = false;
+            insertButton.Click += insertButton_Click;
+            // 
             // semUpDown
             // 
-            semUpDown.Location = new Point(38, 170);
+            semUpDown.Location = new Point(413, 62);
             semUpDown.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             semUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             semUpDown.Name = "semUpDown";
@@ -161,49 +209,34 @@
             // courseID
             // 
             courseID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            courseID.Location = new Point(260, 70);
+            courseID.Location = new Point(233, 62);
             courseID.Name = "courseID";
             courseID.PlaceholderText = "Course ID";
             courseID.ReadOnly = true;
             courseID.Size = new Size(150, 27);
             courseID.TabIndex = 41;
             // 
-            // refreshButton
+            // RefreshButton
             // 
-            refreshButton.BackColor = Color.SteelBlue;
-            refreshButton.FlatAppearance.BorderSize = 0;
-            refreshButton.FlatStyle = FlatStyle.Flat;
-            refreshButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            refreshButton.ForeColor = Color.White;
-            refreshButton.Location = new Point(260, 310);
-            refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(150, 40);
-            refreshButton.TabIndex = 40;
-            refreshButton.Text = "Refresh";
-            refreshButton.UseVisualStyleBackColor = false;
-            refreshButton.Click += refreshButton_Click;
-            // 
-            // updateButton
-            // 
-            updateButton.BackColor = Color.SteelBlue;
-            updateButton.FlatAppearance.BorderSize = 0;
-            updateButton.FlatStyle = FlatStyle.Flat;
-            updateButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            updateButton.ForeColor = Color.White;
-            updateButton.Location = new Point(38, 310);
-            updateButton.Name = "updateButton";
-            updateButton.Size = new Size(150, 40);
-            updateButton.TabIndex = 39;
-            updateButton.Text = "Update";
-            updateButton.UseVisualStyleBackColor = false;
-            updateButton.Click += updateButton_Click;
+            RefreshButton.BackColor = Color.SteelBlue;
+            RefreshButton.FlatAppearance.BorderSize = 0;
+            RefreshButton.FlatStyle = FlatStyle.Flat;
+            RefreshButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RefreshButton.ForeColor = Color.White;
+            RefreshButton.Location = new Point(283, 111);
+            RefreshButton.Name = "RefreshButton";
+            RefreshButton.Size = new Size(100, 40);
+            RefreshButton.TabIndex = 40;
+            RefreshButton.Text = "Refresh";
+            RefreshButton.UseVisualStyleBackColor = false;
+            RefreshButton.Click += RefreshButton_Click;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.SteelBlue;
-            label7.Location = new Point(309, 144);
+            label7.Location = new Point(684, 36);
             label7.Name = "label7";
             label7.Size = new Size(79, 23);
             label7.TabIndex = 37;
@@ -214,7 +247,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(174, 144);
+            label6.Location = new Point(549, 36);
             label6.Name = "label6";
             label6.Size = new Size(49, 23);
             label6.TabIndex = 36;
@@ -223,7 +256,7 @@
             // unitNameBox
             // 
             unitNameBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            unitNameBox.Location = new Point(260, 253);
+            unitNameBox.Location = new Point(685, 126);
             unitNameBox.Name = "unitNameBox";
             unitNameBox.PlaceholderText = "Unit Name";
             unitNameBox.ReadOnly = true;
@@ -235,7 +268,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(37, 144);
+            label5.Location = new Point(412, 36);
             label5.Name = "label5";
             label5.Size = new Size(82, 23);
             label5.TabIndex = 33;
@@ -244,11 +277,11 @@
             // unitIDBox
             // 
             unitIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            unitIDBox.Location = new Point(38, 253);
+            unitIDBox.Location = new Point(549, 126);
             unitIDBox.Name = "unitIDBox";
             unitIDBox.PlaceholderText = "Unit ID";
             unitIDBox.ReadOnly = true;
-            unitIDBox.Size = new Size(150, 27);
+            unitIDBox.Size = new Size(100, 27);
             unitIDBox.TabIndex = 32;
             // 
             // label2
@@ -256,7 +289,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(260, 44);
+            label2.Location = new Point(233, 36);
             label2.Name = "label2";
             label2.Size = new Size(87, 23);
             label2.TabIndex = 31;
@@ -267,7 +300,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(37, 44);
+            label1.Location = new Point(58, 36);
             label1.Name = "label1";
             label1.Size = new Size(96, 23);
             label1.TabIndex = 27;
@@ -277,70 +310,75 @@
             // 
             lecturerID.CharacterCasing = CharacterCasing.Upper;
             lecturerID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lecturerID.Location = new Point(37, 70);
+            lecturerID.Location = new Point(58, 62);
             lecturerID.Name = "lecturerID";
             lecturerID.PlaceholderText = "Lecturer ID";
             lecturerID.Size = new Size(151, 27);
             lecturerID.TabIndex = 25;
             // 
-            // assignmentData
+            // KhmoData
             // 
-            assignmentData.AllowUserToAddRows = false;
-            assignmentData.AllowUserToDeleteRows = false;
-            assignmentData.AllowUserToResizeColumns = false;
-            assignmentData.AllowUserToResizeRows = false;
-            assignmentData.BorderStyle = BorderStyle.None;
-            assignmentData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            assignmentData.Location = new Point(12, 12);
-            assignmentData.Name = "assignmentData";
-            assignmentData.ReadOnly = true;
-            assignmentData.RowHeadersVisible = false;
-            assignmentData.RowHeadersWidth = 51;
-            assignmentData.Size = new Size(420, 680);
-            assignmentData.TabIndex = 0;
-            assignmentData.CellClick += assignmentData_CellClick;
+            KhmoData.AllowUserToAddRows = false;
+            KhmoData.AllowUserToDeleteRows = false;
+            KhmoData.AllowUserToResizeColumns = false;
+            KhmoData.AllowUserToResizeRows = false;
+            KhmoData.BorderStyle = BorderStyle.None;
+            KhmoData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            KhmoData.Dock = DockStyle.Bottom;
+            KhmoData.Location = new Point(0, 227);
+            KhmoData.Name = "KhmoData";
+            KhmoData.ReadOnly = true;
+            KhmoData.RowHeadersVisible = false;
+            KhmoData.RowHeadersWidth = 51;
+            KhmoData.Size = new Size(906, 450);
+            KhmoData.TabIndex = 1;
+            KhmoData.CellClick += KhmoData_CellClick;
             // 
-            // Assignment
+            // AddAssignment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(904, 704);
+            ClientSize = new Size(906, 677);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Assignment";
-            Text = "Assignment";
-            Load += Assignment_Load;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "AddAssignment";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Add New Assignment";
+            Load += AddAssignment_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)yearUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)semUpDown).EndInit();
-            ((System.ComponentModel.ISupportInitialize)assignmentData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)KhmoData).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private DataGridView assignmentData;
-        private Panel panel2;
+        private Button cancelButton;
+        private Button insertButton;
+        private DataGridView KhmoData;
         private Label label8;
-        private TextBox lecturerID;
-        private Label label1;
-        private Label label2;
-        private TextBox unitIDBox;
-        private Label label5;
+        private Panel panel2;
+        private Label label3;
+        private Label label4;
+        private Button RefreshButton;
         private Label label7;
         private Label label6;
         private TextBox unitNameBox;
-        private Button refreshButton;
-        private Button updateButton;
-        private TextBox courseID;
-        private NumericUpDown semUpDown;
-        private Label label4;
-        private Label label3;
-        private NumericUpDown yearUpDown;
-        private ComboBox progCbo;
+        private Label label5;
+        private TextBox unitIDBox;
+        private Label label2;
+        private Label label1;
+        private CheckBox UnitCheck;
+        internal TextBox lecturerID;
+        internal TextBox courseID;
+        internal NumericUpDown semUpDown;
+        internal NumericUpDown yearUpDown;
+        internal ComboBox progCbo;
     }
 }

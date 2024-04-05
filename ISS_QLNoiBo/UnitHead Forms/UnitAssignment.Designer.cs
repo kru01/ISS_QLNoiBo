@@ -36,6 +36,7 @@
             insertButton = new Button();
             label8 = new Label();
             panel2 = new Panel();
+            lectIDBox = new TextBox();
             label2 = new Label();
             label1 = new Label();
             label7 = new Label();
@@ -49,7 +50,6 @@
             label6 = new Label();
             unitIDBox = new TextBox();
             programCbo = new ComboBox();
-            lectIDBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)assignmentData).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -150,6 +150,7 @@
             insertButton.TabIndex = 16;
             insertButton.Text = "Insert";
             insertButton.UseVisualStyleBackColor = false;
+            insertButton.Click += insertButton_Click;
             // 
             // label8
             // 
@@ -184,6 +185,14 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(854, 225);
             panel2.TabIndex = 0;
+            // 
+            // lectIDBox
+            // 
+            lectIDBox.Location = new Point(127, 59);
+            lectIDBox.Name = "lectIDBox";
+            lectIDBox.PlaceholderText = "Lecturer ID";
+            lectIDBox.Size = new Size(250, 27);
+            lectIDBox.TabIndex = 59;
             // 
             // label2
             // 
@@ -325,14 +334,6 @@
             programCbo.Size = new Size(100, 27);
             programCbo.TabIndex = 51;
             programCbo.Text = "CQ";
-            // 
-            // lectIDBox
-            // 
-            lectIDBox.Location = new Point(127, 59);
-            lectIDBox.Name = "lectIDBox";
-            lectIDBox.PlaceholderText = "Lecturer ID";
-            lectIDBox.Size = new Size(250, 27);
-            lectIDBox.TabIndex = 59;
             // 
             // UnitAssignment
             // 

@@ -24,6 +24,7 @@
       <ul>
         <li><a href="#to-set-up-the-database">To set up the database</a></li>
         <li><a href="#to-uninstall-the-database">To uninstall the database</a></li>
+        <li><a href="#to-simulate-auditing-and-backup--recovery">To simulate Auditing, and Backup & Recovery</a></li>
         <li><a href="#to-enable-ols">To enable OLS</a></li>
         <li><a href="#to-enable-pure-unified-auditing">To enable Unified Auditing</a></li>
         <li><a href="#to-link-oracle-with-winforms">To link Oracle with WinForms</a></li>
@@ -36,22 +37,24 @@
 
 ## Content
 
--   `dataGenerators` for generating silly data, duh, go read its `README.md`.
+-   `dataGenerators` for generating silly data, duh, go read its [`README.md`](dataGenerators/README.md).
 
 ### `Documents`
 
 All are in Vietnamese.
 
 -   `PhanHe1_Reports` contains reports for fisrt submission.
--   `2023-2024 Đồ án môn ATBM dữ liệu trong HTTT.pdf` describes all the tasks and requirements of the project.
--   `Full_Report.pdf` is our FULL documentation for all the designs and required tasks.
+-   [`2023-2024 Đồ án môn ATBM dữ liệu trong HTTT.pdf`](Documents/2023-2024%20Đồ%20án%20môn%20ATBM%20dữ%20liệu%20trong%20HTTT.pdf) describes all the tasks and requirements of the project.
+-   [`Full_Report.pdf`](Documents/Full_Report.pdf) is our FULL documentation for all the designs and required tasks.
 -   `HD DAC_RBAC_VPD_OLS.pdf` is the course-provided guide to DAC, RBAC, VPD, and OLS.
 
 ### `ISS_QLNoiBo`, `QLNB_Release`, and `Logo`
 
 Source code, release build, and resources pertaining to the C# WinForms app.
 
-If trying to run the solution in `ISS_QLNoiBo`, **make sure to modify `Others/OracleConfig.cs` to fit YOUR environment**.
+Before trying to run the solution in `ISS_QLNoiBo`, **make sure to modify [`Others/OracleConfig.cs`](ISS_QLNoiBo/Others/OracleConfig.cs) to fit YOUR environment**.
+
+If there is interest in any `Announcement` tab, be informed that **not every account has a label**, only those satisfying the tasks are assigned. Thus, should look for qualifying users in [`SQL/ols.sql`](SQL/ols.sql), or use the ones that are explicitly hinted.
 
 ### `SQL`
 
@@ -97,12 +100,19 @@ Furthermore, the database is hosted on schema/user `A01_QLNoiBo`, and the only s
 1. [Have a `PDB` and enable `OLS`](#to-enable-ols), and [`Pure Unified Auditing`](#to-enable-pure-unified-auditing).
 1. Navigate into `SQL` folder.
 1. If a different `PDB` is used, replace all instances of `XEPDB1`.
-1. `SYS.XEPDB1` Run the files in the specified order, `createDB.sql` &rarr; `data.sql` &rarr; `policies.sql` &rarr; `ols.sql`.
+1. `SYS.XEPDB1` Run the files in the specified order, `createDB.sql` &rarr; `data.sql` &rarr; `policies.sql` &rarr; `ols.sql` &rarr; `audit.sql`.
+    - The `audit.sql` includes not only installation but also scenarios, should read it thoroughly, instead of running blindly.
 
 ### To uninstall the database
 
 1. Run `cleanupDB.sql`.
     - Should take care to close all connections beforehand so everything can be dropped smoothly, no `ORA-01940: cannot DROP a user that is currently logged in`.
+
+### To simulate Auditing, and Backup & Recovery
+
+1. Finish [setting up the database](#to-set-up-the-database).
+2. Follow closely and act out any interested scenario in `audit.sql`, or `bkp&rec.sql`.
+    - Should pay heed to the written precautions, especially in the latter, to not mess up your whole Oracle installation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,7 +184,7 @@ Alternatively, [Setup Unified Auditing in Oracle 19c in Windows OS - Bulent Soyl
 ### To link Oracle with WinForms
 
 1. Open `ISS_QLNoiBo.sln` with Visual Studio 2022.
-1. Modify `Others/OracleConfig.cs` to fit your environment.
+1. Modify [`Others/OracleConfig.cs`](ISS_QLNoiBo/Others/OracleConfig.cs) to fit your environment.
 1. On the taskbar, select `Project` &rarr; `Manage NuGet Packages...`.
 1. Move to `Browse` tab, search for `oracle`, and install `Oracle.ManagedDataAccess.Core`.
 1. Try to run the program, if it still fails, proceed to step 5.

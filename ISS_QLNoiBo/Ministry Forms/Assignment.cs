@@ -30,8 +30,8 @@ namespace ISS_QLNoiBo.Ministry_Forms
 
             courseID.Text = cRow.Cells["MAHP"].Value.ToString();
             lecturerID.Text = cRow.Cells["MAGV"].Value.ToString();
-            semUpDown.Value = Int32.Parse(cRow.Cells["HK"].Value.ToString());
-            yearUpDown.Value = Int32.Parse(cRow.Cells["NAM"].Value.ToString());
+            semUpDown.Value = Int32.Parse(cRow.Cells["HK"].Value.ToString() ?? "1");
+            yearUpDown.Value = Int32.Parse(cRow.Cells["NAM"].Value.ToString() ?? "2024");
             progCbo.Text = cRow.Cells["MACT"].Value.ToString();
             unitIDBox.Text = cRow.Cells["MADV"].Value.ToString();
             unitNameBox.Text = cRow.Cells["TENDV"].Value.ToString();
