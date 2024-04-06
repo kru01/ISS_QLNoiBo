@@ -59,13 +59,7 @@ namespace ISS_QLNoiBo.Student_Forms
 
         private void cRegistrationButton_Click(object sender, EventArgs e)
         {
-            CourseReg f = new CourseReg();
-            Helper.loadform(f, this.mainPanel);
-        }
-
-        private void classButton_Click(object sender, EventArgs e)
-        {
-            Helper.loadform(new ClassView(conn), this.mainPanel);
+            Helper.loadform(new CrsRegView(conn), this.mainPanel);
         }
 
         private void announceButton_Click(object sender, EventArgs e)

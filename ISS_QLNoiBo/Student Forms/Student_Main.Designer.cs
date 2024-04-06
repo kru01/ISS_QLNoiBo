@@ -33,7 +33,6 @@
             panel1 = new Panel();
             program = new Label();
             label2 = new Label();
-            classButton = new Button();
             studentName = new Label();
             signOutButton = new Button();
             studentID = new Label();
@@ -61,7 +60,6 @@
             panel1.BackColor = Color.SteelBlue;
             panel1.Controls.Add(program);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(classButton);
             panel1.Controls.Add(studentName);
             panel1.Controls.Add(signOutButton);
             panel1.Controls.Add(studentID);
@@ -100,21 +98,6 @@
             label2.TabIndex = 13;
             label2.Text = "Program:";
             // 
-            // classButton
-            // 
-            classButton.BackColor = Color.SteelBlue;
-            classButton.FlatAppearance.BorderSize = 0;
-            classButton.FlatStyle = FlatStyle.Flat;
-            classButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            classButton.ForeColor = Color.White;
-            classButton.Location = new Point(25, 475);
-            classButton.Name = "classButton";
-            classButton.Size = new Size(250, 40);
-            classButton.TabIndex = 12;
-            classButton.Text = "Class";
-            classButton.UseVisualStyleBackColor = false;
-            classButton.Click += classButton_Click;
-            // 
             // studentName
             // 
             studentName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -133,7 +116,7 @@
             signOutButton.FlatStyle = FlatStyle.Flat;
             signOutButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             signOutButton.ForeColor = Color.White;
-            signOutButton.Location = new Point(25, 525);
+            signOutButton.Location = new Point(25, 475);
             signOutButton.Name = "signOutButton";
             signOutButton.Size = new Size(250, 40);
             signOutButton.TabIndex = 8;
@@ -256,7 +239,6 @@
 
         private Panel mainPanel;
         private Panel panel1;
-        private Button classButton;
         private Label studentName;
         private Button signOutButton;
         private Label studentID;

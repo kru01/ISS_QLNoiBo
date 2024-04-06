@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ministry_Main));
             mainPanel = new Panel();
             panel1 = new Panel();
+            cRegistrationButton = new Button();
             assignmentButton = new Button();
             courseMButton = new Button();
             ministryName = new Label();
@@ -42,6 +43,7 @@
             studentMButton = new Button();
             accountButton = new Button();
             announceButton = new Button();
+            CrsPlannerButton = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -58,6 +60,8 @@
             // panel1
             // 
             panel1.BackColor = Color.SteelBlue;
+            panel1.Controls.Add(CrsPlannerButton);
+            panel1.Controls.Add(cRegistrationButton);
             panel1.Controls.Add(assignmentButton);
             panel1.Controls.Add(courseMButton);
             panel1.Controls.Add(ministryName);
@@ -76,6 +80,21 @@
             panel1.Size = new Size(300, 704);
             panel1.TabIndex = 13;
             // 
+            // cRegistrationButton
+            // 
+            cRegistrationButton.BackColor = Color.SteelBlue;
+            cRegistrationButton.FlatAppearance.BorderSize = 0;
+            cRegistrationButton.FlatStyle = FlatStyle.Flat;
+            cRegistrationButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cRegistrationButton.ForeColor = Color.White;
+            cRegistrationButton.Location = new Point(0, 600);
+            cRegistrationButton.Name = "cRegistrationButton";
+            cRegistrationButton.Size = new Size(300, 40);
+            cRegistrationButton.TabIndex = 5;
+            cRegistrationButton.Text = "Course Registration";
+            cRegistrationButton.UseVisualStyleBackColor = false;
+            cRegistrationButton.Click += cRegistrationButton_Click;
+            // 
             // assignmentButton
             // 
             assignmentButton.BackColor = Color.SteelBlue;
@@ -83,7 +102,7 @@
             assignmentButton.FlatStyle = FlatStyle.Flat;
             assignmentButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             assignmentButton.ForeColor = Color.White;
-            assignmentButton.Location = new Point(0, 500);
+            assignmentButton.Location = new Point(0, 550);
             assignmentButton.Name = "assignmentButton";
             assignmentButton.Size = new Size(300, 40);
             assignmentButton.TabIndex = 13;
@@ -124,7 +143,7 @@
             signOutButton.FlatStyle = FlatStyle.Flat;
             signOutButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             signOutButton.ForeColor = Color.White;
-            signOutButton.Location = new Point(25, 550);
+            signOutButton.Location = new Point(25, 650);
             signOutButton.Name = "signOutButton";
             signOutButton.Size = new Size(250, 40);
             signOutButton.TabIndex = 8;
@@ -224,6 +243,21 @@
             announceButton.UseVisualStyleBackColor = false;
             announceButton.Click += announceButton_Click;
             // 
+            // CrsPlannerButton
+            // 
+            CrsPlannerButton.BackColor = Color.SteelBlue;
+            CrsPlannerButton.FlatAppearance.BorderSize = 0;
+            CrsPlannerButton.FlatStyle = FlatStyle.Flat;
+            CrsPlannerButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CrsPlannerButton.ForeColor = Color.White;
+            CrsPlannerButton.Location = new Point(0, 500);
+            CrsPlannerButton.Name = "CrsPlannerButton";
+            CrsPlannerButton.Size = new Size(300, 40);
+            CrsPlannerButton.TabIndex = 14;
+            CrsPlannerButton.Text = "Course Planner";
+            CrsPlannerButton.UseVisualStyleBackColor = false;
+            CrsPlannerButton.Click += CrsPlannerButton_Click;
+            // 
             // Ministry_Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -257,5 +291,7 @@
         private Button accountButton;
         private Button announceButton;
         private Button assignmentButton;
+        private Button cRegistrationButton;
+        private Button CrsPlannerButton;
     }
 }

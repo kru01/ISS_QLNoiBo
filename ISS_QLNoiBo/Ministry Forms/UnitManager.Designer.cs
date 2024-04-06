@@ -31,21 +31,20 @@
             panel1 = new Panel();
             label2 = new Label();
             panel2 = new Panel();
+            refreshButton = new Button();
             updateButton = new Button();
             insertButton = new Button();
-            label4 = new Label();
-            unitHeadName = new TextBox();
             label3 = new Label();
             unitHeadID = new TextBox();
             label1 = new Label();
-            unitID = new TextBox();
             label5 = new Label();
             unitName = new TextBox();
             unitData = new DataGridView();
-            refreshButton = new Button();
+            unitID = new NumericUpDown();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)unitData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)unitID).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -57,7 +56,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(904, 704);
+            panel1.Size = new Size(904, 703);
             panel1.TabIndex = 0;
             // 
             // label2
@@ -65,7 +64,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(614, 104);
+            label2.Location = new Point(614, 99);
             label2.Name = "label2";
             label2.Size = new Size(181, 35);
             label2.TabIndex = 8;
@@ -75,21 +74,34 @@
             // 
             panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(unitID);
             panel2.Controls.Add(refreshButton);
             panel2.Controls.Add(updateButton);
             panel2.Controls.Add(insertButton);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(unitHeadName);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(unitHeadID);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(unitID);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(unitName);
-            panel2.Location = new Point(492, 127);
+            panel2.Location = new Point(492, 122);
             panel2.Name = "panel2";
             panel2.Size = new Size(400, 450);
             panel2.TabIndex = 2;
+            // 
+            // refreshButton
+            // 
+            refreshButton.BackColor = Color.SteelBlue;
+            refreshButton.FlatAppearance.BorderSize = 0;
+            refreshButton.FlatStyle = FlatStyle.Flat;
+            refreshButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            refreshButton.ForeColor = Color.White;
+            refreshButton.Location = new Point(137, 370);
+            refreshButton.Name = "refreshButton";
+            refreshButton.Size = new Size(125, 40);
+            refreshButton.TabIndex = 26;
+            refreshButton.Text = "Refresh";
+            refreshButton.UseVisualStyleBackColor = false;
+            refreshButton.Click += refreshButton_Click;
             // 
             // updateButton
             // 
@@ -119,34 +131,14 @@
             insertButton.TabIndex = 16;
             insertButton.Text = "Insert";
             insertButton.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(49, 229);
-            label4.Name = "label4";
-            label4.Size = new Size(143, 23);
-            label4.TabIndex = 24;
-            label4.Text = "Unit Head Name";
-            // 
-            // unitHeadName
-            // 
-            unitHeadName.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            unitHeadName.Location = new Point(49, 255);
-            unitHeadName.Name = "unitHeadName";
-            unitHeadName.PlaceholderText = "Unit Head Name";
-            unitHeadName.ReadOnly = true;
-            unitHeadName.Size = new Size(300, 27);
-            unitHeadName.TabIndex = 23;
+            insertButton.Click += insertButton_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(224, 144);
+            label3.Location = new Point(224, 192);
             label3.Name = "label3";
             label3.Size = new Size(112, 23);
             label3.TabIndex = 22;
@@ -154,11 +146,11 @@
             // 
             // unitHeadID
             // 
+            unitHeadID.CharacterCasing = CharacterCasing.Upper;
             unitHeadID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            unitHeadID.Location = new Point(224, 170);
+            unitHeadID.Location = new Point(224, 218);
             unitHeadID.Name = "unitHeadID";
             unitHeadID.PlaceholderText = "Unit Head ID";
-            unitHeadID.ReadOnly = true;
             unitHeadID.Size = new Size(125, 27);
             unitHeadID.TabIndex = 21;
             // 
@@ -167,28 +159,18 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(49, 144);
+            label1.Location = new Point(49, 192);
             label1.Name = "label1";
             label1.Size = new Size(62, 23);
             label1.TabIndex = 20;
             label1.Text = "Unit ID";
-            // 
-            // unitID
-            // 
-            unitID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            unitID.Location = new Point(49, 170);
-            unitID.Name = "unitID";
-            unitID.PlaceholderText = "Unit ID";
-            unitID.ReadOnly = true;
-            unitID.Size = new Size(125, 27);
-            unitID.TabIndex = 19;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(49, 59);
+            label5.Location = new Point(49, 107);
             label5.Name = "label5";
             label5.Size = new Size(93, 23);
             label5.TabIndex = 18;
@@ -197,7 +179,7 @@
             // unitName
             // 
             unitName.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            unitName.Location = new Point(49, 85);
+            unitName.Location = new Point(49, 133);
             unitName.Name = "unitName";
             unitName.PlaceholderText = "Unit Name";
             unitName.Size = new Size(300, 27);
@@ -212,7 +194,7 @@
             unitData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             unitData.BorderStyle = BorderStyle.None;
             unitData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            unitData.Location = new Point(12, 127);
+            unitData.Location = new Point(12, 122);
             unitData.Name = "unitData";
             unitData.ReadOnly = true;
             unitData.RowHeadersVisible = false;
@@ -221,26 +203,21 @@
             unitData.TabIndex = 1;
             unitData.CellClick += unitData_CellClick;
             // 
-            // refreshButton
+            // unitID
             // 
-            refreshButton.BackColor = Color.SteelBlue;
-            refreshButton.FlatAppearance.BorderSize = 0;
-            refreshButton.FlatStyle = FlatStyle.Flat;
-            refreshButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            refreshButton.ForeColor = Color.White;
-            refreshButton.Location = new Point(137, 370);
-            refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(125, 40);
-            refreshButton.TabIndex = 26;
-            refreshButton.Text = "Refresh";
-            refreshButton.UseVisualStyleBackColor = false;
-            refreshButton.Click += refreshButton_Click;
+            unitID.Location = new Point(49, 218);
+            unitID.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            unitID.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            unitID.Name = "unitID";
+            unitID.Size = new Size(125, 27);
+            unitID.TabIndex = 27;
+            unitID.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // UnitManager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(904, 704);
+            ClientSize = new Size(904, 703);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "UnitManager";
@@ -251,6 +228,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)unitData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)unitID).EndInit();
             ResumeLayout(false);
         }
 
@@ -262,14 +240,12 @@
         private Label label2;
         private TextBox unitName;
         private Label label5;
-        private TextBox unitID;
         private Label label3;
         private TextBox unitHeadID;
         private Label label1;
-        private Label label4;
-        private TextBox unitHeadName;
         private Button updateButton;
         private Button insertButton;
         private Button refreshButton;
+        private NumericUpDown unitID;
     }
 }

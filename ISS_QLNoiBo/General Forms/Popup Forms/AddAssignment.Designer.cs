@@ -1,4 +1,4 @@
-﻿namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
+﻿namespace ISS_QLNoiBo.General_Forms.Popup_Forms
 {
     partial class AddAssignment
     {

@@ -1,5 +1,4 @@
 ﻿using Oracle.ManagedDataAccess.Client;
-using ISS_QLNoiBo.Others;
 using System.Data;
 
 namespace ISS_QLNoiBo.General_Forms

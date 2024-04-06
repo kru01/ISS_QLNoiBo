@@ -6,6 +6,15 @@
 
 -   Demo for Admin subsystem: [Demo ATBM CSDL trong HTTT 2024 - Phân hệ 1 - ATBM-A-01](https://youtu.be/Q9bQsbvNSeU).
 
+<div align="center">
+  <img alt="Audit" src="READMEsrc/audit.jpg" width="49%" height="auto">
+  <img alt="OLS" src="READMEsrc/ols.jpg" width="49%" height="auto">
+</div>
+<div align="center">
+  <img alt="GiaoVu" src="READMEsrc/giaovu.jpg" width="49%" height="auto">
+  <img alt="RMAN" src="READMEsrc/rman.jpg" width="49%" height="auto">
+</div>
+
 <details open>
   <summary>Table of Contents</summary>
   <ul>
@@ -48,7 +57,7 @@ All are in Vietnamese.
 -   [`Full_Report.pdf`](Documents/Full_Report.pdf) is our FULL documentation for all the designs and required tasks.
 -   `HD DAC_RBAC_VPD_OLS.pdf` is the course-provided guide to DAC, RBAC, VPD, and OLS.
 
-### `ISS_QLNoiBo`, `QLNB_Release`, and `Logo`
+### `ISS_QLNoiBo`, `QLNB_Release`
 
 Source code, release build, and resources pertaining to the C# WinForms app.
 

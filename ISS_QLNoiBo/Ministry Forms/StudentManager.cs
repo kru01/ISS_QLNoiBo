@@ -1,5 +1,4 @@
-﻿using ISS_QLNoiBo.Ministry_Forms.Popup_Forms;
-using Oracle.ManagedDataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
 using ISS_QLNoiBo.Others;
 using System.Data;
 

@@ -1,7 +1,7 @@
 ﻿using ISS_QLNoiBo.Others;
 using Oracle.ManagedDataAccess.Client;
 
-namespace ISS_QLNoiBo.Ministry_Forms.Popup_Forms
+namespace ISS_QLNoiBo.Ministry_Forms
 {
     public partial class AddStudent : Form
     {

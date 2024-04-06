@@ -6,33 +6,26 @@ namespace ISS_QLNoiBo.Ministry_Forms
 {
     public partial class CourseManager : Form
     {
-        readonly String courseSql = "SELECT * FROM A01_QLNOIBO.HOCPHAN ORDER BY MAHP";
+        readonly OracleConnection conn;
+        readonly string orderSql = "ORDER BY HP.MAHP";
+        readonly string sql = $"SELECT HP.*, DV.TENDV FROM {OracleConfig.schema}.HOCPHAN HP " +
+                $"JOIN {OracleConfig.schema}.DONVI DV ON HP.MADV = DV.MADV";
 
-        readonly String planSql = "SELECT KH.MAHP, HP.TENHP, KH.HK, KH.NAM, KH.MACT " +
-            "FROM A01_QLNOIBO.KHMO KH JOIN A01_QLNOIBO.HOCPHAN HP ON KH.MAHP=HP.MAHP " +
-            "ORDER BY MAHP";
-
-        readonly OracleConnection conn = new($"Data Source = {OracleConfig.connString};" +
-            $"User Id = AD0001;password = 123;");
-
-        public CourseManager()
+        public CourseManager(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void CourseManager_Load(object sender, EventArgs e)
         {
-            OracleDataAdapter adpCourse = new(courseSql, conn);
-            OracleDataAdapter adpPlan = new(planSql, conn);
-
+            RefreshButton.PerformClick();
+            String unitSql = $"SELECT * FROM {OracleConfig.schema}.DONVI ORDER BY MADV";
             try
             {
-                DataTable dtCourse = new();
-                DataTable dtPlan = new();
-                adpCourse.Fill(dtCourse);
-                adpPlan.Fill(dtPlan);
-                courseData.DataSource = dtCourse;
-                planData.DataSource = dtPlan;
+                UnitNameCbo.DisplayMember = "TENDV";
+                UnitNameCbo.ValueMember = "MADV";
+                UnitNameCbo.DataSource = Helper.getData(unitSql, conn).Tables[0];
             }
             catch (Exception ex)
             {
@@ -40,74 +33,84 @@ namespace ISS_QLNoiBo.Ministry_Forms
             }
         }
 
-        private void courseData_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void RefreshButton_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex == -1 || e.RowIndex == courseData.RowCount) return;
-            DataGridViewRow cRow = courseData.Rows[e.RowIndex];
-
-            courseID.Text = cRow.Cells["MAHP"].Value.ToString();
-            courseName.Text = cRow.Cells["TENHP"].Value.ToString();
-            creditBox.Text = cRow.Cells["SOTC"].Value.ToString();
-            slotBox.Text = cRow.Cells["SOSVTD"].Value.ToString();
+            Helper.refreshData($"{sql} {orderSql}", CrsData, conn);
         }
 
-        private void planData_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CrsData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1 || e.RowIndex == planData.RowCount) return;
-            DataGridViewRow cRow = planData.Rows[e.RowIndex];
+            if (e.RowIndex == -1 || e.RowIndex == CrsData.RowCount) return;
+            DataGridViewRow cRow = CrsData.Rows[e.RowIndex];
 
-            courseID2.Text = cRow.Cells["MAHP"].Value.ToString();
-            courseName2.Text = cRow.Cells["TENHP"].Value.ToString();
-            semesterBox.Text = cRow.Cells["HK"].Value.ToString();
-            yearBox.Text = cRow.Cells["NAM"].Value.ToString();
+            CrsIDBox.Text = cRow.Cells["MAHP"].Value.ToString();
+            CrsNameBox.Text = cRow.Cells["TENHP"].Value.ToString();
+            CredUpDown.Value = Convert.ToInt32(cRow.Cells["SOTC"].Value.ToString());
+            TheoUpDown.Value = Convert.ToInt32(cRow.Cells["STLT"].Value.ToString());
+            PracUpDown.Value = Convert.ToInt32(cRow.Cells["STTH"].Value.ToString());
+            MaxStuUpDown.Value = Convert.ToInt32(cRow.Cells["SOSVTD"].Value.ToString());
+            UnitIDUpDown.Value = Convert.ToInt32(cRow.Cells["MADV"].Value.ToString());
+            UnitNameCbo.Text = cRow.Cells["TENDV"].Value.ToString();
         }
 
-        private void creditBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (String.IsNullOrWhiteSpace(CrsIDBox.Text) ||
+                String.IsNullOrWhiteSpace(CrsNameBox.Text))
             {
-                e.Handled = true;
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                return;
             }
-            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
+
+            String upSql = $"UPDATE {OracleConfig.schema}.HOCPHAN " +
+                $"SET TENHP='{CrsNameBox.Text}', SOTC={CredUpDown.Value}, STLT={TheoUpDown.Value}, " +
+                    $"STTH={PracUpDown.Value}, SOSVTD={MaxStuUpDown.Value}, MADV={UnitIDUpDown.Value} " +
+                $"WHERE MAHP='{CrsIDBox.Text}'";
+            OracleCommand cmd = new(upSql, conn);
+            try
             {
-                e.Handled = true;
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật thành công!");
+                Helper.refreshData($"{sql} WHERE MAHP='{CrsIDBox.Text}'", CrsData, conn);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { if (conn.State != ConnectionState.Closed) conn.Close(); }
         }
 
-        private void slotBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (String.IsNullOrWhiteSpace(CrsIDBox.Text) ||
+                String.IsNullOrWhiteSpace(CrsNameBox.Text))
             {
-                e.Handled = true;
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                return;
             }
-            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
+
+            String inSql = $"INSERT INTO {OracleConfig.schema}.HOCPHAN VALUES('{CrsIDBox.Text}', " +
+                $"'{CrsNameBox.Text}', {CredUpDown.Value}, {TheoUpDown.Value}, {PracUpDown.Value}, " +
+                $"{MaxStuUpDown.Value}, {UnitIDUpDown.Value})";
+            OracleCommand cmd = new(inSql, conn);
+            try
             {
-                e.Handled = true;
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm thành công!");
+                Helper.refreshData($"{sql} WHERE MAHP='{CrsIDBox.Text}'", CrsData, conn);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { if (conn.State != ConnectionState.Closed) conn.Close(); }
         }
 
-        private void semesterBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void UnitIDUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void yearBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-            if ((e.KeyChar == '.') && (((TextBox)sender).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
+            UnitNameCbo.SelectedValue = UnitIDUpDown.Value;
         }
     }
 }

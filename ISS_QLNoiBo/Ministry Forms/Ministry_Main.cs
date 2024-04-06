@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using ISS_QLNoiBo.General_Forms;
 using ISS_QLNoiBo.Others;
+using ISS_QLNoiBo.Student_Forms;
 
 namespace ISS_QLNoiBo.Ministry_Forms
 {
@@ -53,7 +54,12 @@ namespace ISS_QLNoiBo.Ministry_Forms
 
         private void courseMButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new CourseManager(), this.mainPanel);
+            Helper.loadform(new CourseManager(conn), this.mainPanel);
+        }
+
+        private void CrsPlannerButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new CoursePlanner(conn), this.mainPanel);
         }
 
         private void assignmentButton_Click(object sender, EventArgs e)
@@ -75,6 +81,11 @@ namespace ISS_QLNoiBo.Ministry_Forms
                 new Login().ShowDialog();
                 this.Close();
             }
+        }
+
+        private void cRegistrationButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new CrsRegView(conn), this.mainPanel);
         }
     }
 }
