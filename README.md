@@ -35,7 +35,7 @@
         <li><a href="#to-uninstall-the-database">To uninstall the database</a></li>
         <li><a href="#to-simulate-auditing-and-backup--recovery">To simulate Auditing, and Backup & Recovery</a></li>
         <li><a href="#to-enable-ols">To enable OLS</a></li>
-        <li><a href="#to-enable-pure-unified-auditing">To enable Unified Auditing</a></li>
+        <li><a href="#to-enable-pure-unified-auditing">To enable Pure Unified Auditing</a></li>
         <li><a href="#to-link-oracle-with-winforms">To link Oracle with WinForms</a></li>
       </ul>
     </li>
@@ -46,7 +46,7 @@
 
 ## Content
 
--   `dataGenerators` for generating silly data, duh, go read its [`README.md`](dataGenerators/README.md).
+-   `DataGenerators` for generating silly data, duh, go read its [`README.md`](DataGenerators/README.md).
 
 ### `Documents`
 
@@ -54,6 +54,7 @@ All are in Vietnamese.
 
 -   `PhanHe1_Reports` contains reports for fisrt submission.
 -   [`2023-2024 Đồ án môn ATBM dữ liệu trong HTTT.pdf`](Documents/2023-2024%20Đồ%20án%20môn%20ATBM%20dữ%20liệu%20trong%20HTTT.pdf) describes all the tasks and requirements of the project.
+-   `ATBMHTTT_form.pdf` is a required _summarization_ of the Full Report, I guess, this is a stupidly redundant waste of time.
 -   [`Full_Report.pdf`](Documents/Full_Report.pdf) is our FULL documentation for all the designs and required tasks.
 -   `HD DAC_RBAC_VPD_OLS.pdf` is the course-provided guide to DAC, RBAC, VPD, and OLS.
 
@@ -67,7 +68,7 @@ If there is interest in any `Announcement` tab, be informed that **not every acc
 
 ### `SQL`
 
-All files are **heavily commented**, I meant, _well-documented_, so should be quite self-explanatory.
+All files are **heavily commented**, I mean, _well-documented_, so should be quite self-explanatory.
 
 Note that we use Oracle 21c Express, the default CDB and PDB created during installation, i.e., `XE` and `XEPDB1`, with the configuration as follows,
 
