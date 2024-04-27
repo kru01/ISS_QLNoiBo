@@ -79,7 +79,7 @@ namespace ISS_QLNoiBo.General_Forms.Popup_Forms
 
             String inSql = $"INSERT INTO {OracleConfig.schema}.DANGKY VALUES ('{StuIDBox.Text}', " +
                 $"'{LectIDCbo.SelectedValue?.ToString()}', '{CrsIDBox.Text}', '{SemBox.Text}', " +
-                $"{YearBox.Text}, '{ProgIDBox.Text}', 0, 0, 0, 0)";
+                $"{YearBox.Text}, '{ProgIDBox.Text}', NULL, NULL, NULL, NULL)";
 
             OracleCommand cmd = new(inSql, conn);
             try

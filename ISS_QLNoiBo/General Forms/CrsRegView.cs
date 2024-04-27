@@ -81,7 +81,7 @@ namespace ISS_QLNoiBo.General_Forms
         {
             Helper.refreshData($"{sql} WHERE DK.MASV='{formAddCrsReg?.StuIDBox.Text}' " +
                 $"AND DK.MAGV='{formAddCrsReg?.LectIDCbo.SelectedValue?.ToString()}' " +
-                $"AND DK.HP='{formAddCrsReg?.CrsIDBox.Text}' AND DK.HK='{formAddCrsReg?.SemBox.Text}' " +
+                $"AND DK.MAHP='{formAddCrsReg?.CrsIDBox.Text}' AND DK.HK='{formAddCrsReg?.SemBox.Text}' " +
                 $"AND DK.NAM={formAddCrsReg?.YearBox.Text} AND DK.MACT='{formAddCrsReg?.ProgIDBox.Text}'",
                 CrsRegData, conn);
         }

@@ -4,7 +4,9 @@
 
 -   Group project from HCMUS's 2024 Data Security in Information Systems course.
 
--   Demo for Admin subsystem: [Demo ATBM CSDL trong HTTT 2024 - Phân hệ 1 - ATBM-A-01](https://youtu.be/Q9bQsbvNSeU).
+-   Demos for subsystems:
+    -   Admin: [Demo ATBM CSDL trong HTTT 2024 - Phân hệ 1 - ATBM-A-01](https://youtu.be/Q9bQsbvNSeU).
+    -   Internal management: [Demo Phân hệ 2 - ATBM-A-01](https://youtu.be/TcnqtUi6jXo).
 
 <div align="center">
   <img alt="Audit" src="READMEsrc/audit.jpg" width="49%" height="auto">
@@ -52,11 +54,12 @@
 
 All are in Vietnamese.
 
--   `PhanHe1_Reports` contains reports for fisrt submission.
+-   `Full_Submission` contains reports for the final submission.
+-   `PhanHe1_Reports` contains reports for the first submission.
 -   [`2023-2024 Đồ án môn ATBM dữ liệu trong HTTT.pdf`](Documents/2023-2024%20Đồ%20án%20môn%20ATBM%20dữ%20liệu%20trong%20HTTT.pdf) describes all the tasks and requirements of the project.
--   `ATBMHTTT_form.pdf` is a required _summarization_ of the Full Report, I guess, this is a stupidly redundant waste of time.
 -   [`Full_Report.pdf`](Documents/Full_Report.pdf) is our FULL documentation for all the designs and required tasks.
 -   `HD DAC_RBAC_VPD_OLS.pdf` is the course-provided guide to DAC, RBAC, VPD, and OLS.
+-   `Template-Tu danh gia-Share.pdf` describes grading criteria.
 
 ### `ISS_QLNoiBo`, `QLNB_Release`
 
